@@ -410,11 +410,11 @@ hide:
 
         - Configure `SSH` service
 
-            ``` { .bash .no-copy title="Allow root account login" }
+            ``` { .bash title="Allow root account login" }
             cat /etc/ssh/sshd_config | grep -Eq "^[# ]?PermitRootLogin " ; [ $? -eq 0 ] && sed -i 's/^[# ]\?PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config || echo -e "\nPermitRootLogin yes" >> /etc/ssh/sshd_config
             ```
 
-            ``` { .bash .no-copy title="Enable password authentication" }
+            ``` { .bash title="Enable password authentication" }
             cat /etc/ssh/sshd_config | grep -Eq "^[# ]?PasswordAuthentication " ; [ $? -eq 0 ] && sed -i 's/^[# ]\?PasswordAuthentication.*/PasswordAuthentication yes/g' /etc/ssh/sshd_config || echo -e "\nPasswordAuthentication yes" >> /etc/ssh/sshd_config
             ```
 
@@ -733,7 +733,7 @@ Below are some advanced usage examples
 
         !!! info "EOL means End Of Life. Non-LTS Ubuntu versions are supported for only 9 months. Old versions are removed from the main repo and may require using the `Ubuntu Old Releases` repo."
 
-        See the official [Wiki](https://wiki.ubuntu.com/Releases) for version support and check each mirror for `Ubuntu Old Releases` support.
+        See the official [Wiki](https://documentation.ubuntu.com/project/release-team/list-of-releases/) for version support and check each mirror for `Ubuntu Old Releases` support.
 
         ``` bash
         bash <(curl -sSL https://linuxmirrors.cn/main.sh) --en \
