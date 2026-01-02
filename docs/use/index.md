@@ -412,11 +412,11 @@ hide:
 
         - 配置 `SSH` 服务
 
-            ``` { .bash .no-copy title="允许 root 账户登录" }
+            ``` { .bash title="允许 root 账户登录" }
             cat /etc/ssh/sshd_config | grep -Eq "^[# ]?PermitRootLogin " ; [ $? -eq 0 ] && sed -i 's/^[# ]\?PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config || echo -e "\nPermitRootLogin yes" >> /etc/ssh/sshd_config
             ```
 
-            ``` { .bash .no-copy title="启用密码认证" }
+            ``` { .bash title="启用密码认证" }
             cat /etc/ssh/sshd_config | grep -Eq "^[# ]?PasswordAuthentication " ; [ $? -eq 0 ] && sed -i 's/^[# ]\?PasswordAuthentication.*/PasswordAuthentication yes/g' /etc/ssh/sshd_config || echo -e "\nPasswordAuthentication yes" >> /etc/ssh/sshd_config
             ```
 
@@ -735,7 +735,7 @@ $ bash <(curl -sSL https://linuxmirrors.cn/main.sh) --help
 
         !!! info "EOL 为生命周期结束的缩写（End Of Life），Ubuntu 迭代速度较快一般非LTS(长期支持)版本的生命周期只有9个月。官方会定期从主仓库移除不在生命周期内的版本仓库目录，届时可能就需要使用镜像站的 `Ubuntu Old Releases` 仓库"
 
-        具体版本支持情况详见官方 [Wiki](https://wiki.ubuntu.com/Releases)，关于 `Ubuntu Old Releases` 仓库的支持情况详见各镜像站
+        具体版本支持情况详见官方 [Wiki](https://documentation.ubuntu.com/project/release-team/list-of-releases/)，关于 `Ubuntu Old Releases` 仓库的支持情况详见各镜像站
 
         ``` bash
         bash <(curl -sSL https://linuxmirrors.cn/main.sh) \
