@@ -49,7 +49,7 @@ hide:
             ``` bash
             bash <(curl -sSL https://edgeone.linuxmirrors.cn/docker.sh) --en
             ```
-            > Not recommended in Chinese mainland network environments.
+            > Alternative official website address. Not recommended for use in Chinese mainland network environments.
 
         Integrates installation of [`Docker Engine`](https://docs.docker.com/engine) and [`Docker Compose`](https://docs.docker.com/compose), supports selecting or switching software repositories (Docker repositories) and registry mirrors, installing specific versions, reinstalling, and supports ARM architecture.
 
@@ -96,7 +96,7 @@ hide:
             ``` bash
             bash <(curl -sSL https://edgeone.linuxmirrors.cn/docker.sh) --en --only-registry
             ```
-            > Not recommended in Chinese mainland network environments.
+            > Alternative official website address. Not recommended for use in Chinese mainland network environments.
 
 <div class="grid cards" markdown>
 
@@ -127,7 +127,7 @@ hide:
 </div>
 
 <div style="display: flex; align-items: center; gap: 8px;">
-    <p>✨ After years of technical accumulation and production environment testing, it has been widely praised by the community and deeply loved by developers. It is used by major companies.</p>
+    <p>✨ Backed by years of accumulated technical expertise and validation in production environments, it has garnered widespread recognition within the community, is highly favored by developers, and is currently being utilized by major industry players.</p>
     <div class="icon-brand-section">
       <div class="icon-brand-container no-select">
         <a class="icon-brand-button" target="_blank" rel="noopener noreferrer" href="https://1panel.pro" title="1Panel">
@@ -145,6 +145,12 @@ hide:
 !!! tip "Docker Compose does not require a separate installation"
 
     Starting from V2, Docker Compose is part of the Docker CLI. The script integrates the installation of this [plugin](https://docs.docker.com/compose/install/linux) by default. Please use the `docker compose` command instead of `docker-compose`.
+
+!!! node "Script Compatibility Notes"
+
+    This script offers broad compatibility; it does not strictly detect or validate the specific system type, but officially supports only Debian-based and Red Hat-based Linux distributions and their derivatives. Since maintaining a comprehensive and up-to-date list of supported systems is challenging, users of certain independent Linux distributions may encounter difficulties. In such cases, please consult your operating system's official package repositories, or refer to the official documentation on [Installing Docker Engine from Binaries](https://docs.docker.com/engine/install/binaries/) and [Docker Desktop](https://www.docker.com/products/docker-desktop).
+
+    For NAS users (specifically regarding the period prior to May 16, 2026): The original logic for switching container registry sources (mirror accelerators) was quite simplistic—it directly overwrote the existing configuration file. This approach inadvertently created the *illusion* of data loss. The root causes included the aforementioned issue regarding high system compatibility (which allowed the script to run on a wide range of systems) and—crucially—the fact that we had not anticipated that NAS devices would utilize this project. Consequently, NAS system environments were unintentionally and adversely affected. Originally, the script was designed with only an "installation" mode as its intended use case; the "change mirror accelerator only" mode is a feature that was introduced more recently. We have since revised the script to modify configurations using `jq`, thereby ensuring that the configuration file is no longer overwritten. We sincerely apologize for any inconvenience or distress this may have caused!
 
 !!! node "About Software Sources"
 
@@ -164,7 +170,7 @@ hide:
 
     </div>
 
-    Due to some force majeure, [Docker Hub](https://hub.docker.com) is currently inaccessible in the Chinese mainland network environment, so the image cannot be pulled normally. It is recommended to use the image warehouse source available in Chinese mainland mentioned below.
+    Due to some force majeure, [Docker Hub](https://hub.docker.com) is currently inaccessible in the Chinese mainland network environment, so the image cannot be pulled normally. It is recommended to use the image repository source available in Chinese mainland mentioned below.
 
     Note: The specified Web protocol in the script is only for controlling the `Docker CE` software source. `Docker Registry` always uses the `HTTPS` protocol.
 
@@ -343,7 +349,7 @@ Command options(name/meaning/value):
     ``` { .bash .no-copy }
     bash <(curl -sSL https://linuxmirrors.cn/docker.sh) --en --branch centos
     ```
-    > Repository names are fixed: [`centos`](https://download.docker.com/linux/centos/) [`debian`](https://download.docker.com/linux/debian/) [`fedora`](https://download.docker.com/linux/fedora/) [`raspbian`](https://download.docker.com/linux/raspbian/) [`rhel`](https://download.docker.com/linux/rhel/) [`sles`](https://download.docker.com/linux/sles/) [`static`](https://download.docker.com/linux/static/) [`ubuntu`](https://download.docker.com/linux/ubuntu/)  
+    > Repository names are fixed: [`alma`](https://download.docker.com/linux/alma/) [`centos`](https://download.docker.com/linux/centos/) [`debian`](https://download.docker.com/linux/debian/) [`fedora`](https://download.docker.com/linux/fedora/) [`oracle`](https://download.docker.com/linux/oracle/) [`raspbian`](https://download.docker.com/linux/raspbian/) [`rhel`](https://download.docker.com/linux/rhel/) [`rocky`](https://download.docker.com/linux/rocky/) [`sles`](https://download.docker.com/linux/sles/) [`static`](https://download.docker.com/linux/static/) [`ubuntu`](https://download.docker.com/linux/ubuntu/)  
     > See [official installation docs](https://docs.docker.com/engine/install) and [Docker CE official repo](https://download.docker.com/linux) for details.
 
     ``` { .bash .no-copy title="Can also specify the repository version number." }
@@ -351,7 +357,7 @@ Command options(name/meaning/value):
       --branch centos \
       --branch-version 9
     ```
-    > This option can be used to control the compatibility of the installed software package (only applicable to Red Hat operating systems). For details, see the path name (positive integer) representing the version number in the corresponding warehouse directory.
+    > This option can be used to control the compatibility of the installed software package (only applicable to Red Hat operating systems). For details, see the path name (positive integer) representing the version number in the corresponding repository directory.
 
 - ### Specify Docker Engine Installation Version
 
@@ -470,6 +476,20 @@ Command options(name/meaning/value):
     If it prompts that it is not supported, please use the system's own package management tool to install it. Because these packages are built and maintained by the Linux distribution's package maintainers and may have differences in configuration or are built from modified source code.
 
     You can also use &nbsp; [![Docker Desktop](../assets/images/icon/custom/docker-desktop.svg){ width="140" style="vertical-align: -0.2rem" }](https://www.docker.com/products/docker-desktop)
+
+## Lite Version
+
+The project also provides a simplified version, which is a copy of the main script, designed for enterprise products and open-source projects. It has the following features:
+
+- Single display language `English`, no I18n internationalization
+- Uses the official source by default, removing the interactive selection of built-in software sources
+- Removes irrelevant printouts
+- Retains core logic and command option design
+
+``` bash
+bash <(curl -sSL https://linuxmirrors.cn/docker-lite.sh)
+```
+> Please familiarize yourself with this project before using it. It is not recommended for novice users.
 
 ## Best Practices
 

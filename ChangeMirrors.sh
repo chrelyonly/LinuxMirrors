@@ -1,6 +1,6 @@
 #!/bin/bash
 ## Author: SuperManito
-## Modified: 2025-11-29
+## Modified: 2026-09-08
 ## License: MIT
 ## GitHub: https://github.com/SuperManito/LinuxMirrors
 ## Website: https://linuxmirrors.cn
@@ -27,26 +27,21 @@ mirror_list_default=(
     "mirrors.nju.edu.cn"
     "mirror.lzu.edu.cn"
     "mirror.sjtu.edu.cn"
-    "mirrors.cqupt.edu.cn"
+    "mirrors.hust.edu.cn"
     "mirrors.ustc.edu.cn"
     "mirror.iscas.ac.cn"
+    "mirrors.cstcloud.cn"
     "__OFFICIAL_SOURCE_TAG__"
 )
 # 中国大陆教育网
 mirror_list_edu=(
     "mirrors.pku.edu.cn"
-    "mirror.bjtu.edu.cn"
     "mirrors.bfsu.edu.cn"
-    "mirrors.bupt.edu.cn"
     "mirrors.cqu.edu.cn"
     "mirrors.cqupt.edu.cn"
-    "mirrors.neusoft.edu.cn"
-    "mirrors.uestc.cn"
-    "mirrors.scau.edu.cn"
     "mirrors.hust.edu.cn"
     "mirrors.jlu.edu.cn"
     "mirrors.jcut.edu.cn"
-    "mirrors.jxust.edu.cn"
     "mirror.lzu.edu.cn"
     "mirrors.nju.edu.cn"
     "mirrors.njtech.edu.cn"
@@ -56,7 +51,6 @@ mirror_list_edu=(
     "mirrors.qlu.edu.cn"
     "mirrors.tuna.tsinghua.edu.cn"
     "mirrors.sdu.edu.cn"
-    "mirrors.shanghaitech.edu.cn"
     "mirror.sjtu.edu.cn"
     "mirrors.sjtug.sjtu.edu.cn"
     "mirrors.wsyu.edu.cn"
@@ -75,8 +69,7 @@ mirror_list_abroad=(
     "mirrors.xtom.sg"
     "free.nchc.org.tw"
     "mirror.ossplanet.net"
-    "linux.cs.nctu.edu.tw"
-    "ftp.tku.edu.tw"
+    "linux.cs.nycu.edu.tw"
     "mirror.twds.com.tw"
     "mirror.anigil.com"
     "ftp.udx.icscoe.jp/Linux"
@@ -86,7 +79,6 @@ mirror_list_abroad=(
     "mirrors.gbnetwork.com"
     "mirror.kku.ac.th"
     "mirror.vorboss.net"
-    "mirror.quickhost.uk"
     "mirror.dogado.de"
     "mirrors.xtom.de"
     "ftp.halifax.rwth-aachen.de"
@@ -96,7 +88,6 @@ mirror_list_abroad=(
     "eclats.crans.org"
     "ftp.crihan.fr"
     "mirrors.xtom.nl"
-    "mirror.datapacket.com"
     "eu.edge.kernel.org"
     "mirrors.xtom.ee"
     "mirror.netsite.dk"
@@ -104,15 +95,10 @@ mirror_list_abroad=(
     "mirror.accum.se"
     "ftp.lysator.liu.se"
     "mirror.yandex.ru"
-    "mirror.linux-ia64.org"
-    "mirror.truenetwork.ru"
     "ftp.belnet.be/mirror"
-    "ftp.cc.uoc.gr/mirrors/linux"
     "ftp.fi.muni.cz/pub/linux"
     "ftp.sh.cvut.cz"
     "mirror.karneval.cz/pub/linux"
-    "mirrors.nic.cz"
-    "mirror.ethz.ch"
     "mirrors.kernel.org"
     "mirrors.mit.edu"
     "mirror.math.princeton.edu/pub"
@@ -125,14 +111,11 @@ mirror_list_abroad=(
     "mirrors.switch.ca"
     "mirror.pop-sc.rnp.br/mirror"
     "mirror.uepg.br"
-    "mirror.ufscar.br"
-    "mirrors.eze.sysarmy.com"
     "gsl-syd.mm.fcix.net"
     "mirror.aarnet.edu.au/pub"
     "mirror.datamossa.io"
     "mirror.amaze.com.au"
     "mirrors.xtom.au"
-    "mirror.overthewire.com.au"
     "mirror.fsmg.org.nz"
     "mirror.liquidtelecom.com"
     "mirror.dimensiondata.com"
@@ -164,15 +147,17 @@ SPONSOR_ADS=(
     "多途云 · 智能化防护，每一次连接皆在安全之下 ➜  \033[3mhttps://www.duotuyun.com\033[0m"
     "毫秒镜像 · 专为中国开发者提供Docker镜像加速下载服务 ➜  \033[3mhttps://1ms.run\033[0m"
     "林枫云 · 专注独立IP高频VPS｜R9/i9系列定制 ➜  \033[3mhttps://www.dkdun.cn\033[0m"
-    "不死鸟CDN · 香港日本高防CDN，免实名/免备案，轻松阻断DDOS/CC攻击 ➜  \033[3mhttps://www.bsncdn.org\033[0m"
-    "青叶云 · 香港1T高防｜自助防火墙，无视CC｜大带宽回国优化线路 ➜  \033[3mhttps://www.qingyeyun.com\033[0m"
-    "莱卡云 · 专业云计算服务器提供商 ➜  \033[3m https://www.lcayun.com\033[0m"
+    "莱卡云 · 专业云计算服务器提供商 ➜  \033[3mhttps://www.lcayun.com\033[0m"
     "云悠YUNYOO · 全球高性价比云服务器｜低至15.99元起 ➜  \033[3mhttps://yunyoo.cc\033[0m"
-    "速拓云 · 国内高防云28元/月｜香港云100M优化线路9元/月 ➜  \033[3mhttps://www.sutuoyun.com\033[0m"
+    "HKGserver · 全球家宽｜双ISP｜住宅原生云服务器54元/月起 ➜  \033[3mhttps://www.hkgserver.com\033[0m"
+    "无忧云 · BGP多线高性能、高主频自动化云、物理服务器 ➜  \033[3mhttps://www.wuyouyun.com\033[0m"
+    "速维云 · 大陆香港美日全球千兆大带宽、BGP多线、高频云、物理服务器 ➜  \033[3mhttps://www.svyun.com\033[0m"
+    "酷盾安全 · 集分布式DDoS防护、CC防护、WAF防护、BOT行为分析一体化防护 ➜  \033[3mhttps://www.kd.cn\033[0m"
+    "酷番云 · 安全、稳定、可信赖的企业级云服务提供商 ➜  \033[3mhttps://www.kufanyun.com\033[0m"
+    "数掘科技 · 全球｜高防CDN 99元｜高防服务器29元 ➜  \033[3mhttps://shujue.cn\033[0m"
     "语鹿云盾 · 专业CDN加速、防御，亚太百兆三网优化CDN低至9元起 ➜  \033[3mhttps://www.lucdn.cn\033[0m"
     "不二云 · 国内外建站快响应服务器的不二之选 ➜  \033[3mhttps://cb2.cn\033[0m"
-    "CN2network · 超低价优质机器免实名自动开通 ➜  \033[3mhttps://idc.cn2network.com\033[0m"
-    "破碎工坊云 · 专注高性能国内外云服务器 ➜  \033[3mhttps://www.crash.work\033[0m"
+    "蓝易云 · 高防CDN，国内BGP多线/香港/死扛CC/DDos攻击 ➜  \033[3mhttps://www.tsycdn.com\033[0m"
     "浪浪云 · BGP网络让每一次连接都纵享丝滑，明码标价、无套路续费 ➜  \033[3mhttps://langlangy.cn\033[0m"
 )
 
@@ -208,6 +193,7 @@ SYSTEM_MANJARO="Manjaro"
 SYSTEM_ALPINE="Alpine"
 SYSTEM_GENTOO="Gentoo"
 SYSTEM_NIXOS="NixOS"
+SYSTEM_VOID="Void"
 
 ## 定义系统版本文件
 File_LinuxRelease=/etc/os-release
@@ -239,6 +225,8 @@ Dir_ZYppRepos=/etc/zypp/repos.d
 Dir_ZYppReposBackup=$Dir_ZYppRepos.bak
 Dir_GentooReposConf=/etc/portage/repos.conf
 Dir_NixConfig=/etc/nix
+Dir_XbpsRepos=/etc/xbps.d
+Dir_XbpsReposBackup=$Dir_XbpsRepos.bak
 File_AptSourceList=/etc/apt/sources.list
 File_AptSourceListBackup=$File_AptSourceList.bak
 File_DebianSources=$Dir_AptAdditionalSources/debian.sources
@@ -249,13 +237,20 @@ File_ArmbianSourceList=$Dir_AptAdditionalSources/armbian.list
 File_ArmbianSourceListBackup=$File_ArmbianSourceList.bak
 File_ProxmoxSourceList=$Dir_AptAdditionalSources/pve-no-subscription.list
 File_ProxmoxSourceListBackup=$File_ProxmoxSourceList.bak
-File_ProxmoxAPLInfo=/usr/share/perl5/PVE/APLInfo.pm
+File_ProxmoxSources=$Dir_AptAdditionalSources/pve-no-subscription.sources
+File_ProxmoxSourcesBackup=$File_ProxmoxSources.bak
+File_ProxmoxCephSourceList=$Dir_AptAdditionalSources/ceph.list
+File_ProxmoxCephSourceListBackup=$File_ProxmoxCephSourceList.bak
+File_ProxmoxCephSources=$Dir_AptAdditionalSources/ceph.sources
+File_ProxmoxCephSourcesBackup=$File_ProxmoxCephSources.bak
 File_LinuxMintSourceList=$Dir_AptAdditionalSources/official-package-repositories.list
 File_LinuxMintSourceListBackup=$File_LinuxMintSourceList.bak
 File_RaspberryPiSourceList=$Dir_AptAdditionalSources/raspi.list
 File_RaspberryPiSourceListBackup=$File_RaspberryPiSourceList.bak
 File_PacmanMirrorList=/etc/pacman.d/mirrorlist
 File_PacmanMirrorListBackup=$File_PacmanMirrorList.bak
+File_PacmanEndeavourOSMirrorList=/etc/pacman.d/endeavouros-mirrorlist
+File_PacmanEndeavourOSMirrorListBackup=$File_PacmanEndeavourOSMirrorList.bak
 File_AlpineRepositories=/etc/apk/repositories
 File_AlpineRepositoriesBackup=$File_AlpineRepositories.bak
 File_GentooMakeConf=/etc/portage/make.conf
@@ -276,10 +271,10 @@ PLAIN='\033[0m'
 BOLD='\033[1m'
 SUCCESS="\033[1;32m✔${PLAIN}"
 COMPLETE="\033[1;32m✔${PLAIN}"
-WARN="\033[1;43m 警告 ${PLAIN}"
+WARN="\033[1;43m WARN ${PLAIN}"
 ERROR="\033[1;31m✘${PLAIN}"
 FAIL="\033[1;31m✘${PLAIN}"
-TIP="\033[1;44m 提示 ${PLAIN}"
+TIP="\033[1;44m TIP ${PLAIN}"
 WORKING="\033[1;36m◉${PLAIN}"
 
 function main() {
@@ -696,9 +691,51 @@ function run_end() {
     echo -e "\n✨ $(msg "end.moreInfo") 👉 \033[3mhttps://linuxmirrors.cn\033[0m"
     if [[ "${#SPONSOR_ADS[@]}" -gt 0 ]]; then
         echo -e "\n\033[2m$(msg "end.sponsorAds")\033[0m"
-        for ad in "${SPONSOR_ADS[@]}"; do
+        _str_width() {
+            local s="$1"
+            shopt -s extglob
+            s="${s//\\033\[+([0-9;])[a-zA-Z]/}"
+            local width=0 i len val
+            local LC_ALL=C
+            len=${#s}
+            for ((i = 0; i < len; )); do
+                printf -v val '%d' "'${s:i:1}"
+                ((val < 0)) && ((val += 256))
+                if ((val < 128)); then
+                    ((width += 1, i += 1))
+                elif ((val < 192)); then
+                    ((i += 1))
+                elif ((val < 224)); then
+                    ((width += 1, i += 2))
+                elif ((val < 240)); then
+                    ((width += 2, i += 3))
+                else
+                    ((width += 2, i += 4))
+                fi
+            done
+            echo $width
+        }
+        local -a _c1 _c2 _c3 _w1 _w2
+        local _max1=0 _max2=0 _w _a _b
+        for _entry in "${SPONSOR_ADS[@]}"; do
+            _a="${_entry%% · *}"
+            _b="${_entry#* · }"
+            _c1+=("$_a")
+            _c2+=("${_b%% ➜  *}")
+            _c3+=("${_b##* ➜  }")
+            _w=$(_str_width "$_a")
+            _w1+=("$_w")
+            [[ $_w -gt $_max1 ]] && _max1=$_w
+            _w=$(_str_width "${_b%% ➜  *}")
+            _w2+=("$_w")
+            [[ $_w -gt $_max2 ]] && _max2=$_w
+        done
+        local _pad1 _pad2
+        for ((_i = 0; _i < ${#SPONSOR_ADS[@]}; _i++)); do
             sleep 0.1
-            echo -e "  \033[2m${ad}\033[0m"
+            printf -v _pad1 '%*s' $((_max1 - _w1[_i])) ''
+            printf -v _pad2 '%*s' $((_max2 - _w2[_i])) ''
+            echo -e "  \033[2m${_c1[_i]}${_pad1} ${_c2[_i]}${_pad2} ${_c3[_i]}\033[0m"
         done
     fi
     echo -e "\n\033[3;1mPowered by \033[34mLinuxMirrors\033[0m\n"
@@ -779,6 +816,8 @@ function collect_system_info() {
         SYSTEM_FACTIONS="${SYSTEM_OPENSUSE}"
     elif [[ "${SYSTEM_NAME}" == *"NixOS"* ]]; then
         SYSTEM_FACTIONS="${SYSTEM_NIXOS}"
+    elif [[ "${SYSTEM_ID}" == "void" ]]; then
+        SYSTEM_FACTIONS="${SYSTEM_VOID}"
     else
         unsupport_system_error "$(msg "error.unknownSystem")"
     fi
@@ -806,8 +845,8 @@ function collect_system_info() {
         ## 针对特定系统的判定
         if [[ "${SYSTEM_JUDGMENT}" == "${SYSTEM_DEBIAN}" ]]; then
             ## 尚未正式发布的版本
-            if [[ -z "${SYSTEM_VERSION_ID}" && "${SYSTEM_VERSION_CODENAME}" == "trixie" ]]; then
-                SYSTEM_VERSION_ID="13"
+            if [[ -z "${SYSTEM_VERSION_ID}" && "${SYSTEM_VERSION_CODENAME}" == "forky" ]]; then
+                SYSTEM_VERSION_ID="14"
                 SYSTEM_VERSION_ID_MAJOR="${SYSTEM_VERSION_ID%%.*}"
                 SYSTEM_VERSION_ID_MINOR="${SYSTEM_VERSION_ID#*.}"
             fi
@@ -848,7 +887,7 @@ function collect_system_info() {
     local is_supported="true"
     case "${SYSTEM_JUDGMENT}" in
     "${SYSTEM_DEBIAN}")
-        if [[ ! "${SYSTEM_VERSION_ID_MAJOR}" =~ ^(1[0-3]|[8-9])$ ]]; then
+        if [[ ! "${SYSTEM_VERSION_ID_MAJOR}" =~ ^(1[0-4]|[8-9])$ ]]; then
             is_supported="false"
         fi
         if [[ "${SYSTEM_VERSION_CODENAME}" == "sid" ]]; then
@@ -858,7 +897,7 @@ function collect_system_info() {
         fi
         ;;
     "${SYSTEM_UBUNTU}")
-        if [[ ! "${SYSTEM_VERSION_ID_MAJOR}" =~ ^(1[4-9]|2[0-5])$ ]]; then
+        if [[ ! "${SYSTEM_VERSION_ID_MAJOR}" =~ ^(1[4-9]|2[0-6])$ ]]; then
             is_supported="false"
         fi
         ;;
@@ -923,7 +962,7 @@ function collect_system_info() {
         ;;
     # 理论全部支持或不作判断
     "${SYSTEM_KALI}" | "${SYSTEM_DEEPIN}" | "${SYSTEM_ZORIN}" | "${SYSTEM_RASPBERRY_PI_OS}" | "${SYSTEM_OPENKYLIN}") ;;
-    "${SYSTEM_ARCH}" | "${SYSTEM_MANJARO}" | "${SYSTEM_ALPINE}" | "${SYSTEM_GENTOO}" | "${SYSTEM_NIXOS}") ;;
+    "${SYSTEM_ARCH}" | "${SYSTEM_MANJARO}" | "${SYSTEM_ALPINE}" | "${SYSTEM_GENTOO}" | "${SYSTEM_NIXOS}" | "${SYSTEM_VOID}") ;;
     *)
         unsupport_system_error "$(msg "error.unknownVersion")"
         ;;
@@ -1033,6 +1072,10 @@ function collect_system_info() {
             else
                 SOURCE_BRANCH="archlinuxarm"
             fi
+            # EndeavourOS
+            if [[ "${SYSTEM_NAME}" == *"EndeavourOS"* ]] && [[ -f "${File_PacmanEndeavourOSMirrorList}" ]]; then
+                SOURCE_BRANCH="archlinux"
+            fi
             ;;
         "${SYSTEM_OPENCLOUDOS}")
             # OpenCloudOS Stream
@@ -1044,6 +1087,9 @@ function collect_system_info() {
             ;;
         "${SYSTEM_NIXOS}")
             SOURCE_BRANCH="nix-channels"
+            ;;
+        "${SYSTEM_VOID}")
+            SOURCE_BRANCH="voidlinux"
             ;;
         esac
     fi
@@ -1058,7 +1104,7 @@ function collect_system_info() {
     "${SYSTEM_OPENSUSE}")
         SYNC_MIRROR_TEXT="$(msg "source.sync.text3")"
         ;;
-    "${SYSTEM_ARCH}" | "${SYSTEM_GENTOO}")
+    "${SYSTEM_ARCH}" | "${SYSTEM_GENTOO}" | "${SYSTEM_VOID}")
         SYNC_MIRROR_TEXT="$(msg "source.sync.text4")"
         ;;
     "${SYSTEM_NIXOS}")
@@ -1288,7 +1334,7 @@ function choose_mirrors() {
                     if [[ -z "${tmp_result}" ]]; then
                         echo -e "\n$WARN $(msg "warn.needValidNumberIndex")"
                     else
-                        SOURCE="$(echo "${tmp_result}" | awk -F '@' '{print$2}')"
+                        SOURCE="${tmp_result}"
                         break
                     fi
                     ;;
@@ -1460,20 +1506,21 @@ function backup_original_mirrors() {
     function backup_dir() {
         local target_dir=$1
         local backup_dir=$2
+        local file_type="${3:-repo}"
         [ -d "${target_dir}" ] || mkdir -p "${target_dir}"
         [ -d "${backup_dir}" ] || mkdir -p "${backup_dir}"
-        ## 判断是否存在 repo 源文件
-        ls "${target_dir}" | grep '\.repo$' -q
+        ## 判断是否存在软件源文件
+        ls "${target_dir}" | grep "\.${file_type}$" -q
         if [ $? -ne 0 ]; then
             return
         fi
-        ## 判断是否存在已备份的 repo 源文件
-        ls "${backup_dir}" | grep '\.repo$' -q
+        ## 判断是否存在已备份的软件源文件
+        ls "${backup_dir}" | grep "\.${file_type}$" -q
         if [ $? -eq 0 ]; then
             if [[ "${IGNORE_BACKUP_TIPS}" != "false" ]]; then
                 return
             fi
-            local ask_text="$(msg "interaction.backup.skipOverwrite.sourceFile" "repo")?"
+            local ask_text="$(msg "interaction.backup.skipOverwrite.sourceFile" "${file_type}")?"
             if [[ "${CAN_USE_ADVANCED_INTERACTIVE_SELECTION}" == "true" ]]; then
                 echo ''
                 interactive_select_boolean "${BOLD}${ask_text}${PLAIN}"
@@ -1502,7 +1549,7 @@ function backup_original_mirrors() {
             echo ''
             cp -rvf $target_dir/* "${backup_dir}" 2>&1
             BACKED_UP="true"
-            echo -e "\n$COMPLETE $(msg "info.backuped.sourceFile" "repo")"
+            echo -e "\n$COMPLETE $(msg "info.backuped.sourceFile" "${file_type}")"
             sleep 1s
         fi
     }
@@ -1511,10 +1558,6 @@ function backup_original_mirrors() {
     if [[ "${BACKUP}" == "true" ]]; then
         case "${SYSTEM_FACTIONS}" in
         "${SYSTEM_DEBIAN}" | "${SYSTEM_OPENKYLIN}")
-            # /etc/apt/sources.list
-            if [[ "${SYSTEM_JUDGMENT}" != "${SYSTEM_LINUX_MINT}" && -s "${File_AptSourceList}" ]]; then
-                backup_file $File_AptSourceList $File_AptSourceListBackup "sources.list"
-            fi
             # Debian DEB822 格式源文件
             if [[ "${SYSTEM_JUDGMENT}" == "${SYSTEM_DEBIAN}" ]] && [ -f "${File_DebianSources}" ]; then
                 backup_file $File_DebianSources $File_DebianSourcesBackup "debian.sources"
@@ -1525,13 +1568,30 @@ function backup_original_mirrors() {
                 backup_file $File_UbuntuSources $File_UbuntuSourcesBackup "ubuntu.sources"
                 USE_DEB822_FORMAT="true"
             fi
+            # /etc/apt/sources.list
+            if [[ "${SYSTEM_JUDGMENT}" != "${SYSTEM_LINUX_MINT}" && -s "${File_AptSourceList}" ]]; then
+                if [[ "${USE_DEB822_FORMAT}" == "true" ]]; then
+                    grep -Eqv '^#|^$' $File_AptSourceList
+                    if [ $? -eq 0 ]; then
+                        backup_file $File_AptSourceList $File_AptSourceListBackup "sources.list"
+                    fi
+                else
+                    backup_file $File_AptSourceList $File_AptSourceListBackup "sources.list"
+                fi
+            fi
             # Armbian
             if [ -f "${File_ArmbianRelease}" ]; then
                 backup_file $File_ArmbianSourceList $File_ArmbianSourceListBackup "armbian.list"
             fi
             # Proxmox VE
             if [ -f "${File_ProxmoxVersion}" ]; then
-                backup_file $File_ProxmoxSourceList $File_ProxmoxSourceListBackup "pve-no-subscription.list"
+                if [[ "${USE_DEB822_FORMAT}" == "true" ]]; then
+                    backup_file $File_ProxmoxSources $File_ProxmoxSourcesBackup "pve-no-subscription.sources"
+                    [ -f "${File_ProxmoxCephSources}" ] && backup_file $File_ProxmoxCephSources $File_ProxmoxCephSourcesBackup "ceph.sources"
+                else
+                    backup_file $File_ProxmoxSourceList $File_ProxmoxSourceListBackup "pve-no-subscription.list"
+                    [ -f "${File_ProxmoxCephSourceList}" ] && backup_file $File_ProxmoxCephSourceList $File_ProxmoxCephSourceListBackup "ceph.list"
+                fi
             fi
             # Linux Mint
             if [[ "${SYSTEM_JUDGMENT}" == "${SYSTEM_LINUX_MINT}" ]]; then
@@ -1553,6 +1613,11 @@ function backup_original_mirrors() {
         "${SYSTEM_ARCH}")
             # /etc/pacman.d/mirrorlist
             backup_file $File_PacmanMirrorList $File_PacmanMirrorListBackup "mirrorlist"
+            # EndeavourOS
+            if [[ "${SYSTEM_NAME}" == *"EndeavourOS"* ]] && [[ -f "${File_PacmanEndeavourOSMirrorList}" ]]; then
+                # /etc/pacman.d/endeavouros-mirrorlist
+                backup_file $File_PacmanEndeavourOSMirrorList $File_PacmanEndeavourOSMirrorListBackup "endeavouros-mirrorlist"
+            fi
             ;;
         "${SYSTEM_ALPINE}")
             # /etc/apk/repositories
@@ -1569,6 +1634,10 @@ function backup_original_mirrors() {
             [ ! -d "${Dir_NixConfig}" ] && mkdir -p "${Dir_NixConfig}"
             # /etc/nix/nix.conf
             backup_file $File_NixConf $File_NixConfBackup "nix.conf"
+            ;;
+        "${SYSTEM_VOID}")
+            # /etc/xbps.d
+            backup_dir $Dir_XbpsRepos $Dir_XbpsReposBackup "conf"
             ;;
         esac
     fi
@@ -1611,7 +1680,15 @@ function remove_original_mirrors() {
         # Armbian
         [ -f "${File_ArmbianRelease}" ] && clear_file $File_ArmbianSourceList
         # Proxmox VE
-        [ -f "${File_ProxmoxVersion}" ] && clear_file $File_ProxmoxSourceList
+        if [ -f "${File_ProxmoxVersion}" ]; then
+            if [[ "${USE_DEB822_FORMAT}" == "true" ]]; then
+                clear_file $File_ProxmoxSources
+                [ -f "${File_ProxmoxCephSources}" ] && clear_file $File_ProxmoxCephSources
+            else
+                clear_file $File_ProxmoxSourceList
+                [ -f "${File_ProxmoxCephSourceList}" ] && clear_file $File_ProxmoxCephSourceList
+            fi
+        fi
         # Linux Mint
         [[ "${SYSTEM_JUDGMENT}" == "${SYSTEM_LINUX_MINT}" ]] && clear_file $File_LinuxMintSourceList
         # Raspberry Pi OS
@@ -1729,12 +1806,23 @@ function remove_original_mirrors() {
         ;;
     "${SYSTEM_ARCH}")
         clear_file $File_PacmanMirrorList
+        # EndeavourOS
+        if [[ "${SYSTEM_NAME}" == *"EndeavourOS"* ]] && [[ -f "${File_PacmanEndeavourOSMirrorList}" ]]; then
+            clear_file $File_PacmanEndeavourOSMirrorList
+        fi
         ;;
     "${SYSTEM_ALPINE}")
         clear_file $File_AlpineRepositories
         ;;
     "${SYSTEM_GENTOO}")
         clear_file $File_GentooReposConf
+        ;;
+    "${SYSTEM_VOID}")
+        if [ ! -d "${Dir_XbpsRepos}" ]; then
+            mkdir -p "${Dir_XbpsRepos}"
+            return
+        fi
+        rm -rf $Dir_XbpsRepos/*-repository-*.conf
         ;;
     esac
 }
@@ -1785,7 +1873,13 @@ function change_mirrors_main() {
                 fi
                 # Proxmox VE
                 if [ -f "${File_ProxmoxVersion}" ]; then
-                    diff_file $File_ProxmoxSourceListBackup $File_ProxmoxSourceList
+                    if [[ "${USE_DEB822_FORMAT}" == "true" ]]; then
+                        diff_file $File_ProxmoxSourcesBackup $File_ProxmoxSources
+                        [ -f "${File_ProxmoxCephSources}" ] && diff_file $File_ProxmoxCephSourcesBackup $File_ProxmoxCephSources
+                    else
+                        diff_file $File_ProxmoxSourceListBackup $File_ProxmoxSourceList
+                        [ -f "${File_ProxmoxCephSourceList}" ] && diff_file $File_ProxmoxCephSourceListBackup $File_ProxmoxCephSourceList
+                    fi
                 fi
                 # Linux Mint
                 if [[ "${SYSTEM_JUDGMENT}" == "${SYSTEM_LINUX_MINT}" ]]; then
@@ -1804,6 +1898,10 @@ function change_mirrors_main() {
                 ;;
             "${SYSTEM_ARCH}")
                 diff_file $File_PacmanMirrorListBackup $File_PacmanMirrorList
+                # EndeavourOS
+                if [[ "${SYSTEM_NAME}" == *"EndeavourOS"* ]] && [[ -f "${File_PacmanEndeavourOSMirrorList}" ]]; then
+                    diff_file $File_PacmanEndeavourOSMirrorListBackup $File_PacmanEndeavourOSMirrorList
+                fi
                 ;;
             "${SYSTEM_ALPINE}")
                 diff_file $File_AlpineRepositoriesBackup $File_AlpineRepositories
@@ -1815,10 +1913,15 @@ function change_mirrors_main() {
             "${SYSTEM_NIXOS}")
                 diff_file $File_NixConfBackup $File_NixConf
                 ;;
+            "${SYSTEM_VOID}")
+                diff_dir $Dir_XbpsReposBackup $Dir_XbpsRepos
+                ;;
             esac
         fi
     }
-
+    if [[ -z "${SOURCE}" ]]; then
+        USE_OFFICIAL_SOURCE="true"
+    fi
     ## 调用换源函数
     case "${SYSTEM_FACTIONS}" in
     "${SYSTEM_DEBIAN}")
@@ -1854,6 +1957,9 @@ function change_mirrors_main() {
     "${SYSTEM_NIXOS}")
         change_mirrors_NixOS
         ;;
+    "${SYSTEM_VOID}")
+        change_mirrors_Void
+        ;;
     esac
     ## 比较差异
     if [[ "${PRINT_DIFF}" == "true" ]]; then
@@ -1884,6 +1990,9 @@ function change_mirrors_main() {
     "${SYSTEM_NIXOS}")
         commands+=("nix-store --verify")
         commands+=("nix-channel --update")
+        ;;
+    "${SYSTEM_VOID}")
+        commands+=("xbps-install -S")
         ;;
     esac
     if [[ "${PURE_MODE}" == "true" ]]; then
@@ -2007,6 +2116,9 @@ function upgrade_software() {
     "${SYSTEM_NIXOS}")
         commands+=("nixos-rebuild switch")
         ;;
+    "${SYSTEM_VOID}")
+        commands+=("xbps-install -yu")
+        ;;
     esac
     if [[ "${PURE_MODE}" == "true" ]]; then
         local exec_cmd=""
@@ -2054,6 +2166,9 @@ function upgrade_software() {
     "${SYSTEM_NIXOS}")
         nix-collect-garbage -d >/dev/null 2>&1
         ;;
+    "${SYSTEM_VOID}")
+        xbps-remove -O >/dev/null 2>&1
+        ;;
     esac
 }
 
@@ -2061,17 +2176,21 @@ function upgrade_software() {
 
 ## 更换基于 Debian 系 Linux 发行版的软件源
 function change_mirrors_Debian() {
-    local source_file=$File_AptSourceList
-    local source_content=""
-    local deb_src_disabled_tips="## $(msg "source.comment.disabledSourceCode")"
-
-    function write_source_file() {
-        if [[ -n "${source_content}" ]]; then
-            echo "${source_content}" >>$source_file
+    local apt_source_file=$File_AptSourceList
+    local apt_source_content=""
+    function write_apt_source() {
+        if [[ -n "${apt_source_content}" ]]; then
+            echo "${apt_source_content}" >>$apt_source_file
         fi
-        source_content=""
+        apt_source_content="" # 重置内容
     }
 
+    ## 注释的提示语句
+    local deb_src_disabled_tips="## $(msg "source.comment.disabledSourceCode")"
+    local security_source_tips="## $(msg "source.comment.securitySource")"
+    local proposed_source_tips="## $(msg "source.comment.proposedSource")"
+
+    ## one-line 格式模板
     function _template_deb() {
         echo "${1} ${WEB_PROTOCOL}://${2}/ ${3} ${4}"
     }
@@ -2088,88 +2207,180 @@ $(_template_deb "deb-src" "${1}" "${2}" "${3}" | sed -e "s|^|# |g")"
     function gen_deb_unsrc_disabled() {
         echo "$(gen_deb_unsrc "${1}" "${2}" "${3}" | sed -e "s|^|# |g")"
     }
+    function gen_deb_security() {
+        echo "${security_source_tips}
+$(gen_deb "${1}" "${2}-security" "${3}")"
+    }
 
+    ## DEB822 格式模板
     function _template_deb822() {
         echo "Types: ${1}
 URIs: ${WEB_PROTOCOL}://${2}/
 Suites: ${3}
 Components: ${4}
-Signed-By: /usr/share/keyrings/${SYSTEM_JUDGMENT,,}-archive-keyring.gpg"
+Signed-By: /usr/share/keyrings/${_DEB22_ARCHIVE_KEYRING:-"${SYSTEM_JUDGMENT,,}-archive-keyring.gpg"}"
     }
     function gen_deb822() {
         echo "$(_template_deb822 "deb" "${1}" "${2}" "${3}")
 
 $(_template_deb822 "deb-src" "${1}" "${2}" "${3}" | sed -e "s|^|# |g")"
     }
+    function gen_deb822_unsrc() {
+        echo "$(_template_deb822 "deb" "${1}" "${2}" "${3}")"
+    }
     function gen_deb822_disabled() {
         echo "$(_template_deb822 "deb" "${1}" "${2}" "${3}" | sed -e "s|^|# |g")
 
 $(_template_deb822 "deb-src" "${1}" "${2}" "${3}" | sed -e "s|^|# |g")"
     }
-    function gen_deb_security() {
-        echo "## $(msg "source.comment.securitySource")
-$(gen_deb "${1}" "${2}-security" "${3}")"
-    }
     function gen_deb822_security() {
-        echo "## $(msg "source.comment.securitySource")
+        echo "${security_source_tips}
 $(gen_deb822 "${1}" "${2}-security" "${3}")"
     }
 
-    ## 针对特定系统生成软件源
-    function gen_debian_deb() {
-        case "${2}" in
-        forky | trixie | bookworm | stable | oldstable | testing)
-            echo "$(gen_deb "${1}" "${2}" "${3}")
+    ## 获取 Debian 软件源相关信息
+    function _template_get_debian_info() {
+        local data1="${1}"
+        local data2="${2}"
+        local mode="${3:-main}"
+        local codename="${4}"
+        local result="${data2}"
+        case "${mode}" in
+        "security")
+            local -a majors=(8 9 10)
+            local -a codenames=("jessie" "stretch" "buster")
+            ;;
+        *)
+            local -a majors=(8 9 10 11)
+            local -a codenames=("jessie" "stretch" "buster" "bullseye")
+            ;;
+        esac
+        if [[ "${SYSTEM_JUDGMENT}" == "${SYSTEM_DEBIAN}" ]]; then
+            for version in "${majors[@]}"; do
+                if [[ "${SYSTEM_VERSION_ID_MAJOR}" == "${version}" ]]; then
+                    result="${data1}"
+                    break
+                fi
+            done
+        else
+            for name in "${codenames[@]}"; do
+                if [[ "${codename}" == "${name}" ]]; then
+                    result="${data1}"
+                    break
+                fi
+            done
+        fi
+        echo "${result}"
+    }
+    function get_debian_official_source() {
+        # 注：使用官方源时仓库分支固定为 debian，应同此方法一起使用
+        _template_get_debian_info "archive.debian.org" "deb.debian.org" "main" "${1}"
+    }
+    function get_debian_source_branch() {
+        _template_get_debian_info "debian-archive/debian" "debian" "main" "${1}"
+    }
+    function get_debian_repo_components() {
+        _template_get_debian_info "main contrib non-free" "main contrib non-free non-free-firmware" "main" "${1}"
+    }
+    function get_debian_official_source_security_host() {
+        # 注：使用官方源时仓库分支固定为 debian-security，应同此方法一起使用
+        _template_get_debian_info "archive.debian.org" "security.debian.org" "security" "${1}"
+    }
+    function get_debian_source_security_branch() {
+        _template_get_debian_info "debian-archive/debian-security" "debian-security" "security" "${1}"
+    }
+
+    ## Debian 软件源模板
+    # debian-backports: https://ftp.debian.org/debian/dists
+    # debian-security: https://security.debian.org/debian-security/dists
+    function _template_gen_debian_source() {
+        local mode="${4:-main}"
+        local type="${5:-deb}"
+        local result=""
+
+        case "${mode}" in
+        "security")
+            case "${2}" in
+            "forky" | "trixie" | "bookworm" | "bullseye" | "oldoldstable" | "oldstable" | "stable" | "testing")
+                if [[ "${type}" == "deb822" ]]; then
+                    result="$(gen_deb822_security "${1}" "${2}" "${3}")"
+                else
+                    result="$(gen_deb_security "${1}" "${2}" "${3}")"
+                fi
+                ;;
+            "jessie" | "stretch" | "buster")
+                if [[ "${type}" == "deb822" ]]; then
+                    result="${security_source_tips}
+$(gen_deb822 "${1}" "${2}" "${3}")"
+                else
+                    result="${security_source_tips}
+$(gen_deb "${1}" "${2}" "${3}")"
+                fi
+                ;;
+            *)
+                result=""
+                ;;
+            esac
+            ;;
+
+        *)
+            case "${2}" in
+            "forky" | "trixie" | "bookworm" | "stable" | "oldstable" | "testing")
+                if [[ "${type}" == "deb822" ]]; then
+                    result="${deb_src_disabled_tips}
+$(gen_deb822 "${1}" "${2} ${2}-updates ${2}-backports" "${3}")"
+                else
+                    result="$(gen_deb "${1}" "${2}" "${3}")
 $(gen_deb "${1}" "${2}-updates" "${3}")
 $(gen_deb "${1}" "${2}-backports" "${3}")"
-            ;;
-        *)
-            echo "$(gen_deb "${1}" "${2}" "${3}")
+                fi
+                ;;
+            *)
+                if [[ "${type}" == "deb822" ]]; then
+                    result="${deb_src_disabled_tips}
+$(gen_deb822 "${1}" "${2} ${2}-updates" "${3}")"
+                else
+                    result="$(gen_deb "${1}" "${2}" "${3}")
 $(gen_deb "${1}" "${2}-updates" "${3}")"
+                fi
+                ;;
+            esac
             ;;
         esac
+        echo "${result}"
+    }
+    function gen_debian_deb() {
+        _template_gen_debian_source "${1}" "${2}" "${3}" "main" "deb"
+    }
+    function gen_debian_deb_security() {
+        _template_gen_debian_source "${1}" "${2}" "${3}" "security" "deb"
     }
     function gen_debian_deb822() {
-        case "${2}" in
-        forky | trixie | bookworm | stable | oldstable | testing)
-            echo "${deb_src_disabled_tips}
-$(gen_deb822 "${1}" "${2} ${2}-updates ${2}-backports" "${3}")"
-            ;;
-        *)
-            echo "${deb_src_disabled_tips}
-$(gen_deb822 "${1}" "${2} ${2}-updates" "${3}")"
-            ;;
-        esac
+        _template_gen_debian_source "${1}" "${2}" "${3}" "main" "deb822"
     }
+    function gen_debian_deb822_security() {
+        _template_gen_debian_source "${1}" "${2}" "${3}" "security" "deb822"
+    }
+
+    ## Ubuntu 软件源模板
     function gen_ubuntu_deb() {
         echo "$(gen_deb "${1}" "${2}" "${3}")
 $(gen_deb "${1}" "${2}-updates" "${3}")
 $(gen_deb "${1}" "${2}-backports" "${3}")
-## $(msg "source.comment.proposedSource")
+${proposed_source_tips}
 $(gen_deb_disabled "${1}" "${2}-proposed" "${3}")"
     }
     function gen_ubuntu_deb822() {
         echo "${deb_src_disabled_tips}
 $(gen_deb822 "${1}" "${2} ${2}-updates ${2}-backports" "${3}")
 
-## $(msg "source.comment.proposedSource")
+${proposed_source_tips}
 $(gen_deb822_disabled "${1}" "${2}-proposed" "${3}")"
     }
 
     ## 使用官方源
     if [[ "${USE_OFFICIAL_SOURCE}" == "true" ]]; then
         case "${SYSTEM_JUDGMENT}" in
-        "${SYSTEM_DEBIAN}")
-            case "${SYSTEM_VERSION_ID_MAJOR}" in
-            8 | 9 | 10 | 11)
-                SOURCE="archive.debian.org"
-                ;;
-            *)
-                SOURCE="deb.debian.org"
-                ;;
-            esac
-            SOURCE_BRANCH="debian"
-            ;;
         "${SYSTEM_UBUNTU}" | "${SYSTEM_ZORIN}")
             if [[ "${DEVICE_ARCH_RAW}" == "x86_64" || "${DEVICE_ARCH_RAW}" == *i?86* ]]; then
                 SOURCE="archive.ubuntu.com"
@@ -2183,127 +2394,155 @@ $(gen_deb822_disabled "${1}" "${2}-proposed" "${3}")"
         "${SYSTEM_DEEPIN}")
             SOURCE="community-packages.deepin.com"
             ;;
-        "${SYSTEM_LINUX_MINT}")
-            SOURCE="packages.linuxmint.com"
-            ;;
         esac
     fi
 
-    local repository_sections # 仓库区域
-    local source_host="${SOURCE}/${SOURCE_BRANCH}"
-    local source_security_host=""
+    # 注：SOURCE_<XXX> SOURCE_<XXX>_BRANCH 系列变量默认为空值，仅在自定义（使用相关命令选项）时提供，需注意逻辑顺序
+    local repo_components=""                          # 软件源仓库区域
+    local source_address="${SOURCE}/${SOURCE_BRANCH}" # 软件源地址
+
+    local source_security_host="${SOURCE}"
+    local source_security_branch="${SOURCE_BRANCH}"
+    local source_security_address=""
 
     case "${SYSTEM_JUDGMENT}" in
     "${SYSTEM_DEBIAN}")
-        case "${SYSTEM_VERSION_ID}" in
-        8 | 9 | 10 | 11)
-            repository_sections="main contrib non-free"
-            ;;
-        *)
-            repository_sections="main contrib non-free non-free-firmware"
-            ;;
-        esac
-        source_security_host="${SOURCE_SECURITY:-"${SOURCE}"}/${SOURCE_SECURITY_BRANCH:-"${SOURCE_BRANCH}-security"}"
+        repo_components="$(get_debian_repo_components "${SYSTEM_VERSION_CODENAME}")"
+        if [[ "${USE_OFFICIAL_SOURCE}" == "true" ]]; then
+            SOURCE="$(get_debian_official_source "${SYSTEM_VERSION_CODENAME}")"
+            SOURCE_BRANCH="debian"
+            source_address="${SOURCE}/${SOURCE_BRANCH}"
+        fi
+        # 安全更新源
+        source_security_branch="$(get_debian_source_security_branch "${SYSTEM_VERSION_CODENAME}")"
+        if [[ "${USE_OFFICIAL_SOURCE}" == "true" ]]; then
+            source_security_host="$(get_debian_official_source_security_host "${SYSTEM_VERSION_CODENAME}")"
+            source_security_branch="debian-security"
+        fi
+        source_security_address="${SOURCE_SECURITY:-${source_security_host}}/${SOURCE_SECURITY_BRANCH:-${source_security_branch}}"
+        ## DEB822 / one-line
         if [[ "${USE_DEB822_FORMAT}" == "true" ]]; then
-            source_file="${File_DebianSources}"
+            apt_source_file="${File_DebianSources}"
             if [[ "${SYSTEM_VERSION_CODENAME}" != "sid" ]]; then
-                source_content="$(gen_debian_deb822 "${source_host}" "${SYSTEM_VERSION_CODENAME}" "${repository_sections}")
+                apt_source_content="$(gen_debian_deb822 "${source_address}" "${SYSTEM_VERSION_CODENAME}" "${repo_components}")
 
-$(gen_deb822_security "${source_security_host}" "${SYSTEM_VERSION_CODENAME}" "${repository_sections}")"
+$(gen_debian_deb822_security "${source_security_address}" "${SYSTEM_VERSION_CODENAME}" "${repo_components}")"
             else
-                source_content="$(gen_debian_deb822 "${source_host}" "${SYSTEM_VERSION_CODENAME}" "${repository_sections}")"
+                apt_source_content="$(gen_debian_deb822 "${source_address}" "${SYSTEM_VERSION_CODENAME}" "${repo_components}")"
             fi
         else
-            source_file="${File_AptSourceList}"
+            apt_source_file="${File_AptSourceList}"
             if [[ "${SYSTEM_VERSION_CODENAME}" != "sid" ]]; then
-                source_content="${deb_src_disabled_tips}
-$(gen_debian_deb "${source_host}" "${SYSTEM_VERSION_CODENAME}" "${repository_sections}")
-$(gen_deb_security "${source_security_host}" "${SYSTEM_VERSION_CODENAME}" "${repository_sections}")"
+                apt_source_content="${deb_src_disabled_tips}
+$(gen_debian_deb "${source_address}" "${SYSTEM_VERSION_CODENAME}" "${repo_components}")
+$(gen_debian_deb_security "${source_security_address}" "${SYSTEM_VERSION_CODENAME}" "${repo_components}")"
             else
-                source_content="${deb_src_disabled_tips}
-$(gen_deb "${source_host}" "${SYSTEM_VERSION_CODENAME}" "${repository_sections}")"
+                apt_source_content="${deb_src_disabled_tips}
+$(gen_deb "${source_address}" "${SYSTEM_VERSION_CODENAME}" "${repo_components}")"
             fi
         fi
-        write_source_file
+        write_apt_source
         ;;
 
     "${SYSTEM_UBUNTU}" | "${SYSTEM_ZORIN}")
-        repository_sections="main restricted universe multiverse"
-        source_security_host="${SOURCE_SECURITY:-${SOURCE}}/${SOURCE_BRANCH}"
-        if [[ "${USE_DEB822_FORMAT}" == "true" ]]; then
-            source_file="${File_UbuntuSources}"
-            source_content="$(gen_ubuntu_deb822 "${source_host}" "${SYSTEM_VERSION_CODENAME}" "${repository_sections}")
-
-$(gen_deb822_security "${source_security_host}" "${SYSTEM_VERSION_CODENAME}" "${repository_sections}")"
-        else
-            source_file="${File_AptSourceList}"
-            source_content="${deb_src_disabled_tips}
-$(gen_ubuntu_deb "${source_host}" "${SYSTEM_VERSION_CODENAME}" "${repository_sections}")
-$(gen_deb_security "${source_security_host}" "${SYSTEM_VERSION_CODENAME}" "${repository_sections}")"
+        repo_components="main restricted universe multiverse"
+        if [[ "${USE_OFFICIAL_SOURCE}" == "true" ]]; then
+            if [[ "${DEVICE_ARCH_RAW}" == "x86_64" || "${DEVICE_ARCH_RAW}" == *i?86* ]]; then
+                SOURCE="archive.ubuntu.com"
+                SOURCE_BRANCH="ubuntu"
+                source_address="${SOURCE}/${SOURCE_BRANCH}"
+            else
+                SOURCE="ports.ubuntu.com"
+                SOURCE_BRANCH="" # 官方源默认无分支（注：有 ubuntu-ports 重定向）
+                source_address="${SOURCE}"
+            fi
         fi
-        write_source_file
+        # 安全更新源
+        source_security_address="${SOURCE_SECURITY:-${source_security_host}}/${SOURCE_SECURITY_BRANCH:-${source_security_branch}}"
+        ## DEB822 / one-line
+        if [[ "${USE_DEB822_FORMAT}" == "true" ]]; then
+            apt_source_file="${File_UbuntuSources}"
+            apt_source_content="$(gen_ubuntu_deb822 "${source_address}" "${SYSTEM_VERSION_CODENAME}" "${repo_components}")
+
+$(gen_deb822_security "${source_security_address}" "${SYSTEM_VERSION_CODENAME}" "${repo_components}")"
+        else
+            apt_source_file="${File_AptSourceList}"
+            apt_source_content="${deb_src_disabled_tips}
+$(gen_ubuntu_deb "${source_address}" "${SYSTEM_VERSION_CODENAME}" "${repo_components}")
+$(gen_deb_security "${source_security_address}" "${SYSTEM_VERSION_CODENAME}" "${repo_components}")"
+        fi
+        write_apt_source
         ;;
 
     "${SYSTEM_KALI}")
-        repository_sections="main contrib non-free non-free-firmware"
-        source_content="${deb_src_disabled_tips}
-$(gen_deb "${source_host}" "${SYSTEM_VERSION_CODENAME}" "${repository_sections}")"
-        write_source_file
+        repo_components="main contrib non-free non-free-firmware"
+        if [[ "${USE_OFFICIAL_SOURCE}" == "true" ]]; then
+            SOURCE="http.kali.org"
+            SOURCE_BRANCH="" # 官方源无分支
+            source_address="${SOURCE}"
+        fi
+        apt_source_content="${deb_src_disabled_tips}
+$(gen_deb "${source_address}" "${SYSTEM_VERSION_CODENAME}" "${repo_components}")"
+        write_apt_source
         ;;
 
     "${SYSTEM_DEEPIN}")
         if [[ "${SYSTEM_VERSION_ID_MAJOR}" == "25" ]]; then
-            repository_sections="main commercial community"
+            repo_components="main commercial community"
         else
-            repository_sections="main contrib non-free"
+            repo_components="main contrib non-free"
         fi
-        source_content="${deb_src_disabled_tips}
-$(gen_deb "${source_host}" "${SYSTEM_VERSION_CODENAME}" "${repository_sections}")"
-        write_source_file
+        if [[ "${USE_OFFICIAL_SOURCE}" == "true" ]]; then
+            SOURCE="community-packages.deepin.com"
+            SOURCE_BRANCH="deepin"
+            source_address="${SOURCE}/${SOURCE_BRANCH}"
+        fi
+        apt_source_content="${deb_src_disabled_tips}
+$(gen_deb "${source_address}" "${SYSTEM_VERSION_CODENAME}" "${repo_components}")"
+        write_apt_source
         ;;
 
     "${SYSTEM_LINUX_MINT}")
-        ## 专用源
-        repository_sections="main upstream import backport"
-        source_file="${File_LinuxMintSourceList}"
-        source_content="${deb_src_disabled_tips}
-$(gen_deb_unsrc "${source_host}" "${SYSTEM_VERSION_CODENAME}" "${repository_sections}")
-"
-        write_source_file
-        ## 底层系统软件源
+        # 专用源
+        repo_components="main upstream import backport"
+        if [[ "${USE_OFFICIAL_SOURCE}" == "true" ]]; then
+            SOURCE="packages.linuxmint.com"
+            SOURCE_BRANCH="" # 官方源无分支
+            source_address="${SOURCE}"
+        fi
+        apt_source_file="${File_LinuxMintSourceList}"
+        apt_source_content="${deb_src_disabled_tips}
+$(gen_deb_unsrc "${source_address}" "${SYSTEM_VERSION_CODENAME}" "${repo_components}")
+" # 注：此处空行用于隔开两种软件源内容
+        write_apt_source
+
+        # 底层系统软件源
         local base_system_branch base_system_codename
         if [[ "${SYSTEM_NAME}" == *"LMDE"* ]]; then
-            # Debian 版（LMDE）
+            ## Debian 版（LMDE）
             base_system_codename="$(get_os_release_value DEBIAN_CODENAME)"
             [[ -z "${base_system_codename}" ]] && base_system_codename="bookworm"
-            case "${base_system_codename}" in
-            "jessie" | "stretch" | "buster" | "bullseye")
-                base_system_branch="debian-archive/debian"
-                ;;
-            *)
-                base_system_branch="debian"
-                ;;
-            esac
+            base_system_branch="$(get_debian_source_branch "${base_system_codename}")"
             if [[ "${USE_OFFICIAL_SOURCE}" == "true" ]]; then
-                case "${base_system_codename}" in
-                "jessie" | "stretch" | "buster" | "bullseye")
-                    SOURCE="archive.debian.org"
-                    ;;
-                *)
-                    SOURCE="deb.debian.org"
-                    ;;
-                esac
+                SOURCE="$(get_debian_official_source "${base_system_codename}")"
                 base_system_branch="debian"
             fi
-            repository_sections="main contrib non-free non-free-firmware"
-            source_host="${SOURCE_BASE_SYSTEM:-"${SOURCE}"}/${SOURCE_BASE_SYSTEM_BRANCH:-"${base_system_branch}"}"
-            source_security_host="${SOURCE_SECURITY:-${SOURCE_BASE_SYSTEM:-${SOURCE}}}/${SOURCE_SECURITY_BRANCH:-${SOURCE_BASE_SYSTEM_BRANCH:-debian-security}}"
-            source_file="${File_LinuxMintSourceList}"
-            source_content="$(gen_debian_deb "${source_host}" "${base_system_codename}" "${repository_sections}")
-$(gen_deb_security "${source_security_host}" "${base_system_codename}" "${repository_sections}")"
-            write_source_file
+            repo_components="$(get_debian_repo_components "${base_system_codename}")"
+            source_address="${SOURCE_BASE_SYSTEM:-${SOURCE}}/${SOURCE_BASE_SYSTEM_BRANCH:-${base_system_branch}}"
+            # 安全更新源
+            source_security_branch="$(get_debian_source_security_branch "${base_system_codename}")"
+            if [[ "${USE_OFFICIAL_SOURCE}" == "true" ]]; then
+                source_security_host="$(get_debian_official_source_security_host "${base_system_codename}")"
+                source_security_branch="debian-security"
+            fi
+            source_security_address="${SOURCE_SECURITY:-${SOURCE_BASE_SYSTEM:-${source_security_host}}}/${SOURCE_SECURITY_BRANCH:-${source_security_branch}}"
+            # 写入源文件
+            apt_source_file="${File_LinuxMintSourceList}"
+            apt_source_content="$(gen_debian_deb "${source_address}" "${base_system_codename}" "${repo_components}")
+$(gen_debian_deb_security "${source_security_address}" "${base_system_codename}" "${repo_components}")"
+            write_apt_source
         else
-            # Ubuntu 版
+            ## Ubuntu 版
             base_system_codename="$(get_os_release_value UBUNTU_CODENAME)"
             [[ -z "${base_system_codename}" ]] && base_system_codename="noble"
             if [[ "${DEVICE_ARCH_RAW}" == "x86_64" || "${DEVICE_ARCH_RAW}" == *i?86* ]]; then
@@ -2317,113 +2556,130 @@ $(gen_deb_security "${source_security_host}" "${base_system_codename}" "${reposi
                     SOURCE="ports.ubuntu.com"
                 fi
             fi
-            repository_sections="main restricted universe multiverse"
-            source_host="${SOURCE_BASE_SYSTEM:-"${SOURCE}"}/${SOURCE_BASE_SYSTEM_BRANCH:-"${base_system_branch}"}"
-            source_security_host="${SOURCE_SECURITY:-${SOURCE_BASE_SYSTEM:-${SOURCE}}}/${SOURCE_BASE_SYSTEM_BRANCH:-"${base_system_branch}"}"
-            source_file="${File_LinuxMintSourceList}"
-            source_content="$(gen_ubuntu_deb "${source_host}" "${base_system_codename}" "${repository_sections}")
-$(gen_deb_security "${source_security_host}" "${base_system_codename}" "${repository_sections}")"
-            write_source_file
+            repo_components="main restricted universe multiverse"
+            source_address="${SOURCE_BASE_SYSTEM:-${SOURCE}}/${SOURCE_BASE_SYSTEM_BRANCH:-${base_system_branch}}"
+            # 安全更新源
+            source_security_address="${SOURCE_SECURITY:-${SOURCE_BASE_SYSTEM:-${source_security_host}}}/${SOURCE_BASE_SYSTEM_BRANCH:-${base_system_branch}}"
+            # 写入源文件
+            apt_source_file="${File_LinuxMintSourceList}"
+            apt_source_content="$(gen_ubuntu_deb "${source_address}" "${base_system_codename}" "${repo_components}")
+$(gen_deb_security "${source_security_address}" "${base_system_codename}" "${repo_components}")"
+            write_apt_source
         fi
         ;;
 
     "${SYSTEM_RASPBERRY_PI_OS}")
-        ## 专用源
-        repository_sections="main"
+        # 专用源
+        repo_components="main"
         if [[ "${USE_OFFICIAL_SOURCE}" == "true" ]]; then
             SOURCE="archive.raspberrypi.org"
             SOURCE_BRANCH="debian"
-            source_host="${SOURCE}/${SOURCE_BRANCH}"
+            source_address="${SOURCE}/${SOURCE_BRANCH}"
         fi
-        source_file="${File_RaspberryPiSourceList}"
-        source_content="${deb_src_disabled_tips}
-$(gen_deb "${source_host}" "${SYSTEM_VERSION_CODENAME}" "${repository_sections}")"
-        write_source_file
-        ## 底层系统软件源（64位系统为 Debian 官方仓库，32位为 Raspbian 仓库）
+        apt_source_file="${File_RaspberryPiSourceList}"
+        apt_source_content="${deb_src_disabled_tips}
+$(gen_deb "${source_address}" "${SYSTEM_VERSION_CODENAME}" "${repo_components}")"
+        write_apt_source
+
+        # 底层系统软件源（注：64位系统为 Debian 官方仓库，32位为 Raspbian 仓库）
         local base_system_branch base_system_codename
         case "${DEVICE_ARCH_RAW}" in
         x86_64 | aarch64)
-            case "${SYSTEM_VERSION_ID_MAJOR}" in
-            8 | 9 | 10 | 11)
-                base_system_branch="debian-archive/debian"
-                ;;
-            *)
-                base_system_branch="debian"
-                ;;
-            esac
+            ## Debian 版
             base_system_codename="${SYSTEM_VERSION_CODENAME}"
-            case "${SYSTEM_VERSION_ID}" in
-            8 | 9 | 10 | 11)
-                repository_sections="main contrib non-free"
-                ;;
-            *)
-                repository_sections="main contrib non-free non-free-firmware"
-                ;;
-            esac
+            base_system_branch="$(get_debian_source_branch "${base_system_codename}")"
+            repo_components="$(get_debian_repo_components "${base_system_codename}")"
             if [[ "${USE_OFFICIAL_SOURCE}" == "true" ]]; then
-                case "${SYSTEM_VERSION_ID_MAJOR}" in
-                8 | 9 | 10 | 11)
-                    SOURCE="archive.debian.org"
-                    ;;
-                *)
-                    SOURCE="deb.debian.org"
-                    ;;
-                esac
+                SOURCE="$(get_debian_official_source "${base_system_codename}")"
                 base_system_branch="debian"
             fi
-            source_host="${SOURCE_BASE_SYSTEM:-"${SOURCE}"}/${SOURCE_BASE_SYSTEM_BRANCH:-"${base_system_branch}"}"
-            source_security_host="${SOURCE_SECURITY:-${SOURCE_BASE_SYSTEM:-${SOURCE}}}/${SOURCE_SECURITY_BRANCH:-${SOURCE_BASE_SYSTEM_BRANCH:-debian-security}}"
-            source_file="${File_AptSourceList}"
-            source_content="${deb_src_disabled_tips}
-$(gen_debian_deb "${source_host}" "${base_system_codename}" "${repository_sections}")
-$(gen_deb_security "${source_security_host}" "${base_system_codename}" "${repository_sections}")"
-            write_source_file
+            source_address="${SOURCE_BASE_SYSTEM:-${SOURCE}}/${SOURCE_BASE_SYSTEM_BRANCH:-${base_system_branch}}"
+            # 安全更新源
+            source_security_branch="$(get_debian_source_security_branch "${base_system_codename}")"
+            if [[ "${USE_OFFICIAL_SOURCE}" == "true" ]]; then
+                source_security_host="$(get_debian_official_source_security_host "${base_system_codename}")"
+                source_security_branch="debian-security"
+            fi
+            source_security_address="${SOURCE_SECURITY:-${SOURCE_BASE_SYSTEM:-${source_security_host}}}/${SOURCE_SECURITY_BRANCH:-${source_security_branch}}"
+            # 写入源文件
+            apt_source_file="${File_AptSourceList}"
+            apt_source_content="${deb_src_disabled_tips}
+$(gen_debian_deb "${source_address}" "${base_system_codename}" "${repo_components}")
+$(gen_debian_deb_security "${source_security_address}" "${base_system_codename}" "${repo_components}")"
+            write_apt_source
             ;;
         *)
+            ## Raspbian 版
             base_system_branch="raspbian"
             base_system_codename="${SYSTEM_VERSION_CODENAME}"
-            repository_sections="main contrib non-free rpi"
+            repo_components="main contrib non-free rpi"
             if [[ "${USE_OFFICIAL_SOURCE}" == "true" ]]; then
                 SOURCE="raspbian.raspberrypi.org"
-                source_host="${SOURCE_BASE_SYSTEM:-"${SOURCE}"}/${SOURCE_BASE_SYSTEM_BRANCH:-"${base_system_branch}"}"
+                source_address="${SOURCE_BASE_SYSTEM:-${SOURCE}}/${SOURCE_BASE_SYSTEM_BRANCH:-${base_system_branch}}"
             else
-                source_host="${SOURCE_BASE_SYSTEM:-"${SOURCE}"}/${SOURCE_BASE_SYSTEM_BRANCH:-"${base_system_branch}"}/raspbian"
+                source_address="${SOURCE_BASE_SYSTEM:-${SOURCE}}/${SOURCE_BASE_SYSTEM_BRANCH:-${base_system_branch}}/raspbian"
             fi
-            source_file="${File_AptSourceList}"
-            source_content="${deb_src_disabled_tips}
-$(gen_deb "${source_host}" "${base_system_codename}" "${repository_sections}")"
-            ## multiarch 源
+            # 写入源文件
+            apt_source_file="${File_AptSourceList}"
+            apt_source_content="${deb_src_disabled_tips}
+$(gen_deb "${source_address}" "${base_system_codename}" "${repo_components}")"
+            # multiarch 源
             if [[ "${DEVICE_ARCH_RAW}" == "armv7l" && "${USE_OFFICIAL_SOURCE}" != "true" ]]; then
-                source_host="${SOURCE_BASE_SYSTEM:-"${SOURCE}"}/${SOURCE_BASE_SYSTEM_BRANCH:-"${base_system_branch}"}"
-                source_content="${source_content}
-
-# deb [arch=arm64] ${WEB_PROTOCOL}://${source_host}/multiarch/ ${base_system_codename} ${repository_sections}"
+                source_address="${SOURCE_BASE_SYSTEM:-${SOURCE}}/${SOURCE_BASE_SYSTEM_BRANCH:-${base_system_branch}}"
+                apt_source_content="${apt_source_content}
+## multiarch
+# deb [arch=arm64] ${WEB_PROTOCOL}://${source_address}/multiarch/ ${base_system_codename} ${repo_components}"
             fi
-            write_source_file
+            write_apt_source
             ;;
         esac
         ;;
     esac
+
     ## 处理其它衍生操作系统的专用源
     # Armbian
     if [ -f "${File_ArmbianRelease}" ]; then
-        source_file="${File_ArmbianSourceList}"
-        source_content="deb [signed-by=/usr/share/keyrings/armbian.gpg] ${WEB_PROTOCOL}://${SOURCE}/armbian ${SYSTEM_VERSION_CODENAME} main ${SYSTEM_VERSION_CODENAME}-utils ${SYSTEM_VERSION_CODENAME}-desktop"
-        write_source_file
+        apt_source_file="${File_ArmbianSourceList}"
+        apt_source_content="deb [signed-by=/usr/share/keyrings/armbian.gpg] ${WEB_PROTOCOL}://${SOURCE}/armbian ${SYSTEM_VERSION_CODENAME} main ${SYSTEM_VERSION_CODENAME}-utils ${SYSTEM_VERSION_CODENAME}-desktop"
+        write_apt_source
     fi
     # Proxmox VE
     if [ -f "${File_ProxmoxVersion}" ]; then
-        source_host="${SOURCE}/proxmox/debian"
-        source_file="${File_ProxmoxSourceList}"
-        source_content="$(gen_deb_unsrc "${source_host}/pve" "${SYSTEM_VERSION_CODENAME}" "pve-no-subscription")  
-$(gen_deb_unsrc_disabled "${source_host}/pbs" "${SYSTEM_VERSION_CODENAME}" "pbs-no-subscription")
-$(gen_deb_unsrc_disabled "${source_host}/pbs-client" "${SYSTEM_VERSION_CODENAME}" "pbs-client-no-subscription")
-$(gen_deb_unsrc_disabled "${source_host}/pmg" "${SYSTEM_VERSION_CODENAME}" "pmg-no-subscription")"
-        write_source_file
-        if [ -s "${File_ProxmoxAPLInfo}" ]; then
-            sed -e "s|url => [\"']https\?://[^/]*/images[\"']|url => \"${WEB_PROTOCOL}://${SOURCE}/images\"|g" \
+        if [[ "${USE_OFFICIAL_SOURCE}" == "true" ]]; then
+            source_address="download.proxmox.com"
+        else
+            source_address="${SOURCE}/proxmox"
+        fi
+        if [[ "${USE_DEB822_FORMAT}" == "true" ]]; then
+            _DEB22_ARCHIVE_KEYRING="proxmox-archive-keyring.gpg"
+            apt_source_file="${File_ProxmoxSources}"
+            apt_source_content="$(gen_deb822_unsrc "${source_address}/debian/pve" "${SYSTEM_VERSION_CODENAME}" "pve-no-subscription")"
+            write_apt_source
+            _DEB22_ARCHIVE_KEYRING=""
+            # Ceph 仓库
+            if [ -f "${File_ProxmoxCephSources}" ]; then
+                local ceph_codename="$(ceph -v | grep ceph | awk '{print $(NF-1)}')"
+                apt_source_file="${File_ProxmoxCephSources}"
+                apt_source_content="$(gen_deb822_unsrc "${source_address}/debian/ceph-${ceph_codename}" "${SYSTEM_VERSION_CODENAME}" "no-subscription")"
+                write_apt_source
+            fi
+        else
+            apt_source_file="${File_ProxmoxSourceList}"
+            apt_source_content="$(gen_deb_unsrc "${source_address}/debian/pve" "${SYSTEM_VERSION_CODENAME}" "pve-no-subscription")"
+            write_apt_source
+            # Ceph 仓库
+            if [ -f "${File_ProxmoxCephSourceList}" ]; then
+                local ceph_codename="$(ceph -v | grep ceph | awk '{print $(NF-1)}')"
+                apt_source_file="${File_ProxmoxCephSourceList}"
+                apt_source_content="$(gen_deb_unsrc "${source_address}/debian/ceph-${ceph_codename}" "${SYSTEM_VERSION_CODENAME}" "no-subscription")"
+                write_apt_source
+            fi
+        fi
+        # CT Templates
+        if [ -s /usr/share/perl5/PVE/APLInfo.pm ]; then
+            sed -e "s|url => [\"']https\?://[^/]*/images[\"']|url => \"${WEB_PROTOCOL}://${source_address}/images\"|g" \
                 -i \
-                $File_ProxmoxAPLInfo
+                /usr/share/perl5/PVE/APLInfo.pm
         fi
     fi
 }
@@ -2509,7 +2765,7 @@ function change_mirrors_RedHat() {
                     -e "s|\$releasever|8.5.2111|g" \
                     -i \
                     CentOS-*
-                sed -e "s|vault.centos.org/\$contentdir|vault.centos.org/${SOURCE_VAULT_BRANCH:-centos-vault}|g" \
+                sed -e "s|vault.centos.org/\$contentdir|vault.centos.org/${SOURCE_VAULT_BRANCH:-"centos-vault"}|g" \
                     -i \
                     CentOS-Linux-Sources.repo
                 ;;
@@ -2518,13 +2774,13 @@ function change_mirrors_RedHat() {
                     -e "s|\$releasever|7.9.2009|g" \
                     -i \
                     CentOS-*
-                sed -e "s|vault.centos.org/centos|vault.centos.org/${SOURCE_VAULT_BRANCH:-centos-vault}|g" \
+                sed -e "s|vault.centos.org/centos|vault.centos.org/${SOURCE_VAULT_BRANCH:-"centos-vault"}|g" \
                     -i \
                     CentOS-Sources.repo
                 ;;
             esac
             sed -e "s|mirror.centos.org|${SOURCE}|g" \
-                -e "s|vault.centos.org|${SOURCE_VAULT:-"${SOURCE}"}|g" \
+                -e "s|vault.centos.org|${SOURCE_VAULT:-${SOURCE}}|g" \
                 -i \
                 CentOS-*
             ;;
@@ -2560,7 +2816,7 @@ function change_mirrors_RedHat() {
                 -e "s|\$releasever|8.5.2111|g" \
                 -i \
                 CentOS-*
-            sed -e "s|vault.centos.org/\$contentdir|vault.centos.org/${SOURCE_VAULT_BRANCH:-centos-vault}|g" \
+            sed -e "s|vault.centos.org/\$contentdir|vault.centos.org/${SOURCE_VAULT_BRANCH:-"centos-vault"}|g" \
                 -i \
                 CentOS-Linux-Sources.repo
             ;;
@@ -2570,13 +2826,13 @@ function change_mirrors_RedHat() {
                 -e "s|\$releasever|7.9.2009|g" \
                 -i \
                 CentOS-*
-            sed -e "s|vault.centos.org/centos|vault.centos.org/${SOURCE_VAULT_BRANCH:-centos-vault}|g" \
+            sed -e "s|vault.centos.org/centos|vault.centos.org/${SOURCE_VAULT_BRANCH:-"centos-vault"}|g" \
                 -i \
                 CentOS-Sources.repo
             ;;
         esac
         sed -e "s|mirror.centos.org|${SOURCE}|g" \
-            -e "s|vault.centos.org|${SOURCE_VAULT:-"${SOURCE}"}|g" \
+            -e "s|vault.centos.org|${SOURCE_VAULT:-${SOURCE}}|g" \
             -i \
             CentOS-*
         ;;
@@ -2601,7 +2857,7 @@ function change_mirrors_RedHat() {
             sed -e "s|^#baseurl=http|baseurl=${WEB_PROTOCOL}|g" \
                 -e "s|^mirrorlist=|#mirrorlist=|g" \
                 -e "s|mirror.centos.org/\$contentdir|${SOURCE}/${SOURCE_BRANCH}|g" \
-                -e "s|vault.centos.org/\$contentdir|${SOURCE_VAULT:-"${SOURCE}"}/${SOURCE_VAULT_BRANCH:-centos-vault}|g" \
+                -e "s|vault.centos.org/\$contentdir|${SOURCE_VAULT:-${SOURCE}}/${SOURCE_VAULT_BRANCH:-"centos-vault"}|g" \
                 -i \
                 CentOS-Stream-*
             if [[ "${SYSTEM_JUDGMENT}" == "${SYSTEM_ORACLE}" ]]; then
@@ -2639,7 +2895,7 @@ function change_mirrors_RedHat() {
         10)
             sed -e "s|^# baseurl=https|baseurl=${WEB_PROTOCOL}|g" \
                 -e "s|^mirrorlist=|#mirrorlist=|g" \
-                -e "s|vault.almalinux.org|${SOURCE_VAULT:-"${SOURCE}"}/${SOURCE_VAULT_BRANCH:-almalinux-vault}|g" \
+                -e "s|vault.almalinux.org|${SOURCE_VAULT:-${SOURCE}}/${SOURCE_VAULT_BRANCH:-"almalinux-vault"}|g" \
                 -e "s|repo.almalinux.org/almalinux|${SOURCE}/${SOURCE_BRANCH}|g" \
                 -i \
                 almalinux-appstream.repo \
@@ -2655,7 +2911,7 @@ function change_mirrors_RedHat() {
         9)
             sed -e "s|^# baseurl=https|baseurl=${WEB_PROTOCOL}|g" \
                 -e "s|^mirrorlist=|#mirrorlist=|g" \
-                -e "s|repo.almalinux.org/vault|${SOURCE_VAULT:-"${SOURCE}"}/${SOURCE_VAULT_BRANCH:-almalinux-vault}|g" \
+                -e "s|repo.almalinux.org/vault|${SOURCE_VAULT:-${SOURCE}}/${SOURCE_VAULT_BRANCH:-"almalinux-vault"}|g" \
                 -e "s|repo.almalinux.org/almalinux|${SOURCE}/${SOURCE_BRANCH}|g" \
                 -i \
                 almalinux-appstream.repo \
@@ -2673,7 +2929,7 @@ function change_mirrors_RedHat() {
         8)
             sed -e "s|^mirrorlist=|#mirrorlist=|g" \
                 -e "s|^# baseurl=https|baseurl=${WEB_PROTOCOL}|g" \
-                -e "s|repo.almalinux.org/vault|${SOURCE_VAULT:-"${SOURCE}"}/${SOURCE_VAULT_BRANCH:-almalinux-vault}|g" \
+                -e "s|repo.almalinux.org/vault|${SOURCE_VAULT:-${SOURCE}}/${SOURCE_VAULT_BRANCH:-"almalinux-vault"}|g" \
                 -e "s|repo.almalinux.org/almalinux|${SOURCE}/${SOURCE_BRANCH}|g" \
                 -i \
                 almalinux-ha.repo \
@@ -2783,6 +3039,8 @@ function change_mirrors_OpenCloudOS() {
 
 ## 更换 openKylin 软件源
 function change_mirrors_openKylin() {
+    local deb_src_disabled_tips="## $(msg "source.comment.disabledSourceCode")"
+
     function gen_deb() {
         echo "deb ${WEB_PROTOCOL}://${1}/ ${2} ${3}
 # deb-src ${WEB_PROTOCOL}://${1}/ ${2} ${3}
@@ -2796,10 +3054,10 @@ deb ${WEB_PROTOCOL}://${1}/ ${2}-updates ${3}
     if [[ "${USE_OFFICIAL_SOURCE}" == "true" ]]; then
         SOURCE="archive.build.openkylin.top"
     fi
-    local repository_sections="main cross pty" # 仓库区域
-    local source_host="${SOURCE}/${SOURCE_BRANCH}"
-    echo "## $(msg "source.comment.disabledSourceCode")
-$(gen_deb "${source_host}" "${SYSTEM_VERSION_CODENAME}" "${repository_sections}")" >>$File_AptSourceList
+    local repo_components="main cross pty" # 仓库区域
+    local source_address="${SOURCE}/${SOURCE_BRANCH}"
+    echo "${deb_src_disabled_tips}
+$(gen_deb "${source_address}" "${SYSTEM_VERSION_CODENAME}" "${repo_components}")" >>$File_AptSourceList
 }
 
 ## 更换 Anolis OS 软件源
@@ -2928,6 +3186,11 @@ function change_mirrors_ArchLinux() {
             echo "Server = ${WEB_PROTOCOL}://${SOURCE}/${SOURCE_BRANCH}/\$repo/os/\$arch" >>$File_PacmanMirrorList
             ;;
         esac
+        # EndeavourOS
+        if [[ "${SYSTEM_NAME}" == *"EndeavourOS"* ]] && [[ -f "${File_PacmanEndeavourOSMirrorList}" ]]; then
+            [[ "${USE_OFFICIAL_SOURCE}" == "true" ]] && SOURCE="mirror.alpix.eu" ## 使用官方源
+            echo "Server = ${WEB_PROTOCOL}://${SOURCE}/endeavouros/repo/\$repo/\$arch" >>$File_PacmanEndeavourOSMirrorList
+        fi
         ;;
     "${SYSTEM_MANJARO}")
         ## 使用官方源
@@ -2954,7 +3217,7 @@ function change_mirrors_Alpine() {
     if [ $? -eq 0 ]; then
         version_name="edge"
     else
-        version_name="v${SYSTEM_VERSION_ID_MAJOR}"
+        version_name="v${SYSTEM_VERSION_ID%.*}"
     fi
     ## 修改源
     echo "${WEB_PROTOCOL}://${SOURCE}/${SOURCE_BRANCH}/${version_name}/main
@@ -2989,7 +3252,7 @@ main-repo = gentoo
 [gentoo]
 location = /usr/portage
 sync-type = rsync
-sync-uri = rsync://${SOURCE_PORTAGE:-"${SOURCE}"}/${SOURCE_PORTAGE_BRANCH:-gentoo-portage}
+sync-uri = rsync://${SOURCE_PORTAGE:-${SOURCE}}/${SOURCE_PORTAGE_BRANCH:-"gentoo-portage"}
 auto-sync = yes" >$File_GentooReposConf
 }
 
@@ -3012,10 +3275,27 @@ function change_mirrors_NixOS() {
     nix-channel --update >/dev/null 2>&1
 }
 
+## 更换 Void Linux 软件源
+function change_mirrors_Void() {
+    [ -d "${Dir_XbpsRepos}" ] || mkdir -p $Dir_XbpsRepos
+    cp -rvf /usr/share/xbps.d/*-repository-*.conf $Dir_XbpsRepos
+    ## 使用官方源
+    [[ "${USE_OFFICIAL_SOURCE}" == "true" ]] && return
+
+    ## 修改源
+    cd $Dir_XbpsRepos
+    sed -e "s|https://repo-default.voidlinux.org|${WEB_PROTOCOL}://${SOURCE}/${SOURCE_BRANCH}|g" \
+        -i \
+        *-repository-*.conf
+}
+
 ## EPEL (Extra Packages for Enterprise Linux) 附加软件包 - 安装或更换软件源
 function change_mirrors_or_install_EPEL() {
     if [[ "${INSTALL_EPEL}" != "true" ]]; then
         return
+    fi
+    if [[ -z "${SOURCE}" && -z "${SOURCE_EPEL}" ]]; then
+        USE_OFFICIAL_SOURCE_EPEL="true"
     fi
     ## 确定安装版本（不支持安装的系统直接跳出此方法）
     local epel_version
@@ -3035,7 +3315,7 @@ function change_mirrors_or_install_EPEL() {
     if [[ "${epel_version}" == "7" ]]; then
         [ -z "${SOURCE_EPEL_BRANCH}" ] && SOURCE_EPEL_BRANCH="epel-archive"
         [[ "${PURE_MODE}" != "true" ]] && echo -e "\n$WARN $(msg "warn.EPEL7")"
-        [[ "${PURE_MODE}" != "true" ]] && echo -e "\n$TIP $(msg "tip.EPEL7")\n\n${GREEN}➜${PLAIN}  ${WEB_PROTOCOL}://${SOURCE_EPEL:-"${SOURCE}"}/${SOURCE_EPEL_BRANCH:-epel}"
+        [[ "${PURE_MODE}" != "true" ]] && echo -e "\n$TIP $(msg "tip.EPEL7")\n\n${GREEN}➜${PLAIN}  ${WEB_PROTOCOL}://${SOURCE_EPEL:-${SOURCE}}/${SOURCE_EPEL_BRANCH:-"epel"}"
     fi
     ## 安装 EPEL 软件包
     if [ $VERIFICATION_EPEL -ne 0 ]; then
@@ -3044,7 +3324,19 @@ function change_mirrors_or_install_EPEL() {
         local package_path="epel/epel-release-latest-${epel_version}"
         case "${epel_version}" in
         7)
-            package_path="epel-archive/7/${DEVICE_ARCH_RAW}/Packages/e/epel-release-7-14"
+            local epel_package_sub_version
+            case "${DEVICE_ARCH_RAW}" in
+            aarch64)
+                epel_package_sub_version="12"
+                ;;
+            ppc64)
+                epel_package_sub_version="11"
+                ;;
+            *)
+                epel_package_sub_version="14"
+                ;;
+            esac
+            package_path="epel-archive/7/${DEVICE_ARCH_RAW}/Packages/e/epel-release-7-${epel_package_sub_version}"
             ;;
         9)
             ## CentOS Stream 9 特殊，有两个不同的发行包 epel-release epel-next-release
@@ -3090,7 +3382,7 @@ function change_mirrors_or_install_EPEL() {
     ## 修改源
     sed -e "s|^#baseurl=http\(s\)\?|baseurl=${WEB_PROTOCOL}|g" \
         -e "s|^metalink=|#metalink=|g" \
-        -e "s|download.example/pub/epel|${SOURCE_EPEL:-"${SOURCE}"}/${SOURCE_EPEL_BRANCH:-epel}|g" \
+        -e "s|download.example/pub/epel|${SOURCE_EPEL:-${SOURCE}}/${SOURCE_EPEL_BRANCH:-"epel"}|g" \
         -i \
         $Dir_YumRepos/epel*
     ## 启用所需的仓库（EPEL 需要结合 PowerTools / CRB 使用）
@@ -6869,7 +7161,7 @@ baseurl=https://mirrors.openanolis.cn/anolis/$releasever/Plus/$basearch/debug
 enabled=0
 gpgkey=https://mirrors.openanolis.cn/anolis/RPM-GPG-KEY-ANOLIS
 gpgcheck=1
-          
+
 [PowerTools-debuginfo]
 name=AnolisOS-$releasever - PowerTools Debuginfo
 baseurl=https://mirrors.openanolis.cn/anolis/$releasever/PowerTools/$basearch/debug
@@ -6937,7 +7229,7 @@ baseurl=https://mirrors.openanolis.cn/anolis/$releasever/Plus/source/
 enabled=0
 gpgkey=https://mirrors.openanolis.cn/anolis/RPM-GPG-KEY-ANOLIS
 gpgcheck=1
-          
+
 [PowerTools-source]
 name=AnolisOS-$releasever - PowerTools Source
 baseurl=https://mirrors.openanolis.cn/anolis/$releasever/PowerTools/source/
@@ -7363,8 +7655,8 @@ function gen_repo_files_EPEL() {
         cat <<'EOF' >$Dir_YumRepos/epel.repo
 [epel]
 name=Extra Packages for Enterprise Linux $releasever - $basearch
-#baseurl=https://download.example/pub/epel/$releasever_major${releasever_minor:+.$releasever_minor}/Everything/$basearch/
-metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-$releasever_major${releasever_minor:+.$releasever_minor}&arch=$basearch
+#baseurl=https://download.example/pub/epel/$releasever${releasever_minor:+z}/Everything/$basearch/
+metalink=https://mirrors.fedoraproject.org/metalink?repo=epel${releasever_minor:+-z}-$releasever&arch=$basearch
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$releasever_major
 gpgcheck=1
 repo_gpgcheck=0
@@ -7374,8 +7666,8 @@ enabled=1
 
 [epel-debuginfo]
 name=Extra Packages for Enterprise Linux $releasever - $basearch - Debug
-#baseurl=https://download.example/pub/epel/$releasever_major${releasever_minor:+.$releasever_minor}/Everything/$basearch/debug/
-metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-debug-$releasever_major${releasever_minor:+.$releasever_minor}&arch=$basearch
+#baseurl=https://download.example/pub/epel/$releasever${releasever_minor:+z}/Everything/$basearch/debug/
+metalink=https://mirrors.fedoraproject.org/metalink?repo=epel${releasever_minor:+-z}-debug-$releasever&arch=$basearch
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$releasever_major
 gpgcheck=1
 repo_gpgcheck=0
@@ -7384,8 +7676,8 @@ enabled=0
 
 [epel-source]
 name=Extra Packages for Enterprise Linux $releasever - $basearch - Source
-#baseurl=https://download.example/pub/epel/$releasever_major${releasever_minor:+.$releasever_minor}/Everything/source/tree/
-metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-source-$releasever_major${releasever_minor:+.$releasever_minor}&arch=$basearch
+#baseurl=https://download.example/pub/epel/$releasever${releasever_minor:+z}/Everything/source/tree/
+metalink=https://mirrors.fedoraproject.org/metalink?repo=epel${releasever_minor:+-z}-source-$releasever&arch=source
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$releasever_major
 gpgcheck=1
 repo_gpgcheck=0
@@ -7395,8 +7687,8 @@ EOF
         cat <<'EOF' >$Dir_YumRepos/epel-testing.repo
 [epel-testing]
 name=Extra Packages for Enterprise Linux $releasever - Testing - $basearch
-#baseurl=https://download.example/pub/epel/testing/$releasever_major${releasever_minor:+.$releasever_minor}/Everything/$basearch/
-metalink=https://mirrors.fedoraproject.org/metalink?repo=testing-epel$releasever_major${releasever_minor:+.$releasever_minor}&arch=$basearch
+#baseurl=https://download.example/pub/epel/testing/$releasever${releasever_minor:+z}/Everything/$basearch/
+metalink=https://mirrors.fedoraproject.org/metalink?repo=epel${releasever_minor:+-z}-testing-$releasever&arch=$basearch
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$releasever_major
 gpgcheck=1
 repo_gpgcheck=0
@@ -7406,8 +7698,8 @@ enabled=0
 
 [epel-testing-debuginfo]
 name=Extra Packages for Enterprise Linux $releasever - Testing - $basearch - Debug
-#baseurl=https://download.example/pub/epel/testing/$releasever_major${releasever_minor:+.$releasever_minor}/Everything/$basearch/debug/
-metalink=https://mirrors.fedoraproject.org/metalink?repo=testing-debug-epel$releasever_major${releasever_minor:+.$releasever_minor}&arch=$basearch
+#baseurl=https://download.example/pub/epel/testing/$releasever${releasever_minor:+z}/Everything/$basearch/debug/
+metalink=https://mirrors.fedoraproject.org/metalink?repo=epel${releasever_minor:+-z}-testing-debug-$releasever&arch=$basearch
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$releasever_major
 gpgcheck=1
 repo_gpgcheck=0
@@ -7416,8 +7708,8 @@ enabled=0
 
 [epel-testing-source]
 name=Extra Packages for Enterprise Linux $releasever - Testing - $basearch - Source
-#baseurl=https://download.example/pub/epel/testing/$releasever_major${releasever_minor:+.$releasever_minor}/Everything/source/tree/
-metalink=https://mirrors.fedoraproject.org/metalink?repo=testing-source-epel$releasever_major${releasever_minor:+.$releasever_minor}&arch=$basearch
+#baseurl=https://download.example/pub/epel/testing/$releasever${releasever_minor:+z}/Everything/source/tree/
+metalink=https://mirrors.fedoraproject.org/metalink?repo=epel${releasever_minor:+-z}-testing-source-$releasever&arch=source
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$releasever_major
 gpgcheck=1
 repo_gpgcheck=0
@@ -7782,7 +8074,7 @@ function init_msg_pack() {
             eval "${func_name}"
         fi
     }
-    local current_lang="${1:-"${MESSAGE_LANG_DEFAULT}"}"
+    local current_lang="${1:-${MESSAGE_LANG_DEFAULT}}"
     current_lang="$(echo "${current_lang}" | sed 's/^-*//')"
     current_lang="${current_lang,,}"
     if [[ "${MESSAGE_LANG_DISPLAY[${current_lang}]}" ]]; then
@@ -7915,41 +8207,35 @@ function msg_pack_zh_hans() {
         ['mirrors.default.10']='南京大学'
         ['mirrors.default.11']='兰州大学'
         ['mirrors.default.12']='上海交通大学'
-        ['mirrors.default.13']='重庆邮电大学'
+        ['mirrors.default.13']='华中科技大学'
         ['mirrors.default.14']='中国科学技术大学'
         ['mirrors.default.15']='中国科学院软件研究所'
-        ['mirrors.default.16']='官方源'
+        ['mirrors.default.16']='中国科技云'
+        ['mirrors.default.17']='官方源'
         ['mirrors.edu.0']='北京大学'
-        ['mirrors.edu.1']='北京交通大学'
-        ['mirrors.edu.2']='北京外国语大学'
-        ['mirrors.edu.3']='北京邮电大学'
-        ['mirrors.edu.4']='重庆大学'
-        ['mirrors.edu.5']='重庆邮电大学'
-        ['mirrors.edu.6']='大连东软信息学院'
-        ['mirrors.edu.7']='电子科技大学'
-        ['mirrors.edu.8']='华南农业大学'
-        ['mirrors.edu.9']='华中科技大学'
-        ['mirrors.edu.10']='吉林大学'
-        ['mirrors.edu.11']='荆楚理工学院'
-        ['mirrors.edu.12']='江西理工大学'
-        ['mirrors.edu.13']='兰州大学'
-        ['mirrors.edu.14']='南京大学'
-        ['mirrors.edu.15']='南京工业大学'
-        ['mirrors.edu.16']='南京邮电大学'
-        ['mirrors.edu.17']='南方科技大学'
-        ['mirrors.edu.18']='南阳理工学院'
-        ['mirrors.edu.19']='齐鲁工业大学'
-        ['mirrors.edu.20']='清华大学'
-        ['mirrors.edu.21']='山东大学'
-        ['mirrors.edu.22']='上海科技大学'
-        ['mirrors.edu.23']='上海交通大学（思源）'
-        ['mirrors.edu.24']='上海交通大学（致远）'
-        ['mirrors.edu.25']='武昌首义学院'
-        ['mirrors.edu.26']='西安交通大学'
-        ['mirrors.edu.27']='西北农林科技大学'
-        ['mirrors.edu.28']='浙江大学'
-        ['mirrors.edu.29']='中国科学技术大学'
-        ['mirrors.edu.30']='官方源'
+        ['mirrors.edu.1']='北京外国语大学'
+        ['mirrors.edu.2']='重庆大学'
+        ['mirrors.edu.3']='重庆邮电大学'
+        ['mirrors.edu.4']='华中科技大学'
+        ['mirrors.edu.5']='吉林大学'
+        ['mirrors.edu.6']='荆楚理工学院'
+        ['mirrors.edu.7']='兰州大学'
+        ['mirrors.edu.8']='南京大学'
+        ['mirrors.edu.9']='南京工业大学'
+        ['mirrors.edu.10']='南京邮电大学'
+        ['mirrors.edu.11']='南方科技大学'
+        ['mirrors.edu.12']='南阳理工学院'
+        ['mirrors.edu.13']='齐鲁工业大学'
+        ['mirrors.edu.14']='清华大学'
+        ['mirrors.edu.15']='山东大学'
+        ['mirrors.edu.16']='上海交通大学（思源）'
+        ['mirrors.edu.17']='上海交通大学（致远）'
+        ['mirrors.edu.18']='武昌首义学院'
+        ['mirrors.edu.19']='西安交通大学'
+        ['mirrors.edu.20']='西北农林科技大学'
+        ['mirrors.edu.21']='浙江大学'
+        ['mirrors.edu.22']='中国科学技术大学'
+        ['mirrors.edu.23']='官方源'
         ['mirrors.abroad.0']='亚洲 · xTom · 香港'
         ['mirrors.abroad.1']='亚洲 · 01Link · 香港'
         ['mirrors.abroad.2']='亚洲 · 新加坡国立大学(NUS) · 新加坡'
@@ -7958,67 +8244,56 @@ function msg_pack_zh_hans() {
         ['mirrors.abroad.5']='亚洲 · 自由软件实验室(NCHC) · 台湾'
         ['mirrors.abroad.6']='亚洲 · OSS Planet · 台湾'
         ['mirrors.abroad.7']='亚洲 · 国立阳明交通大学 · 台湾'
-        ['mirrors.abroad.8']='亚洲 · 淡江大学 · 台湾'
-        ['mirrors.abroad.9']='亚洲 · Taiwan Digital Streaming · 台湾'
-        ['mirrors.abroad.10']='亚洲 · AniGil Linux Archive · 韩国'
-        ['mirrors.abroad.11']='亚洲 · 工业网络安全中心(ICSCoE) · 日本'
-        ['mirrors.abroad.12']='亚洲 · 北陆先端科学技术大学院大学(JAIST) · 日本'
-        ['mirrors.abroad.13']='亚洲 · 山形大学 · 日本'
-        ['mirrors.abroad.14']='亚洲 · xTom · 日本'
-        ['mirrors.abroad.15']='亚洲 · GB Network Solutions · 马来西亚'
-        ['mirrors.abroad.16']='亚洲 · 孔敬大学 · 泰国'
-        ['mirrors.abroad.17']='欧洲 · Vorboss Ltd · 英国'
-        ['mirrors.abroad.18']='欧洲 · QuickHost · 英国'
-        ['mirrors.abroad.19']='欧洲 · dogado · 德国'
-        ['mirrors.abroad.20']='欧洲 · xTom · 德国'
-        ['mirrors.abroad.21']='欧洲 · 亚琛工业大学(RWTH Aachen) · 德国'
-        ['mirrors.abroad.22']='欧洲 · 德累斯顿大学(AG DSN) · 德国'
-        ['mirrors.abroad.23']='欧洲 · CCIN2P3 · 法国'
-        ['mirrors.abroad.24']='欧洲 · Ircam · 法国'
-        ['mirrors.abroad.25']='欧洲 · Crans · 法国'
-        ['mirrors.abroad.26']='欧洲 · CRIHAN · 法国'
-        ['mirrors.abroad.27']='欧洲 · xTom · 荷兰'
-        ['mirrors.abroad.28']='欧洲 · DataPacket · 荷兰'
-        ['mirrors.abroad.29']='欧洲 · Linux Kernel · 荷兰'
-        ['mirrors.abroad.30']='欧洲 · xTom · 爱沙尼亚'
-        ['mirrors.abroad.31']='欧洲 · netsite · 丹麦'
-        ['mirrors.abroad.32']='欧洲 · Dotsrc · 丹麦'
-        ['mirrors.abroad.33']='欧洲 · Academic Computer Club · 瑞典'
-        ['mirrors.abroad.34']='欧洲 · Lysator · 瑞典'
-        ['mirrors.abroad.35']='欧洲 · Yandex · 俄罗斯'
-        ['mirrors.abroad.36']='欧洲 · ia64 · 俄罗斯'
-        ['mirrors.abroad.37']='欧洲 · Truenetwork · 俄罗斯'
-        ['mirrors.abroad.38']='欧洲 · Belgian Research Network · 比利时'
-        ['mirrors.abroad.39']='欧洲 · 克里特大学计算机中心 · 希腊'
-        ['mirrors.abroad.40']='欧洲 · 马萨里克大学信息学院 · 捷克'
-        ['mirrors.abroad.41']='欧洲 · 捷克理工大学学生会俱乐部(Silicon Hill) · 捷克'
-        ['mirrors.abroad.42']='欧洲 · Vodafone · 捷克'
-        ['mirrors.abroad.43']='欧洲 · CZ.NIC · 捷克'
-        ['mirrors.abroad.44']='欧洲 · 苏黎世联邦理工学院 · 瑞士'
-        ['mirrors.abroad.45']='北美 · Linux Kernel · 美国'
-        ['mirrors.abroad.46']='北美 · 麻省理工学院(MIT) · 美国'
-        ['mirrors.abroad.47']='北美 · 普林斯顿大学数学系 · 美国'
-        ['mirrors.abroad.48']='北美 · 俄勒冈州立大学开源实验室 · 美国'
-        ['mirrors.abroad.49']='北美 · Fremont Cabal Internet Exchange(FCIX) · 美国'
-        ['mirrors.abroad.50']='北美 · xTom · 美国'
-        ['mirrors.abroad.51']='北美 · Steadfast · 美国'
-        ['mirrors.abroad.52']='北美 · 不列颠哥伦比亚大学 · 加拿大'
-        ['mirrors.abroad.53']='北美 · GoCodeIT · 加拿大'
-        ['mirrors.abroad.54']='北美 · Switch · 加拿大'
-        ['mirrors.abroad.55']='南美 · PoP-SC · 巴西'
-        ['mirrors.abroad.56']='南美 · 蓬塔格罗萨州立大学 · 巴西'
-        ['mirrors.abroad.57']='南美 · UFSCar · 巴西'
-        ['mirrors.abroad.58']='南美 · Sysarmy Community · 阿根廷'
-        ['mirrors.abroad.59']='大洋 · Fremont Cabal Internet Exchange(FCIX) · 澳大利亚'
-        ['mirrors.abroad.60']='大洋 · AARNet · 澳大利亚'
-        ['mirrors.abroad.61']='大洋 · DataMossa · 澳大利亚'
-        ['mirrors.abroad.62']='大洋 · Amaze · 澳大利亚'
-        ['mirrors.abroad.63']='大洋 · xTom · 澳大利亚'
-        ['mirrors.abroad.64']='大洋 · Over the Wire · 澳大利亚'
-        ['mirrors.abroad.65']='大洋 · Free Software Mirror Group · 新西兰'
-        ['mirrors.abroad.66']='非洲 · Liquid Telecom · 肯尼亚'
-        ['mirrors.abroad.67']='非洲 · Dimension Data · 南非'
-        ['mirrors.abroad.68']='官方源'
+        ['mirrors.abroad.8']='亚洲 · Taiwan Digital Streaming · 台湾'
+        ['mirrors.abroad.9']='亚洲 · AniGil Linux Archive · 韩国'
+        ['mirrors.abroad.10']='亚洲 · 工业网络安全中心(ICSCoE) · 日本'
+        ['mirrors.abroad.11']='亚洲 · 北陆先端科学技术大学院大学(JAIST) · 日本'
+        ['mirrors.abroad.12']='亚洲 · 山形大学 · 日本'
+        ['mirrors.abroad.13']='亚洲 · xTom · 日本'
+        ['mirrors.abroad.14']='亚洲 · GB Network Solutions · 马来西亚'
+        ['mirrors.abroad.15']='亚洲 · 孔敬大学 · 泰国'
+        ['mirrors.abroad.16']='欧洲 · Vorboss Ltd · 英国'
+        ['mirrors.abroad.17']='欧洲 · dogado · 德国'
+        ['mirrors.abroad.18']='欧洲 · xTom · 德国'
+        ['mirrors.abroad.19']='欧洲 · 亚琛工业大学(RWTH Aachen) · 德国'
+        ['mirrors.abroad.20']='欧洲 · 德累斯顿大学(AG DSN) · 德国'
+        ['mirrors.abroad.21']='欧洲 · CCIN2P3 · 法国'
+        ['mirrors.abroad.22']='欧洲 · Ircam · 法国'
+        ['mirrors.abroad.23']='欧洲 · Crans · 法国'
+        ['mirrors.abroad.24']='欧洲 · CRIHAN · 法国'
+        ['mirrors.abroad.25']='欧洲 · xTom · 荷兰'
+        ['mirrors.abroad.26']='欧洲 · Linux Kernel · 荷兰'
+        ['mirrors.abroad.27']='欧洲 · xTom · 爱沙尼亚'
+        ['mirrors.abroad.28']='欧洲 · netsite · 丹麦'
+        ['mirrors.abroad.29']='欧洲 · Dotsrc · 丹麦'
+        ['mirrors.abroad.30']='欧洲 · Academic Computer Club · 瑞典'
+        ['mirrors.abroad.31']='欧洲 · Lysator · 瑞典'
+        ['mirrors.abroad.32']='欧洲 · Yandex · 俄罗斯'
+        ['mirrors.abroad.33']='欧洲 · Belgian Research Network · 比利时'
+        ['mirrors.abroad.34']='欧洲 · 马萨里克大学信息学院 · 捷克'
+        ['mirrors.abroad.35']='欧洲 · 捷克理工大学学生会俱乐部(Silicon Hill) · 捷克'
+        ['mirrors.abroad.36']='欧洲 · Vodafone · 捷克'
+        ['mirrors.abroad.37']='北美 · Linux Kernel · 美国'
+        ['mirrors.abroad.38']='北美 · 麻省理工学院(MIT) · 美国'
+        ['mirrors.abroad.39']='北美 · 普林斯顿大学数学系 · 美国'
+        ['mirrors.abroad.40']='北美 · 俄勒冈州立大学开源实验室 · 美国'
+        ['mirrors.abroad.41']='北美 · Fremont Cabal Internet Exchange(FCIX) · 美国'
+        ['mirrors.abroad.42']='北美 · xTom · 美国'
+        ['mirrors.abroad.43']='北美 · Steadfast · 美国'
+        ['mirrors.abroad.44']='北美 · 不列颠哥伦比亚大学 · 加拿大'
+        ['mirrors.abroad.45']='北美 · GoCodeIT · 加拿大'
+        ['mirrors.abroad.46']='北美 · Switch · 加拿大'
+        ['mirrors.abroad.47']='南美 · PoP-SC · 巴西'
+        ['mirrors.abroad.48']='南美 · 蓬塔格罗萨州立大学 · 巴西'
+        ['mirrors.abroad.49']='大洋 · Fremont Cabal Internet Exchange(FCIX) · 澳大利亚'
+        ['mirrors.abroad.50']='大洋 · AARNet · 澳大利亚'
+        ['mirrors.abroad.51']='大洋 · DataMossa · 澳大利亚'
+        ['mirrors.abroad.52']='大洋 · Amaze · 澳大利亚'
+        ['mirrors.abroad.53']='大洋 · xTom · 澳大利亚'
+        ['mirrors.abroad.54']='大洋 · Free Software Mirror Group · 新西兰'
+        ['mirrors.abroad.55']='非洲 · Liquid Telecom · 肯尼亚'
+        ['mirrors.abroad.56']='非洲 · Dimension Data · 南非'
+        ['mirrors.abroad.57']='官方源'
     )
 }
 
@@ -8147,41 +8422,35 @@ function msg_pack_zh_hant() {
         ['mirrors.default.10']='南京大學'
         ['mirrors.default.11']='蘭州大學'
         ['mirrors.default.12']='上海交通大學'
-        ['mirrors.default.13']='重慶郵電大學'
+        ['mirrors.default.13']='華中科技大學'
         ['mirrors.default.14']='中國科學技術大學'
         ['mirrors.default.15']='中國科學院軟件研究所'
-        ['mirrors.default.16']='官方源'
+        ['mirrors.default.16']='中國科技雲'
+        ['mirrors.default.17']='官方源'
         ['mirrors.edu.0']='北京大學'
-        ['mirrors.edu.1']='北京交通大學'
-        ['mirrors.edu.2']='北京外國語大學'
-        ['mirrors.edu.3']='北京郵電大學'
-        ['mirrors.edu.4']='重慶大學'
-        ['mirrors.edu.5']='重慶郵電大學'
-        ['mirrors.edu.6']='大連東軟信息學院'
-        ['mirrors.edu.7']='電子科技大學'
-        ['mirrors.edu.8']='華南農業大學'
-        ['mirrors.edu.9']='華中科技大學'
-        ['mirrors.edu.10']='吉林大學'
-        ['mirrors.edu.11']='荊楚理工學院'
-        ['mirrors.edu.12']='江西理工大學'
-        ['mirrors.edu.13']='蘭州大學'
-        ['mirrors.edu.14']='南京大學'
-        ['mirrors.edu.15']='南京工業大學'
-        ['mirrors.edu.16']='南京郵電大學'
-        ['mirrors.edu.17']='南方科技大學'
-        ['mirrors.edu.18']='南陽理工學院'
-        ['mirrors.edu.19']='齊魯工業大學'
-        ['mirrors.edu.20']='清華大學'
-        ['mirrors.edu.21']='山東大學'
-        ['mirrors.edu.22']='上海科技大學'
-        ['mirrors.edu.23']='上海交通大學（思源）'
-        ['mirrors.edu.24']='上海交通大學（致遠）'
-        ['mirrors.edu.25']='武昌首義學院'
-        ['mirrors.edu.26']='西安交通大學'
-        ['mirrors.edu.27']='西北農林科技大學'
-        ['mirrors.edu.28']='浙江大學'
-        ['mirrors.edu.29']='中國科學技術大學'
-        ['mirrors.edu.30']='官方源'
+        ['mirrors.edu.1']='北京外國語大學'
+        ['mirrors.edu.2']='重慶大學'
+        ['mirrors.edu.3']='重慶郵電大學'
+        ['mirrors.edu.4']='華中科技大學'
+        ['mirrors.edu.5']='吉林大學'
+        ['mirrors.edu.6']='荊楚理工學院'
+        ['mirrors.edu.7']='蘭州大學'
+        ['mirrors.edu.8']='南京大學'
+        ['mirrors.edu.9']='南京工業大學'
+        ['mirrors.edu.10']='南京郵電大學'
+        ['mirrors.edu.11']='南方科技大學'
+        ['mirrors.edu.12']='南陽理工學院'
+        ['mirrors.edu.13']='齊魯工業大學'
+        ['mirrors.edu.14']='清華大學'
+        ['mirrors.edu.15']='山東大學'
+        ['mirrors.edu.16']='上海交通大學（思源）'
+        ['mirrors.edu.17']='上海交通大學（致遠）'
+        ['mirrors.edu.18']='武昌首義學院'
+        ['mirrors.edu.19']='西安交通大學'
+        ['mirrors.edu.20']='西北農林科技大學'
+        ['mirrors.edu.21']='浙江大學'
+        ['mirrors.edu.22']='中國科學技術大學'
+        ['mirrors.edu.23']='官方源'
         ['mirrors.abroad.0']='亞洲 · xTom · 香港'
         ['mirrors.abroad.1']='亞洲 · 01Link · 香港'
         ['mirrors.abroad.2']='亞洲 · 新加坡國立大學(NUS) · 新加坡'
@@ -8190,67 +8459,56 @@ function msg_pack_zh_hant() {
         ['mirrors.abroad.5']='亞洲 · 自由軟體實驗室(NCHC) · 臺灣'
         ['mirrors.abroad.6']='亞洲 · OSS Planet · 臺灣'
         ['mirrors.abroad.7']='亞洲 · 國立陽明交通大學 · 臺灣'
-        ['mirrors.abroad.8']='亞洲 · 淡江大學 · 臺灣'
-        ['mirrors.abroad.9']='亞洲 · Taiwan Digital Streaming · 臺灣'
-        ['mirrors.abroad.10']='亞洲 · AniGil Linux Archive · 韓國'
-        ['mirrors.abroad.11']='亞洲 · 工業網路安全中心(ICSCoE) · 日本'
-        ['mirrors.abroad.12']='亞洲 · 北陸先端科學技術大學院大學(JAIST) · 日本'
-        ['mirrors.abroad.13']='亞洲 · 山形大學 · 日本'
-        ['mirrors.abroad.14']='亞洲 · xTom · 日本'
-        ['mirrors.abroad.15']='亞洲 · GB Network Solutions · 馬來西亞'
-        ['mirrors.abroad.16']='亞洲 · 孔敬大學 · 泰國'
-        ['mirrors.abroad.17']='歐洲 · Vorboss Ltd · 英國'
-        ['mirrors.abroad.18']='歐洲 · QuickHost · 英國'
-        ['mirrors.abroad.19']='歐洲 · dogado · 德國'
-        ['mirrors.abroad.20']='歐洲 · xTom · 德國'
-        ['mirrors.abroad.21']='歐洲 · 亞琛工業大學(RWTH Aachen) · 德國'
-        ['mirrors.abroad.22']='歐洲 · 德勒斯登大學(AG DSN) · 德國'
-        ['mirrors.abroad.23']='歐洲 · CCIN2P3 · 法國'
-        ['mirrors.abroad.24']='歐洲 · Ircam · 法國'
-        ['mirrors.abroad.25']='歐洲 · Crans · 法國'
-        ['mirrors.abroad.26']='歐洲 · CRIHAN · 法國'
-        ['mirrors.abroad.27']='歐洲 · xTom · 荷蘭'
-        ['mirrors.abroad.28']='歐洲 · DataPacket · 荷蘭'
-        ['mirrors.abroad.29']='歐洲 · Linux Kernel · 荷蘭'
-        ['mirrors.abroad.30']='歐洲 · xTom · 愛沙尼亞'
-        ['mirrors.abroad.31']='歐洲 · netsite · 丹麥'
-        ['mirrors.abroad.32']='歐洲 · Dotsrc · 丹麥'
-        ['mirrors.abroad.33']='歐洲 · Academic Computer Club · 瑞典'
-        ['mirrors.abroad.34']='歐洲 · Lysator · 瑞典'
-        ['mirrors.abroad.35']='歐洲 · Yandex · 俄羅斯'
-        ['mirrors.abroad.36']='歐洲 · ia64 · 俄羅斯'
-        ['mirrors.abroad.37']='歐洲 · Truenetwork · 俄羅斯'
-        ['mirrors.abroad.38']='歐洲 · Belgian Research Network · 比利時'
-        ['mirrors.abroad.39']='歐洲 · 克里特大學計算機中心 · 希臘'
-        ['mirrors.abroad.40']='歐洲 · 馬薩里克大學信息學院 · 捷克'
-        ['mirrors.abroad.41']='歐洲 · 捷克理工大學學生會俱樂部(Silicon Hill) · 捷克'
-        ['mirrors.abroad.42']='歐洲 · Vodafone · 捷克'
-        ['mirrors.abroad.43']='歐洲 · CZ.NIC · 捷克'
-        ['mirrors.abroad.44']='歐洲 · 蘇黎世聯邦理工學院 · 瑞士'
-        ['mirrors.abroad.45']='北美 · Linux Kernel · 美國'
-        ['mirrors.abroad.46']='北美 · 麻省理工學院(MIT) · 美國'
-        ['mirrors.abroad.47']='北美 · 普林斯頓大學數學系 · 美國'
-        ['mirrors.abroad.48']='北美 · 俄勒岡州立大學開源實驗室 · 美國'
-        ['mirrors.abroad.49']='北美 · Fremont Cabal Internet Exchange(FCIX) · 美國'
-        ['mirrors.abroad.50']='北美 · xTom · 美國'
-        ['mirrors.abroad.51']='北美 · Steadfast · 美國'
-        ['mirrors.abroad.52']='北美 · 不列顛哥倫比亞大學 · 加拿大'
-        ['mirrors.abroad.53']='北美 · GoCodeIT · 加拿大'
-        ['mirrors.abroad.54']='北美 · Switch · 加拿大'
-        ['mirrors.abroad.55']='南美 · PoP-SC · 巴西'
-        ['mirrors.abroad.56']='南美 · 蓬塔格羅薩州立大學 · 巴西'
-        ['mirrors.abroad.57']='南美 · UFSCar · 巴西'
-        ['mirrors.abroad.58']='南美 · Sysarmy Community · 阿根廷'
-        ['mirrors.abroad.59']='大洋 · Fremont Cabal Internet Exchange(FCIX) · 澳大利亞'
-        ['mirrors.abroad.60']='大洋 · AARNet · 澳大利亞'
-        ['mirrors.abroad.61']='大洋 · DataMossa · 澳大利亞'
-        ['mirrors.abroad.62']='大洋 · Amaze · 澳大利亞'
-        ['mirrors.abroad.63']='大洋 · xTom · 澳大利亞'
-        ['mirrors.abroad.64']='大洋 · Over the Wire · 澳大利亞'
-        ['mirrors.abroad.65']='大洋 · Free Software Mirror Group · 紐西蘭'
-        ['mirrors.abroad.66']='非洲 · Liquid Telecom · 肯亞'
-        ['mirrors.abroad.67']='非洲 · Dimension Data · 南非'
-        ['mirrors.abroad.68']='官方源'
+        ['mirrors.abroad.8']='亞洲 · Taiwan Digital Streaming · 臺灣'
+        ['mirrors.abroad.9']='亞洲 · AniGil Linux Archive · 韓國'
+        ['mirrors.abroad.10']='亞洲 · 工業網路安全中心(ICSCoE) · 日本'
+        ['mirrors.abroad.11']='亞洲 · 北陸先端科學技術大學院大學(JAIST) · 日本'
+        ['mirrors.abroad.12']='亞洲 · 山形大學 · 日本'
+        ['mirrors.abroad.13']='亞洲 · xTom · 日本'
+        ['mirrors.abroad.14']='亞洲 · GB Network Solutions · 馬來西亞'
+        ['mirrors.abroad.15']='亞洲 · 孔敬大學 · 泰國'
+        ['mirrors.abroad.16']='歐洲 · Vorboss Ltd · 英國'
+        ['mirrors.abroad.17']='歐洲 · dogado · 德國'
+        ['mirrors.abroad.18']='歐洲 · xTom · 德國'
+        ['mirrors.abroad.19']='歐洲 · 亞琛工業大學(RWTH Aachen) · 德國'
+        ['mirrors.abroad.20']='歐洲 · 德勒斯登大學(AG DSN) · 德國'
+        ['mirrors.abroad.21']='歐洲 · CCIN2P3 · 法國'
+        ['mirrors.abroad.22']='歐洲 · Ircam · 法國'
+        ['mirrors.abroad.23']='歐洲 · Crans · 法國'
+        ['mirrors.abroad.24']='歐洲 · CRIHAN · 法國'
+        ['mirrors.abroad.25']='歐洲 · xTom · 荷蘭'
+        ['mirrors.abroad.26']='歐洲 · Linux Kernel · 荷蘭'
+        ['mirrors.abroad.27']='歐洲 · xTom · 愛沙尼亞'
+        ['mirrors.abroad.28']='歐洲 · netsite · 丹麥'
+        ['mirrors.abroad.29']='歐洲 · Dotsrc · 丹麥'
+        ['mirrors.abroad.30']='歐洲 · Academic Computer Club · 瑞典'
+        ['mirrors.abroad.31']='歐洲 · Lysator · 瑞典'
+        ['mirrors.abroad.32']='歐洲 · Yandex · 俄羅斯'
+        ['mirrors.abroad.33']='歐洲 · Belgian Research Network · 比利時'
+        ['mirrors.abroad.34']='歐洲 · 馬薩里克大學信息學院 · 捷克'
+        ['mirrors.abroad.35']='歐洲 · 捷克理工大學學生會俱樂部(Silicon Hill) · 捷克'
+        ['mirrors.abroad.36']='歐洲 · Vodafone · 捷克'
+        ['mirrors.abroad.37']='北美 · Linux Kernel · 美國'
+        ['mirrors.abroad.38']='北美 · 麻省理工學院(MIT) · 美國'
+        ['mirrors.abroad.39']='北美 · 普林斯頓大學數學系 · 美國'
+        ['mirrors.abroad.40']='北美 · 俄勒岡州立大學開源實驗室 · 美國'
+        ['mirrors.abroad.41']='北美 · Fremont Cabal Internet Exchange(FCIX) · 美國'
+        ['mirrors.abroad.42']='北美 · xTom · 美國'
+        ['mirrors.abroad.43']='北美 · Steadfast · 美國'
+        ['mirrors.abroad.44']='北美 · 不列顛哥倫比亞大學 · 加拿大'
+        ['mirrors.abroad.45']='北美 · GoCodeIT · 加拿大'
+        ['mirrors.abroad.46']='北美 · Switch · 加拿大'
+        ['mirrors.abroad.47']='南美 · PoP-SC · 巴西'
+        ['mirrors.abroad.48']='南美 · 蓬塔格羅薩州立大學 · 巴西'
+        ['mirrors.abroad.49']='大洋 · Fremont Cabal Internet Exchange(FCIX) · 澳大利亞'
+        ['mirrors.abroad.50']='大洋 · AARNet · 澳大利亞'
+        ['mirrors.abroad.51']='大洋 · DataMossa · 澳大利亞'
+        ['mirrors.abroad.52']='大洋 · Amaze · 澳大利亞'
+        ['mirrors.abroad.53']='大洋 · xTom · 澳大利亞'
+        ['mirrors.abroad.54']='大洋 · Free Software Mirror Group · 紐西蘭'
+        ['mirrors.abroad.55']='非洲 · Liquid Telecom · 肯亞'
+        ['mirrors.abroad.56']='非洲 · Dimension Data · 南非'
+        ['mirrors.abroad.57']='官方源'
     )
     SPONSOR_ADS[0]="1Panel · 新一代的 Linux 伺服器維運管理面板 ➜  \033[3mhttps://1panel.cn\033[0m"
 }
@@ -8379,41 +8637,35 @@ Issue Report {}'
         ['mirrors.default.10']='Nanjing University'
         ['mirrors.default.11']='Lanzhou University'
         ['mirrors.default.12']='Shanghai Jiao Tong University'
-        ['mirrors.default.13']='Chongqing University of Posts and Telecommunications'
+        ['mirrors.default.13']='Huazhong University of Science and Technology'
         ['mirrors.default.14']='University of Science and Technology of China'
         ['mirrors.default.15']='Institute of Software, Chinese Academy of Sciences'
-        ['mirrors.default.16']='Official Source'
+        ['mirrors.default.16']='China Science & Technology Cloud'
+        ['mirrors.default.17']='Official Source'
         ['mirrors.edu.0']='Peking University'
-        ['mirrors.edu.1']='Beijing Jiaotong University'
-        ['mirrors.edu.2']='Beijing Foreign Studies University'
-        ['mirrors.edu.3']='Beijing University of Posts and Telecommunications'
-        ['mirrors.edu.4']='Chongqing University'
-        ['mirrors.edu.5']='Chongqing University of Posts and Telecommunications'
-        ['mirrors.edu.6']='Dalian Neusoft University of Information'
-        ['mirrors.edu.7']='University of Electronic Science and Technology of China'
-        ['mirrors.edu.8']='South China Agricultural University'
-        ['mirrors.edu.9']='Huazhong University of Science and Technology'
-        ['mirrors.edu.10']='Jilin University'
-        ['mirrors.edu.11']='Jingchu University of Technology'
-        ['mirrors.edu.12']='Jiangxi University of Science and Technology'
-        ['mirrors.edu.13']='Lanzhou University'
-        ['mirrors.edu.14']='Nanjing University'
-        ['mirrors.edu.15']='Nanjing Tech University'
-        ['mirrors.edu.16']='Nanjing University of Posts and Telecommunications'
-        ['mirrors.edu.17']='Southern University of Science and Technology'
-        ['mirrors.edu.18']='Nanyang Institute of Technology'
-        ['mirrors.edu.19']='Qilu University of Technology'
-        ['mirrors.edu.20']='Tsinghua University'
-        ['mirrors.edu.21']='Shandong University'
-        ['mirrors.edu.22']='ShanghaiTech University'
-        ['mirrors.edu.23']='Shanghai Jiao Tong University (Siyuan)'
-        ['mirrors.edu.24']='Shanghai Jiao Tong University (Zhiyuan)'
-        ['mirrors.edu.25']='Wuchang Shouyi University'
-        ['mirrors.edu.26']="Xi'an Jiaotong University"
-        ['mirrors.edu.27']='Northwest A&F University'
-        ['mirrors.edu.28']='Zhejiang University'
-        ['mirrors.edu.29']='University of Science and Technology of China'
-        ['mirrors.edu.30']='Official Source'
+        ['mirrors.edu.1']='Beijing Foreign Studies University'
+        ['mirrors.edu.2']='Chongqing University'
+        ['mirrors.edu.3']='Chongqing University of Posts and Telecommunications'
+        ['mirrors.edu.4']='Huazhong University of Science and Technology'
+        ['mirrors.edu.5']='Jilin University'
+        ['mirrors.edu.6']='Jingchu University of Technology'
+        ['mirrors.edu.7']='Lanzhou University'
+        ['mirrors.edu.8']='Nanjing University'
+        ['mirrors.edu.9']='Nanjing Tech University'
+        ['mirrors.edu.10']='Nanjing University of Posts and Telecommunications'
+        ['mirrors.edu.11']='Southern University of Science and Technology'
+        ['mirrors.edu.12']='Nanyang Institute of Technology'
+        ['mirrors.edu.13']='Qilu University of Technology'
+        ['mirrors.edu.14']='Tsinghua University'
+        ['mirrors.edu.15']='Shandong University'
+        ['mirrors.edu.16']='Shanghai Jiao Tong University (Siyuan)'
+        ['mirrors.edu.17']='Shanghai Jiao Tong University (Zhiyuan)'
+        ['mirrors.edu.18']='Wuchang Shouyi University'
+        ['mirrors.edu.19']="Xi'an Jiaotong University"
+        ['mirrors.edu.20']='Northwest A&F University'
+        ['mirrors.edu.21']='Zhejiang University'
+        ['mirrors.edu.22']='University of Science and Technology of China'
+        ['mirrors.edu.23']='Official Source'
         ['mirrors.abroad.0']='AS · xTom · Hong Kong'
         ['mirrors.abroad.1']='AS · 01Link · Hong Kong'
         ['mirrors.abroad.2']='AS · National University of Singapore (NUS) · Singapore'
@@ -8422,67 +8674,56 @@ Issue Report {}'
         ['mirrors.abroad.5']='AS · NCHC Free Software Lab · Taiwan'
         ['mirrors.abroad.6']='AS · OSS Planet · Taiwan'
         ['mirrors.abroad.7']='AS · National Yang Ming Chiao Tung University · Taiwan'
-        ['mirrors.abroad.8']='AS · Tamkang University · Taiwan'
-        ['mirrors.abroad.9']='AS · Taiwan Digital Streaming · Taiwan'
-        ['mirrors.abroad.10']='AS · AniGil Linux Archive · Korea'
-        ['mirrors.abroad.11']='AS · ICSCoE (Industrial Cyber Security Center of Excellence) · Japan'
-        ['mirrors.abroad.12']='AS · JAIST (Japan Advanced Institute of Science and Technology) · Japan'
-        ['mirrors.abroad.13']='AS · Yamagata University · Japan'
-        ['mirrors.abroad.14']='AS · xTom · Japan'
-        ['mirrors.abroad.15']='AS · GB Network Solutions · Malaysia'
-        ['mirrors.abroad.16']='AS · Khon Kaen University · Thailand'
-        ['mirrors.abroad.17']='EU · Vorboss Ltd · United Kiongdom'
-        ['mirrors.abroad.18']='EU · QuickHost · United Kiongdom'
-        ['mirrors.abroad.19']='EU · dogado · Germany'
-        ['mirrors.abroad.20']='EU · xTom · Germany'
-        ['mirrors.abroad.21']='EU · RWTH Aachen University · Germany'
-        ['mirrors.abroad.22']='EU · Dresden University (AG DSN) · Germany'
-        ['mirrors.abroad.23']='EU · CCIN2P3 · France'
-        ['mirrors.abroad.24']='EU · Ircam · France'
-        ['mirrors.abroad.25']='EU · Crans · France'
-        ['mirrors.abroad.26']='EU · CRIHAN · France'
-        ['mirrors.abroad.27']='EU · xTom · Netherlands'
-        ['mirrors.abroad.28']='EU · DataPacket · Netherlands'
-        ['mirrors.abroad.29']='EU · Linux Kernel · Netherlands'
-        ['mirrors.abroad.30']='EU · xTom · Estonia'
-        ['mirrors.abroad.31']='EU · netsite · Denmark'
-        ['mirrors.abroad.32']='EU · Dotsrc · Denmark'
-        ['mirrors.abroad.33']='EU · Academic Computer Club · Sweden'
-        ['mirrors.abroad.34']='EU · Lysator · Sweden'
-        ['mirrors.abroad.35']='EU · Yandex · Russia'
-        ['mirrors.abroad.36']='EU · ia64 · Russia'
-        ['mirrors.abroad.37']='EU · Truenetwork · Russia'
-        ['mirrors.abroad.38']='EU · Belgian Research Network · Belgium'
-        ['mirrors.abroad.39']='EU · University of Crete Computer Center · Greece'
-        ['mirrors.abroad.40']='EU · Masaryk University Faculty of Informatics · Czech'
-        ['mirrors.abroad.41']='EU · Czech Technical University Student Club (Silicon Hill) · Czech'
-        ['mirrors.abroad.42']='EU · Vodafone · Czech'
-        ['mirrors.abroad.43']='EU · CZ.NIC · Czech'
-        ['mirrors.abroad.44']='EU · ETH Zurich · Switzerland'
-        ['mirrors.abroad.45']='NA · Linux Kernel · United States'
-        ['mirrors.abroad.46']='NA · MIT · United States'
-        ['mirrors.abroad.47']='NA · Princeton University Department of Mathematics · United States'
-        ['mirrors.abroad.48']='NA · Oregon State University Open Source Lab · United States'
-        ['mirrors.abroad.49']='NA · Fremont Cabal Internet Exchange(FCIX) · United States'
-        ['mirrors.abroad.50']='NA · xTom · United States'
-        ['mirrors.abroad.51']='NA · Steadfast · United States'
-        ['mirrors.abroad.52']='NA · University of British Columbia · Canada'
-        ['mirrors.abroad.53']='NA · GoCodeIT · Canada'
-        ['mirrors.abroad.54']='NA · Switch · Canada'
-        ['mirrors.abroad.55']='SA · PoP-SC · Brazil'
-        ['mirrors.abroad.56']='SA · State University of Ponta Grossa · Brazil'
-        ['mirrors.abroad.57']='SA · UFSCar · Brazil'
-        ['mirrors.abroad.58']='SA · Sysarmy Community · Argentina'
-        ['mirrors.abroad.59']='OC · Fremont Cabal Internet Exchange(FCIX) · Australia'
-        ['mirrors.abroad.60']='OC · AARNet · Australia'
-        ['mirrors.abroad.61']='OC · DataMossa · Australia'
-        ['mirrors.abroad.62']='OC · Amaze · Australia'
-        ['mirrors.abroad.63']='OC · xTom · Australia'
-        ['mirrors.abroad.64']='OC · Over the Wire · Australia'
-        ['mirrors.abroad.65']='OC · Free Software Mirror Group · New Zealand'
-        ['mirrors.abroad.66']='AF · Liquid Telecom · Kenya'
-        ['mirrors.abroad.67']='AF · Dimension Data · South Africa'
-        ['mirrors.abroad.68']='Official Source'
+        ['mirrors.abroad.8']='AS · Taiwan Digital Streaming · Taiwan'
+        ['mirrors.abroad.9']='AS · AniGil Linux Archive · Korea'
+        ['mirrors.abroad.10']='AS · ICSCoE (Industrial Cyber Security Center of Excellence) · Japan'
+        ['mirrors.abroad.11']='AS · JAIST (Japan Advanced Institute of Science and Technology) · Japan'
+        ['mirrors.abroad.12']='AS · Yamagata University · Japan'
+        ['mirrors.abroad.13']='AS · xTom · Japan'
+        ['mirrors.abroad.14']='AS · GB Network Solutions · Malaysia'
+        ['mirrors.abroad.15']='AS · Khon Kaen University · Thailand'
+        ['mirrors.abroad.16']='EU · Vorboss Ltd · United Kiongdom'
+        ['mirrors.abroad.17']='EU · dogado · Germany'
+        ['mirrors.abroad.18']='EU · xTom · Germany'
+        ['mirrors.abroad.19']='EU · RWTH Aachen University · Germany'
+        ['mirrors.abroad.20']='EU · Dresden University (AG DSN) · Germany'
+        ['mirrors.abroad.21']='EU · CCIN2P3 · France'
+        ['mirrors.abroad.22']='EU · Ircam · France'
+        ['mirrors.abroad.23']='EU · Crans · France'
+        ['mirrors.abroad.24']='EU · CRIHAN · France'
+        ['mirrors.abroad.25']='EU · xTom · Netherlands'
+        ['mirrors.abroad.26']='EU · Linux Kernel · Netherlands'
+        ['mirrors.abroad.27']='EU · xTom · Estonia'
+        ['mirrors.abroad.28']='EU · netsite · Denmark'
+        ['mirrors.abroad.29']='EU · Dotsrc · Denmark'
+        ['mirrors.abroad.30']='EU · Academic Computer Club · Sweden'
+        ['mirrors.abroad.31']='EU · Lysator · Sweden'
+        ['mirrors.abroad.32']='EU · Yandex · Russia'
+        ['mirrors.abroad.33']='EU · Belgian Research Network · Belgium'
+        ['mirrors.abroad.34']='EU · Masaryk University Faculty of Informatics · Czech'
+        ['mirrors.abroad.35']='EU · Czech Technical University Student Club (Silicon Hill) · Czech'
+        ['mirrors.abroad.36']='EU · Vodafone · Czech'
+        ['mirrors.abroad.37']='NA · Linux Kernel · United States'
+        ['mirrors.abroad.38']='NA · MIT · United States'
+        ['mirrors.abroad.39']='NA · Princeton University Department of Mathematics · United States'
+        ['mirrors.abroad.40']='NA · Oregon State University Open Source Lab · United States'
+        ['mirrors.abroad.41']='NA · Fremont Cabal Internet Exchange(FCIX) · United States'
+        ['mirrors.abroad.42']='NA · xTom · United States'
+        ['mirrors.abroad.43']='NA · Steadfast · United States'
+        ['mirrors.abroad.44']='NA · University of British Columbia · Canada'
+        ['mirrors.abroad.45']='NA · GoCodeIT · Canada'
+        ['mirrors.abroad.46']='NA · Switch · Canada'
+        ['mirrors.abroad.47']='SA · PoP-SC · Brazil'
+        ['mirrors.abroad.48']='SA · State University of Ponta Grossa · Brazil'
+        ['mirrors.abroad.49']='OC · Fremont Cabal Internet Exchange(FCIX) · Australia'
+        ['mirrors.abroad.50']='OC · AARNet · Australia'
+        ['mirrors.abroad.51']='OC · DataMossa · Australia'
+        ['mirrors.abroad.52']='OC · Amaze · Australia'
+        ['mirrors.abroad.53']='OC · xTom · Australia'
+        ['mirrors.abroad.54']='OC · Free Software Mirror Group · New Zealand'
+        ['mirrors.abroad.55']='AF · Liquid Telecom · Kenya'
+        ['mirrors.abroad.56']='AF · Dimension Data · South Africa'
+        ['mirrors.abroad.57']='Official Source'
     )
     SPONSOR_ADS=(
         "1Panel · Top-Rated Web-based Linux Server Management Tool ➜  \033[3mhttps://1panel.cn\033[0m"

@@ -47,7 +47,7 @@ hide:
             ``` bash
             bash <(curl -sSL https://edgeone.linuxmirrors.cn/main.sh) --en
             ```
-            > Not recommended in Chinese mainland network environments.
+            > Alternative official website address. Not recommended for use in Chinese mainland network environments.
 
 === ":material-earth: International Regions"
 
@@ -90,7 +90,7 @@ hide:
             ``` bash
             bash <(curl -sSL https://edgeone.linuxmirrors.cn/main.sh) --abroad
             ```
-            > Not recommended in Chinese mainland network environments.
+            > Alternative official website address. Not recommended for use in Chinese mainland network environments.
 
 === ":material-library: China Education Network"
 
@@ -133,13 +133,13 @@ hide:
             ``` bash
             bash <(curl -sSL https://edgeone.linuxmirrors.cn/main.sh) --en --edu
             ```
-            > Not recommended in Chinese mainland network environments.
+            > Alternative official website address. Not recommended for use in Chinese mainland network environments.
 
 
 
 !!! tip "Usage Help"
 
-    The tabs represent the built-in mirror site types and script sources. Please check whether your target mirror site supports your operating system before use. You can check in the [Mirror List](../mirrors/index.md).  
+    The tabs respectively represent the types of software sources (mirror sites) built into the script, and the different methods for obtaining the script. Please check whether your target mirror site supports your operating system before use. You can check in the [Mirror List](../mirrors/index.md).  
     By default, the original mirror configuration will be automatically backed up. For more details, see the documentation below. If you are confused by some options during use, just press Enter all the way after selecting the mirror, which is the best practice.
 
     _It supports use in abnormal environments such as when the original system software source is damaged, missing, or invalid. There is no need to install any additional dependencies._
@@ -410,11 +410,11 @@ hide:
 
         - Configure `SSH` service
 
-            ``` { .bash .no-copy title="Allow root account login" }
+            ``` { .bash title="Allow root account login" }
             cat /etc/ssh/sshd_config | grep -Eq "^[# ]?PermitRootLogin " ; [ $? -eq 0 ] && sed -i 's/^[# ]\?PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config || echo -e "\nPermitRootLogin yes" >> /etc/ssh/sshd_config
             ```
 
-            ``` { .bash .no-copy title="Enable password authentication" }
+            ``` { .bash title="Enable password authentication" }
             cat /etc/ssh/sshd_config | grep -Eq "^[# ]?PasswordAuthentication " ; [ $? -eq 0 ] && sed -i 's/^[# ]\?PasswordAuthentication.*/PasswordAuthentication yes/g' /etc/ssh/sshd_config || echo -e "\nPasswordAuthentication yes" >> /etc/ssh/sshd_config
             ```
 
@@ -584,33 +584,7 @@ Below are some advanced usage examples
 
         The script does not adapt to unique repo names of a single mirror site for compatibility.
 
-        | OS Name | Names Involved |
-        | --- | :---: |
-        | <a href="https://www.debian.org" title="https://www.debian.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/debian.svg" alt="Debian" width="16" height="16" style="vertical-align: -0.35em"></a> **Debian** | `debian` `debian-archive` |
-        | <a href="https://ubuntu.com" title="https://ubuntu.com" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/ubuntu.svg" alt="Ubuntu" width="16" height="16" style="vertical-align: -0.15em"></a> **Ubuntu** | `ubuntu` `ubuntu-ports` |
-        | <a href="https://www.kali.org" title="https://www.kali.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/kali-linux.png" alt="Kali Linux" width="16" height="16"></a> **Kali Linux** | `kali` |
-        | <a href="https://linuxmint.com" title="https://linuxmint.com" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/linux-mint.svg" alt="Linux Mint" width="16" height="16" style="vertical-align: -0.2em"></a> **Linux Mint** | `linuxmint` `ubuntu` `ubuntu-ports` `debian` |
-        | <a href="https://www.deepin.org" title="https://www.deepin.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/deepin.png" alt="Deepin" width="16" height="16" style="vertical-align: -0.2em"></a> **Deepin（深度）** | `deepin` |
-        | <a href="https://zorin.com/os" title="https://zorin.com/os" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/zorin-os.png" alt="Zorin OS" width="16" height="16" style="vertical-align: -0.15em"></a> **Zorin OS** | `ubuntu` `ubuntu-ports` |
-        | <a href="https://www.armbian.com" title="https://www.armbian.com" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/armbian.png" alt="Armbian" width="16" height="16" style="vertical-align: -0.2em"></a> **Armbian** | `armbian` |
-        | <a href="https://www.proxmox.com/en/products/proxmox-virtual-environment/overview" title="https://www.proxmox.com/en/products/proxmox-virtual-environment/overview" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/proxmox.svg" alt="Proxmox VE" width="16" height="16" style="vertical-align: -0.2em"></a> **Proxmox VE** | `proxmox` |
-        | <a href="https://www.raspberrypi.com/software" title="https://www.raspberrypi.com/software" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/raspberry-pi.png" alt="Raspberry Pi OS" width="16" height="16" style="vertical-align: -0.2em"></a> **Raspberry Pi OS** | `raspberrypi` `raspbian` `debian` `debian-archive` |
-        | <a href="https://access.redhat.com/products/red-hat-enterprise-linux" title="https://access.redhat.com/products/red-hat-enterprise-linux" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/redhat.svg" alt="Red Hat Enterprise Linux" width="16" height="16" style="vertical-align: -0.1em"></a> **Red Hat Enterprise Linux** :material-information-outline:{ title="Version 9 uses <code>CentOS Stream</code>, 7/8 use <code>CentOS</code>" } | `centos` `centos-stream` `centos-altarch` `centos-vault` |
-        | <a href="https://fedoraproject.org" title="https://fedoraproject.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/fedora.ico" alt="Fedora" width="16" height="16" style="vertical-align: -0.15em"></a> **Fedora** | `fedora` `fedora-archive` |
-        | <a href="https://www.centos.org" title="https://www.centos.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/centos.svg" alt="CentOS" width="16" height="16" style="vertical-align: -0.135em"></a> **CentOS** | `centos` `centos-stream` `centos-altarch` `centos-vault` |
-        | <a href="https://rockylinux.org" title="https://rockylinux.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/rocky-linux.svg" alt="Rocky Linux" width="16" height="16" style="vertical-align: -0.2em"></a> **Rocky Linux** | `rocky` |
-        | <a href="https://almalinux.org" title="https://almalinux.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/almalinux.svg" alt="AlmaLinux" width="16" height="16" style="vertical-align: -0.15em"></a> **AlmaLinux** | `almalinux` `almalinux-vault` |
-        | <a href="https://www.oracle.com/linux" title="https://www.oracle.com/linux" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/oracle-linux.png" alt="Oracle Linux" width="16" height="16" style="vertical-align: -0.25em"></a> **Oracle Linux** | `centos-stream` |
-        | <a href="https://www.openeuler.org" title="https://www.openeuler.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/openeuler.ico" alt="openEuler" width="16" height="16" style="vertical-align: -0.2em"></a> **openEuler** | `openeuler` |
-        | <a href="https://www.opencloudos.org" title="https://www.opencloudos.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/opencloudos.png" alt="OpenCloudOS" width="16" height="16" style="vertical-align: -0.25em"></a> **OpenCloudOS** | `opencloudos` |
-        | <a href="https://www.openkylin.top" title="https://www.openkylin.top" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/openkylin.ico" alt="openKylin" width="16" height="16" style="vertical-align: -0.25em"></a> **openKylin** | `openkylin` |
-        | <a href="https://openanolis.cn" title="https://openanolis.cn" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/anolis.png" alt="Anolis OS" width="16" height="16" style="vertical-align: -0.1em"></a> **Anolis OS** | `anolis` |
-        | <a href="https://www.opensuse.org" title="https://www.opensuse.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/opensuse.svg" alt="openSUSE" width="16" height="16"></a> **openSUSE** | `opensuse` |
-        | <a href="https://archlinux.org" title="https://archlinux.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/arch-linux.ico" alt="Arch Linux" width="16" height="16" style="vertical-align: -0.15em"></a> **Arch Linux** | `archlinux` `archlinuxarm` |
-        | <a href="https://manjaro.org" title="https://manjaro.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/manjaro.svg" alt="Manjaro" width="16" height="16" style="vertical-align: -0.2em"></a> **Manjaro** | `manjaro` |
-        | <a href="https://www.alpinelinux.org" title="https://www.alpinelinux.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/alpine.png" alt="Alpine Linux" width="16" height="16" style="vertical-align: -0.15em"></a> **Alpine Linux** | `alpine` |
-        | <a href="https://www.gentoo.org" title="https://www.gentoo.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/gentoo.svg" alt="Gentoo" width="16" height="16" style="vertical-align: -0.2em"></a> **Gentoo** | `gentoo` `gentoo-portage` |
-        | <a href="https://nixos.org" title="https://nixos.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/nixos.svg" alt="NixOS" width="16" height="16" style="vertical-align: -0.15em"></a> **NixOS** | `nix-channels` |
+        --8<-- "docs/use/repo-branchs.md"
 
     Example:
 
@@ -733,7 +707,7 @@ Below are some advanced usage examples
 
         !!! info "EOL means End Of Life. Non-LTS Ubuntu versions are supported for only 9 months. Old versions are removed from the main repo and may require using the `Ubuntu Old Releases` repo."
 
-        See the official [Wiki](https://wiki.ubuntu.com/Releases) for version support and check each mirror for `Ubuntu Old Releases` support.
+        See the official [Wiki](https://documentation.ubuntu.com/project/release-team/list-of-releases/) for version support and check each mirror for `Ubuntu Old Releases` support.
 
         ``` bash
         bash <(curl -sSL https://linuxmirrors.cn/main.sh) --en \
@@ -808,7 +782,23 @@ Below are some advanced usage examples
 
 ---
 
-## Customizing the Script
+## Lite Version
+
+The project also provides a simplified version, which is a copy of the main script, designed for enterprise products and open-source projects. It has the following features:
+
+- Single display language `English`, no I18n internationalization
+- Uses the official source by default, removing the interactive selection of built-in software sources
+- Removes irrelevant printouts
+- Retains core logic and command option design
+
+``` bash
+bash <(curl -sSL https://linuxmirrors.cn/main-lite.sh)
+```
+> Please familiarize yourself with this project before using it. It is not recommended for novice users.
+
+---
+
+## Customizing
 
 If you are a developer of another project and want to create a custom script based on this project, refer to the following. Some maintainers of China education network mirrors have already done so.
 
@@ -820,7 +810,7 @@ If you are a developer of another project and want to create a custom script bas
     1. Keep the original structure; empty out the function bodies if not needed.
     2. Remove unused OS repo content `gen_repo_files_xxx`, which takes up over 60% of the script.
     3. Remove unused feature modules, e.g., `handle_command_options`, `backup_original_mirrors`, `upgrade_software`.
-    4. Remove unnecessary language packs, for example: `function msg_pack_en() {}`
+    4. Remove unnecessary language packs, for example: `function msg_pack_en() { :; }`
 6.  Main configuration is controlled by unified variables, as are command options. These global variables are all uppercase and use underscores. See the table below. Declare them at the top of the script (reserved comment area) for quick customization.
 
 ??? note "Variable list (click to expand)"

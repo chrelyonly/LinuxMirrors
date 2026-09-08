@@ -1,6 +1,6 @@
 #!/bin/bash
 ## Author: SuperManito
-## Modified: 2025-11-29
+## Modified: 2026-05-16
 ## License: MIT
 ## GitHub: https://github.com/SuperManito/LinuxMirrors
 ## Website: https://linuxmirrors.cn
@@ -19,7 +19,7 @@ mirror_list_docker_ce=(
     "mirrors.zju.edu.cn/docker-ce"
     "mirrors.nju.edu.cn/docker-ce"
     "mirror.sjtu.edu.cn/docker-ce"
-    "mirrors.cqupt.edu.cn/docker-ce"
+    "mirrors.hust.edu.cn/docker-ce"
     "mirrors.ustc.edu.cn/docker-ce"
     "mirror.iscas.ac.cn/docker-ce"
     "download.docker.com"
@@ -82,15 +82,17 @@ SPONSOR_ADS=(
     "多途云 · 智能化防护，每一次连接皆在安全之下 ➜  \033[3mhttps://www.duotuyun.com\033[0m"
     "毫秒镜像 · 专为中国开发者提供Docker镜像加速下载服务 ➜  \033[3mhttps://1ms.run\033[0m"
     "林枫云 · 专注独立IP高频VPS｜R9/i9系列定制 ➜  \033[3mhttps://www.dkdun.cn\033[0m"
-    "不死鸟CDN · 香港日本高防CDN，免实名/免备案，轻松阻断DDOS/CC攻击 ➜  \033[3mhttps://www.bsncdn.org\033[0m"
-    "青叶云 · 香港1T高防｜自助防火墙，无视CC｜大带宽回国优化线路 ➜  \033[3mhttps://www.qingyeyun.com\033[0m"
-    "莱卡云 · 专业云计算服务器提供商 ➜  \033[3m https://www.lcayun.com\033[0m"
+    "莱卡云 · 专业云计算服务器提供商 ➜  \033[3mhttps://www.lcayun.com\033[0m"
     "云悠YUNYOO · 全球高性价比云服务器｜低至15.99元起 ➜  \033[3mhttps://yunyoo.cc\033[0m"
-    "速拓云 · 国内高防云28元/月｜香港云100M优化线路9元/月 ➜  \033[3mhttps://www.sutuoyun.com\033[0m"
+    "HKGserver · 全球家宽｜双ISP｜住宅原生云服务器54元/月起 ➜  \033[3mhttps://www.hkgserver.com\033[0m"
+    "无忧云 · BGP多线高性能、高主频自动化云、物理服务器 ➜  \033[3mhttps://www.wuyouyun.com\033[0m"
+    "速维云 · 大陆香港美日全球千兆大带宽、BGP多线、高频云、物理服务器 ➜  \033[3mhttps://www.svyun.com\033[0m"
+    "酷盾安全 · 集分布式DDoS防护、CC防护、WAF防护、BOT行为分析一体化防护 ➜  \033[3mhttps://www.kd.cn\033[0m"
+    "酷番云 · 安全、稳定、可信赖的企业级云服务提供商 ➜  \033[3mhttps://www.kufanyun.com\033[0m"
+    "数掘科技 · 全球｜高防CDN 99元｜高防服务器29元 ➜  \033[3mhttps://shujue.cn\033[0m"
     "语鹿云盾 · 专业CDN加速、防御，亚太百兆三网优化CDN低至9元起 ➜  \033[3mhttps://www.lucdn.cn\033[0m"
     "不二云 · 国内外建站快响应服务器的不二之选 ➜  \033[3mhttps://cb2.cn\033[0m"
-    "CN2network · 超低价优质机器免实名自动开通 ➜  \033[3mhttps://idc.cn2network.com\033[0m"
-    "破碎工坊云 · 专注高性能国内外云服务器 ➜  \033[3mhttps://www.crash.work\033[0m"
+    "蓝易云 · 高防CDN，国内BGP多线/香港/死扛CC/DDos攻击 ➜  \033[3mhttps://www.tsycdn.com\033[0m"
     "浪浪云 · BGP网络让每一次连接都纵享丝滑，明码标价、无套路续费 ➜  \033[3mhttps://langlangy.cn\033[0m"
 )
 
@@ -152,6 +154,8 @@ File_ProxmoxVersion=/etc/pve/.version
 File_AptSourceList=/etc/apt/sources.list
 Dir_AptAdditionalSources=/etc/apt/sources.list.d
 Dir_YumRepos=/etc/yum.repos.d
+File_DebianSources=$Dir_AptAdditionalSources/debian.sources
+File_UbuntuSources=$Dir_AptAdditionalSources/ubuntu.sources
 
 ## 定义 Docker 相关变量
 Dir_Docker=/etc/docker
@@ -161,6 +165,7 @@ File_DockerVersionTmp=docker-version.txt
 File_DockerCEVersionTmp=docker-ce-version.txt
 File_DockerCECliVersionTmp=docker-ce-cli-version.txt
 File_DockerSourceList=$Dir_AptAdditionalSources/docker.list
+File_DockerSources=$Dir_AptAdditionalSources/docker.sources
 File_DockerRepo=$Dir_YumRepos/docker-ce.repo
 
 ## 定义颜色和样式变量
@@ -174,10 +179,10 @@ PLAIN='\033[0m'
 BOLD='\033[1m'
 SUCCESS="\033[1;32m✔${PLAIN}"
 COMPLETE="\033[1;32m✔${PLAIN}"
-WARN="\033[1;43m 警告 ${PLAIN}"
+WARN="\033[1;43m WARN ${PLAIN}"
 ERROR="\033[1;31m✘${PLAIN}"
 FAIL="\033[1;31m✘${PLAIN}"
-TIP="\033[1;44m 提示 ${PLAIN}"
+TIP="\033[1;44m TIP ${PLAIN}"
 WORKING="\033[1;36m◉${PLAIN}"
 
 function main() {
@@ -186,7 +191,7 @@ function main() {
     run_start
     choose_mirrors
     if [[ "${ONLY_REGISTRY}" == "true" ]]; then
-        only_change_docker_registry_mirror
+        only_change_docker_registry_mirror_mode
     else
         choose_protocol
         close_firewall_service
@@ -463,9 +468,51 @@ function run_end() {
     echo -e "\n✨ $(msg "end.moreInfo") 👉 \033[3mhttps://linuxmirrors.cn\033[0m"
     if [[ "${#SPONSOR_ADS[@]}" -gt 0 ]]; then
         echo -e "\n\033[2m$(msg "end.sponsorAds")\033[0m"
-        for ad in "${SPONSOR_ADS[@]}"; do
+        _str_width() {
+            local s="$1"
+            shopt -s extglob
+            s="${s//\\033\[+([0-9;])[a-zA-Z]/}"
+            local width=0 i len val
+            local LC_ALL=C
+            len=${#s}
+            for ((i = 0; i < len; )); do
+                printf -v val '%d' "'${s:i:1}"
+                ((val < 0)) && ((val += 256))
+                if ((val < 128)); then
+                    ((width += 1, i += 1))
+                elif ((val < 192)); then
+                    ((i += 1))
+                elif ((val < 224)); then
+                    ((width += 1, i += 2))
+                elif ((val < 240)); then
+                    ((width += 2, i += 3))
+                else
+                    ((width += 2, i += 4))
+                fi
+            done
+            echo $width
+        }
+        local -a _c1 _c2 _c3 _w1 _w2
+        local _max1=0 _max2=0 _w _a _b
+        for _entry in "${SPONSOR_ADS[@]}"; do
+            _a="${_entry%% · *}"
+            _b="${_entry#* · }"
+            _c1+=("$_a")
+            _c2+=("${_b%% ➜  *}")
+            _c3+=("${_b##* ➜  }")
+            _w=$(_str_width "$_a")
+            _w1+=("$_w")
+            [[ $_w -gt $_max1 ]] && _max1=$_w
+            _w=$(_str_width "${_b%% ➜  *}")
+            _w2+=("$_w")
+            [[ $_w -gt $_max2 ]] && _max2=$_w
+        done
+        local _pad1 _pad2
+        for ((_i = 0; _i < ${#SPONSOR_ADS[@]}; _i++)); do
             sleep 0.1
-            echo -e "  \033[2m${ad}\033[0m"
+            printf -v _pad1 '%*s' $((_max1 - _w1[_i])) ''
+            printf -v _pad2 '%*s' $((_max2 - _w2[_i])) ''
+            echo -e "  \033[2m${_c1[_i]}${_pad1} ${_c2[_i]}${_pad2} ${_c3[_i]}\033[0m"
         done
     fi
     echo -e "\n\033[3;1mPowered by \033[34mLinuxMirrors\033[0m\n"
@@ -531,7 +578,7 @@ function collect_system_info() {
     if [ -s "${File_DebianVersion}" ]; then
         SYSTEM_FACTIONS="${SYSTEM_DEBIAN}"
         if [ -s "${File_kylinVersion}" ]; then
-            [[ "${ONLY_REGISTRY}" != "true" ]] && unsupport_system_error "Kylin Desktop" "apt-get install -y docker\nsystemctl enable --now docker"
+            [[ "${ONLY_REGISTRY}" != "true" ]] && unsupport_system_error "Kylin Desktop" "apt-get install -y docker\nsystemctl enable --now docker.io"
         fi
     elif [ -s "${File_RedHatRelease}" ]; then
         SYSTEM_FACTIONS="${SYSTEM_REDHAT}"
@@ -580,6 +627,33 @@ function collect_system_info() {
         if [ -s "${File_RaspberryPiOSRelease}" ]; then
             SYSTEM_JUDGMENT="${SYSTEM_RASPBERRY_PI_OS}"
             SYSTEM_PRETTY_NAME="${SYSTEM_RASPBERRY_PI_OS}"
+        fi
+        ## 针对特定系统的判定
+        if [[ "${SYSTEM_JUDGMENT}" == "${SYSTEM_DEBIAN}" ]]; then
+            ## 尚未正式发布的版本
+            if [[ -z "${SYSTEM_VERSION_ID}" && "${SYSTEM_VERSION_CODENAME}" == "forky" ]]; then
+                SYSTEM_VERSION_ID="14"
+                SYSTEM_VERSION_ID_MAJOR="${SYSTEM_VERSION_ID%%.*}"
+                SYSTEM_VERSION_ID_MINOR="${SYSTEM_VERSION_ID#*.}"
+            fi
+            ## 是否使用 DEB822 格式
+            if [[ "${SYSTEM_VERSION_ID_MAJOR}" && "${SYSTEM_VERSION_ID_MAJOR}" -ge 13 ]]; then
+                USE_DEB822_FORMAT="true"
+            fi
+        fi
+        if [[ "${SYSTEM_JUDGMENT}" == "${SYSTEM_UBUNTU}" ]]; then
+            ## 是否使用 DEB822 格式
+            if [[ "${SYSTEM_VERSION_ID_MAJOR}" && "${SYSTEM_VERSION_ID_MAJOR}" -ge 24 ]]; then
+                USE_DEB822_FORMAT="true"
+            fi
+        fi
+        # Debian DEB822 格式源文件
+        if [[ "${SYSTEM_JUDGMENT}" == "${SYSTEM_DEBIAN}" ]] && [ -f "${File_DebianSources}" ]; then
+            USE_DEB822_FORMAT="true"
+        fi
+        # Ubuntu DEB822 格式源文件
+        if [[ "${SYSTEM_JUDGMENT}" == "${SYSTEM_UBUNTU}" ]] && [ -f "${File_UbuntuSources}" ]; then
+            USE_DEB822_FORMAT="true"
         fi
         ;;
     "${SYSTEM_REDHAT}")
@@ -645,6 +719,7 @@ function collect_system_info() {
             "${SYSTEM_KALI}")
                 SOURCE_BRANCH="debian"
                 SOURCE_BRANCH_CODENAME="${debian_codename_latest}"
+                USE_DEB822_FORMAT="true"
                 ;;
             "${SYSTEM_LINUX_MINT}")
                 if [[ "${SYSTEM_NAME}" == *"LMDE"* ]]; then
@@ -671,16 +746,16 @@ function collect_system_info() {
                 esac
                 ;;
             # "${SYSTEM_KYLIN_DESKTOP}")
-            #     SOURCE_BRANCH="debian"
+            #     SOURCE_BRANCH="ubuntu"
             #     case "${SYSTEM_VERSION_ID_MAJOR}" in
             #     "v10")
-            #         SOURCE_BRANCH_CODENAME="bullseye"
+            #         SOURCE_BRANCH_CODENAME="focal"
             #         ;;
             #     "v11")
-            #         SOURCE_BRANCH_CODENAME="${debian_codename_latest}"
+            #         SOURCE_BRANCH_CODENAME="noble"
             #         ;;
             #     *)
-            #         SOURCE_BRANCH_CODENAME="${debian_codename_latest}"
+            #         SOURCE_BRANCH_CODENAME="noble"
             #         ;;
             #     esac
             #     ;;
@@ -902,7 +977,7 @@ function choose_mirrors() {
                     if [[ -z "${tmp_result}" ]]; then
                         echo -e "\n$WARN $(msg "warn.needValidNumberIndex")"
                     else
-                        SOURCE="$(echo "${tmp_result}" | awk -F '@' '{print$2}')"
+                        SOURCE="${tmp_result}"
                         break
                     fi
                     ;;
@@ -933,7 +1008,7 @@ function choose_mirrors() {
             fi
         done
         if [[ "${CAN_USE_ADVANCED_INTERACTIVE_SELECTION}" == "true" ]]; then
-            sleep 1 >/dev/null 2>&1
+            [[ "${ONLY_REGISTRY}" != "true" ]] && sleep 1 >/dev/null 2>&1
             interactive_select_list "${mirror_list_name}" "\n ${BOLD}$(msg "interaction.source.dockerRegistry.select")${PLAIN}\n" "mirror_list_labels"
             SOURCE_REGISTRY="${_SELECT_RESULT%%@@*}"
             echo -e "\n${GREEN}➜${PLAIN}  ${BOLD}Docker Registry: $(echo "${_SELECT_RESULT#*@@}" | sed 's|（推荐）||g; s|（推薦）||g')${PLAIN}"
@@ -945,11 +1020,11 @@ function choose_mirrors() {
                 read -rp "${CHOICE_C}" INPUT
                 case "${INPUT}" in
                 [1-9] | [1-9][0-9] | [1-9][0-9][0-9])
-                    local tmp_source="$(eval echo \${${mirror_list_name}[$(($INPUT - 1))]})"
-                    if [[ -z "${tmp_source}" ]]; then
+                    local tmp_result="$(eval echo \${${mirror_list_name}[$(($INPUT - 1))]})"
+                    if [[ -z "${tmp_result}" ]]; then
                         echo -e "\n$WARN $(msg "warn.needValidNumberIndex")"
                     else
-                        SOURCE_REGISTRY="$(eval echo \${${mirror_list_name}[$(($INPUT - 1))]} | awk -F '@' '{print$2}')"
+                        SOURCE_REGISTRY="${tmp_result}"
                         break
                     fi
                     ;;
@@ -1121,6 +1196,9 @@ function install_dependency_packages() {
 
 ## 配置 Docker CE 源
 function configure_docker_ce_mirror() {
+    if [[ -z "${SOURCE}" ]]; then
+        SOURCE="download.docker.com"
+    fi
     local -a commands=()
     case "${SYSTEM_FACTIONS}" in
     "${SYSTEM_DEBIAN}" | "${SYSTEM_OPENKYLIN}")
@@ -1136,8 +1214,17 @@ function configure_docker_ce_mirror() {
         chmod a+r $file_keyring
         ## 添加源
         [ -d "${Dir_AptAdditionalSources}" ] || mkdir -p $Dir_AptAdditionalSources
-        local source_content="deb [arch=$(dpkg --print-architecture) signed-by=${file_keyring}] ${WEB_PROTOCOL}://${SOURCE}/linux/${SOURCE_BRANCH} ${DEBIAN_CODENAME:-"${SOURCE_BRANCH_CODENAME:-"${SYSTEM_VERSION_CODENAME}"}"} stable"
-        echo "${source_content}" | tee $File_DockerSourceList >/dev/null 2>&1
+        if [[ "${USE_DEB822_FORMAT}" == "true" ]]; then
+            echo "Types: deb
+URIs: ${WEB_PROTOCOL}://${SOURCE}/linux/${SOURCE_BRANCH}
+Suites: ${DEBIAN_CODENAME:-${SOURCE_BRANCH_CODENAME:-${SYSTEM_VERSION_CODENAME}}}
+Components: stable
+Architectures: $(dpkg --print-architecture)
+Signed-By: ${file_keyring}" >$File_DockerSources
+        else
+            local apt_source_content="deb [arch=$(dpkg --print-architecture) signed-by=${file_keyring}] ${WEB_PROTOCOL}://${SOURCE}/linux/${SOURCE_BRANCH} ${DEBIAN_CODENAME:-${SOURCE_BRANCH_CODENAME:-${SYSTEM_VERSION_CODENAME}}} stable"
+            echo "${apt_source_content}" | tee $File_DockerSourceList >/dev/null 2>&1
+        fi
         commands+=("apt-get update")
         ;;
     "${SYSTEM_REDHAT}" | "${SYSTEM_OPENEULER}" | "${SYSTEM_OPENCLOUDOS}" | "${SYSTEM_ANOLISOS}" | "${SYSTEM_TENCENTOS}" | "${SYSTEM_KYLIN_SERVER}")
@@ -1199,7 +1286,9 @@ function configure_docker_ce_mirror() {
                         esac
                     else
                         # openEuler
-                        if [[ "${SYSTEM_VERSION_ID_MAJOR}" -ge 22 ]]; then
+                        if [[ "${SYSTEM_VERSION_ID_MAJOR}" -ge 24 ]]; then
+                            target_version="10"
+                        elif [[ "${SYSTEM_VERSION_ID_MAJOR}" -gt 22 ]]; then
                             target_version="9"
                         fi
                     fi
@@ -1481,29 +1570,10 @@ function install_docker_engine() {
     fi
 }
 
-## 修改 Docker Registry 镜像仓库源
-function change_docker_registry_mirror() {
-    ## 使用官方 Docker Hub
-    if [[ "${REGISTRY_SOURCEL}" == "registry.hub.docker.com" ]]; then
-        if [ -s "${File_DockerConfig}" ]; then
-            ## 安装 jq
-            local package_manager="$(get_package_manager)"
-            $package_manager install -y jq
-            if command_exists jq; then
-                jq 'del(.["registry-mirrors"])' $File_DockerConfig >$File_DockerConfig.tmp && mv $File_DockerConfig.tmp $File_DockerConfig
-                # 重启服务
-                systemctl daemon-reload
-                if [[ "$(systemctl is-active docker 2>/dev/null)" == "active" ]]; then
-                    systemctl restart docker
-                fi
-            else
-                echo -e "\n${WARN} $(msg "warn.needManuallyDeleteConfig" "${File_DockerConfig}" "${BLUE}registry-mirrors${PLAIN}" "${BLUE}systemctl daemon-reload && systemctl restart docker${PLAIN}")\n"
-            fi
-        fi
-        return
-    fi
-    ## 备份原有配置文件
-    if [ -d "${Dir_Docker}" ] && [ -e "${File_DockerConfig}" ]; then
+## 更换 Docker Registry 镜像仓库源
+function change_docker_registry_mirror_main() {
+    ## 备份配置文件
+    function backup_docker_config() {
         if [ -e "${File_DockerConfigBackup}" ]; then
             if [[ "${IGNORE_BACKUP_TIPS}" == "false" ]]; then
                 local ask_text="$(msg "interaction.backup.skipOverwrite")?"
@@ -1513,6 +1583,7 @@ function change_docker_registry_mirror() {
                     if [[ "${_SELECT_RESULT}" == "false" ]]; then
                         echo ''
                         cp -rvf $File_DockerConfig $File_DockerConfigBackup 2>&1
+                        sleep 2s
                     fi
                 else
                     local CHOICE_BACKUP="$(echo -e "\n${BOLD}└─ ${ask_text} [Y/n] ${PLAIN}")"
@@ -1523,6 +1594,7 @@ function change_docker_registry_mirror() {
                     [Nn] | [Nn][Oo])
                         echo ''
                         cp -rvf $File_DockerConfig $File_DockerConfigBackup 2>&1
+                        sleep 2s
                         ;;
                     *)
                         input_error "$(msg "error.defaultBehavior.noOverwrite")"
@@ -1534,42 +1606,12 @@ function change_docker_registry_mirror() {
             echo ''
             cp -rvf $File_DockerConfig $File_DockerConfigBackup 2>&1
             echo -e "\n$COMPLETE $(msg "info.backuped.dockerConfig")"
+            sleep 2s
         fi
-        sleep 2s
-    else
-        mkdir -p $Dir_Docker >/dev/null 2>&1
-        touch $File_DockerConfig
-    fi
+    }
 
-    echo -e '{\n  "registry-mirrors": '"$(handleRegistryMirrorsValue ${SOURCE_REGISTRY})"'\n}' >$File_DockerConfig
-    ## 重启服务
-    systemctl daemon-reload
-    if [[ "$(systemctl is-active docker 2>/dev/null)" == "active" ]]; then
-        systemctl restart docker
-    fi
-}
-
-## 仅修改 Docker Registry 镜像仓库源模式
-function only_change_docker_registry_mirror() {
-    ## 判定是否已安装
-    case "${SYSTEM_FACTIONS}" in
-    "${SYSTEM_DEBIAN}" | "${SYSTEM_OPENKYLIN}")
-        dpkg -l | grep docker-ce-cli -q
-        ;;
-    "${SYSTEM_REDHAT}" | "${SYSTEM_OPENEULER}" | "${SYSTEM_OPENCLOUDOS}" | "${SYSTEM_ANOLISOS}" | "${SYSTEM_TENCENTOS}" | "${SYSTEM_KYLIN_SERVER}")
-        rpm -qa | grep docker-ce-cli -q
-        ;;
-    esac
-    if [ $? -ne 0 ]; then
-        ## 仅镜像仓库换源模式
-        if [[ "${ONLY_REGISTRY}" == "true" ]]; then
-            output_error "$(msg "result.registry.dockerEngineNotExsit" "${BLUE}--only-registry${PLAIN}")"
-        fi
-    fi
-
-    [ -d "${Dir_Docker}" ] || mkdir -p "${Dir_Docker}"
-    if [ -s "${File_DockerConfig}" ]; then
-        ## 安装 jq
+    ## 安装 jq
+    function install_jq_package() {
         if ! command_exists jq; then
             ## 更新软件源
             local package_manager
@@ -1605,45 +1647,137 @@ function only_change_docker_registry_mirror() {
                 output_error "$(msg "error.sync" "${SYNC_MIRROR_TEXT}" "${BLUE}${package_manager}${PLAIN}")"
             fi
             $package_manager install -y jq
-            if ! command_exists jq; then
-                output_error "$(msg "error.installPackageFailed" "${BLUE}jq${PLAIN}")"
+        fi
+    }
+
+    function modify_registry_mirrors() {
+        local action="$1"
+        local value="$2"
+        local tmp="${File_DockerConfig}.tmp"
+        local _rc=1
+        if [[ "${action}" == "set" ]]; then
+            jq --argjson v "${value}" '.["registry-mirrors"] = $v' "${File_DockerConfig}" >"${tmp}" 2>/dev/null
+        else
+            jq 'del(.["registry-mirrors"])' "${File_DockerConfig}" >"${tmp}" 2>/dev/null
+        fi
+        _rc=$?
+        if [ ${_rc} -eq 0 ] && [ -s "${tmp}" ]; then
+            mv "${tmp}" "${File_DockerConfig}"
+            return 0
+        else
+            rm -f "${tmp}"
+            return 1
+        fi
+    }
+
+    ## 处理 registry-mirrors 配置项的值
+    function handle_registry_mirrors_value() {
+        local content="$1"
+        local result=""
+        content="$(echo "${content}" | sed 's| ||g')"
+        local -a items=(${content//,/ })
+        for item in "${items[@]}"; do
+            [[ -z "${item}" ]] && continue
+            if [[ -z "${result}" ]]; then
+                result='"https://'"${item}"'"'
+            else
+                result="${result},\"https://${item}\""
+            fi
+        done
+        if [[ "${result}" ]]; then
+            echo "[${result}]"
+        else
+            echo ""
+        fi
+    }
+
+    [ -d "${Dir_Docker}" ] || mkdir -p "${Dir_Docker}"
+    if [ -s "${File_DockerConfig}" ]; then
+        ## 备份配置文件
+        backup_docker_config
+        ## 安装 jq
+        install_jq_package
+        if ! command_exists jq; then
+            output_error "$(msg "error.installPackageFailed" "${BLUE}jq${PLAIN}")"
+        fi
+
+        if [[ "${SOURCE_REGISTRY}" == "registry.hub.docker.com" ]]; then
+            ## Docker Hub 官方源 - 删除 registry-mirrors
+            modify_registry_mirrors "del"
+            if [ $? -eq 0 ]; then
+                # 配置文件仅剩空对象时删除
+                local _stripped
+                _stripped="$(tr -d '[:space:]' <"${File_DockerConfig}" 2>/dev/null)"
+                [[ "${_stripped}" == "{}" ]] && rm -f "${File_DockerConfig}"
+            else
+                if [[ "${ONLY_REGISTRY}" == "true" ]]; then
+                    output_error "$(msg "error.dockerConfigModifyFailed" "${BLUE}${File_DockerConfig}${PLAIN}")"
+                else
+                    echo -e "\n${WARN} $(msg "warn.dockerConfigDelMirrorsFailed" "${BLUE}${File_DockerConfig}${PLAIN}" "${BLUE}systemctl daemon-reload && systemctl restart docker${PLAIN}")\n"
+                    return
+                fi
+            fi
+        else
+            ## 非官方源 - 设置 registry-mirrors
+            local registry_mirrors_value="$(handle_registry_mirrors_value "${SOURCE_REGISTRY}")"
+            modify_registry_mirrors "set" "${registry_mirrors_value}"
+            if [ $? -ne 0 ]; then
+                if [[ "${ONLY_REGISTRY}" == "true" ]]; then
+                    output_error "$(msg "warn.dockerConfigSetMirrorsFailed" "${BLUE}${File_DockerConfig}${PLAIN}" "${BLUE}${registry_mirrors_value}${PLAIN}" "${BLUE}systemctl daemon-reload && systemctl restart docker${PLAIN}")"
+                else
+                    echo -e "\n${WARN} $(msg "warn.dockerConfigSetMirrorsFailed" "${BLUE}${File_DockerConfig}${PLAIN}" "${BLUE}${registry_mirrors_value}${PLAIN}" "${BLUE}systemctl daemon-reload && systemctl restart docker${PLAIN}")\n"
+                    return
+                fi
             fi
         fi
-        [ -s "${File_DockerConfig}" ] || echo "{}" >$File_DockerConfig
-        jq '.["registry-mirrors"] = '"$(handleRegistryMirrorsValue ${SOURCE_REGISTRY})"'' $File_DockerConfig >$File_DockerConfig.tmp && mv $File_DockerConfig.tmp $File_DockerConfig
     else
-        echo -e '{\n  "registry-mirrors": '"$(handleRegistryMirrorsValue ${SOURCE_REGISTRY})"'\n}' >$File_DockerConfig
+        if [[ "${SOURCE_REGISTRY}" == "registry.hub.docker.com" ]]; then
+            return
+        fi
+        echo -e '{\n  "registry-mirrors": '"$(handle_registry_mirrors_value "${SOURCE_REGISTRY}")"'\n}' >"${File_DockerConfig}"
     fi
+
     ## 重启服务
     systemctl daemon-reload
     if [[ "$(systemctl is-active docker 2>/dev/null)" == "active" ]]; then
         systemctl restart docker
     fi
+}
+
+## 更换 Docker Registry 镜像仓库
+function change_docker_registry_mirror() {
+    if [[ -z "${SOURCE_REGISTRY}" ]]; then
+        SOURCE_REGISTRY="registry.hub.docker.com"
+    fi
+
+    change_docker_registry_mirror_main
+}
+
+## 仅修改 Docker Registry 镜像仓库模式
+function only_change_docker_registry_mirror_mode() {
+    ## 判定是否已安装
+    case "${SYSTEM_FACTIONS}" in
+    "${SYSTEM_DEBIAN}" | "${SYSTEM_OPENKYLIN}")
+        dpkg -l | grep docker-ce-cli -q
+        ;;
+    "${SYSTEM_REDHAT}" | "${SYSTEM_OPENEULER}" | "${SYSTEM_OPENCLOUDOS}" | "${SYSTEM_ANOLISOS}" | "${SYSTEM_TENCENTOS}" | "${SYSTEM_KYLIN_SERVER}")
+        rpm -qa | grep docker-ce-cli -q
+        ;;
+    esac
+    if [ $? -ne 0 ]; then
+        ## 仅镜像仓库换源模式
+        if [[ "${ONLY_REGISTRY}" == "true" ]]; then
+            output_error "$(msg "result.registry.dockerEngineNotExsit" "${BLUE}--only-registry${PLAIN}")"
+        fi
+    fi
+
+    change_docker_registry_mirror_main
 
     echo -e "\n${BLUE}\$${PLAIN} docker info --format '{{json .RegistryConfig.Mirrors}}'"
     echo -e "\033[2m>${PLAIN} $(docker info --format '{{json .RegistryConfig.Mirrors}}')"
+
     if [[ "${PURE_MODE}" != "true" ]]; then
         echo -e "\n$COMPLETE $(msg "result.registry.success")"
-    fi
-}
-
-function handleRegistryMirrorsValue() {
-    local content="$1"
-    local result=""
-    content="$(echo "${content}" | sed 's| ||g')"
-    local -a items=(${content//,/ })
-    for item in "${items[@]}"; do
-        [[ -z "${item}" ]] && continue
-        if [[ -z "${result}" ]]; then
-            result='"https://'"${item}"'"'
-        else
-            result="${result},\"https://${item}\""
-        fi
-    done
-    if [[ "${result}" ]]; then
-        echo "[${result}]"
-    else
-        echo ""
     fi
 }
 
@@ -2096,7 +2230,7 @@ function init_msg_pack() {
             eval "${func_name}"
         fi
     }
-    local current_lang="${1:-"${MESSAGE_LANG_DEFAULT}"}"
+    local current_lang="${1:-${MESSAGE_LANG_DEFAULT}}"
     current_lang="$(echo "${current_lang}" | sed 's/^-*//')"
     current_lang="${current_lang,,}"
     if [[ "${MESSAGE_LANG_DISPLAY[${current_lang}]}" ]]; then
@@ -2153,6 +2287,9 @@ function msg_pack_zh_hans() {
         ['warn.needValidNumberIndex']='请输入有效的数字序号！'
         ['warn.needInputNumberIndex']='请输入数字序号！'
         ['warn.needManuallyDeleteConfig']='请自行删除 {} 中的 {} 配置并重启服务 {}'
+        ['warn.dockerConfigDelMirrorsFailed']='无法修改 {}，请手动删除 registry-mirrors 配置后重启服务 {}'
+        ['warn.dockerConfigSetMirrorsFailed']='无法修改 {}，请手动将 registry-mirrors 设置为 {} 后重启服务 {}'
+        ['error.dockerConfigModifyFailed']='无法修改 {}，请手动删除 registry-mirrors 配置后重新运行脚本！'
         ['tip.skipInstallDockerEngine']='检测到系统已安装 Docker Engine 且是最新版本，跳过安装'
         ['info.backuped.dockerConfig']='已备份原有 Docker 配置文件'
         ['interaction.source.type.public']='公网'
@@ -2219,7 +2356,7 @@ function msg_pack_zh_hans() {
         ['mirrors.dockerCE.9']='浙江大学'
         ['mirrors.dockerCE.10']='南京大学'
         ['mirrors.dockerCE.11']='上海交通大学'
-        ['mirrors.dockerCE.12']='重庆邮电大学'
+        ['mirrors.dockerCE.12']='华中科技大学'
         ['mirrors.dockerCE.13']='中国科学技术大学'
         ['mirrors.dockerCE.14']='中国科学院软件研究所'
         ['mirrors.dockerCE.15']='官方源'
@@ -2304,6 +2441,9 @@ function msg_pack_zh_hant() {
         ['warn.needValidNumberIndex']='請輸入有效的數字序號！'
         ['warn.needInputNumberIndex']='請輸入數字序號！'
         ['warn.needManuallyDeleteConfig']='請自行刪除 {} 中的 {} 設定並重新啟動服務 {}'
+        ['warn.dockerConfigDelMirrorsFailed']='無法修改 {}，請手動刪除 registry-mirrors 設定後重新啟動服務 {}'
+        ['warn.dockerConfigSetMirrorsFailed']='無法修改 {}，請手動將 registry-mirrors 設定為 {} 後重新啟動服務 {}'
+        ['error.dockerConfigModifyFailed']='無法修改 {}，請手動刪除 registry-mirrors 設定後重新執行腳本！'
         ['tip.skipInstallDockerEngine']='偵測到系統已安裝 Docker Engine 且是最新版本，跳過安裝'
         ['info.backuped.dockerConfig']='已備份原有 Docker 設定檔'
         ['interaction.source.type.public']='公網'
@@ -2370,7 +2510,7 @@ function msg_pack_zh_hant() {
         ['mirrors.dockerCE.9']='浙江大學'
         ['mirrors.dockerCE.10']='南京大學'
         ['mirrors.dockerCE.11']='上海交通大學'
-        ['mirrors.dockerCE.12']='重慶郵電大學'
+        ['mirrors.dockerCE.12']='華中科技大學'
         ['mirrors.dockerCE.13']='中國科學技術大學'
         ['mirrors.dockerCE.14']='中國科學院軟體研究所'
         ['mirrors.dockerCE.15']='官方源'
@@ -2456,6 +2596,9 @@ function msg_pack_en() {
         ['warn.needValidNumberIndex']='Please enter a valid number index!'
         ['warn.needInputNumberIndex']='Please enter a number index!'
         ['warn.needManuallyDeleteConfig']='Please manually delete {} configuration in {} and restart service {}'
+        ['warn.dockerConfigDelMirrorsFailed']='Failed to modify {}. Please manually delete the registry-mirrors entry and restart service {}'
+        ['warn.dockerConfigSetMirrorsFailed']='Failed to modify {}. Please manually set registry-mirrors to {} and restart service {}'
+        ['error.dockerConfigModifyFailed']='Failed to modify {}. Please manually delete the registry-mirrors entry and rerun the script!'
         ['tip.skipInstallDockerEngine']='Detected Docker Engine is already installed with latest version, skipping installation'
         ['info.backuped.dockerConfig']='Original Docker config file has been backed up'
         ['interaction.source.type.public']='Public'
@@ -2522,7 +2665,7 @@ Issue Report {}'
         ['mirrors.dockerCE.9']='Zhejiang University'
         ['mirrors.dockerCE.10']='Nanjing University'
         ['mirrors.dockerCE.11']='Shanghai Jiao Tong University'
-        ['mirrors.dockerCE.12']='Chongqing University of Posts and Telecommunications'
+        ['mirrors.dockerCE.12']='Huazhong University of Science and Technology'
         ['mirrors.dockerCE.13']='University of Science and Technology of China'
         ['mirrors.dockerCE.14']='Institute of Software, Chinese Academy of Sciences'
         ['mirrors.dockerCE.15']='Official Source'

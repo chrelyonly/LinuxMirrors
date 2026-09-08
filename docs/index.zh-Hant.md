@@ -48,20 +48,20 @@ hide:
     ---
 
     只需要一行指令就能直接運行，零技術門檻，無需安裝任何依賴  
-    文件整合了 AI 搜尋與聊天，提供各種使用場景的解決方案
+    文件整合了 AI 聊天功能，為各種使用場景提供解決方案
 
 -   :material-vector-polyline:{ .lg .middle } __系統支援廣泛__
 
     ---
 
-    已適配高達 `25+` 作業系統，涵蓋各類版本，精準辨識系統類型  
+    已適配 `27+` 作業系統，涵蓋各類版本，精準辨識系統類型  
     腳本相容性高，不支援的系統會有對應提示並無操作跳出
 
 -   :material-vector-triangle:{ .lg .middle } __多元軟體源適配__
 
     ---
 
-    深入考察了中國大陸鏡像站的系統適配狀況，專為國人打造  
+    深入研究了國內各鏡像站的系統支援情況，專為國人精心打造  
     也提供全網蒐集的國內教育網和海外鏡像站供用戶選擇
 
 -   :material-rocket-launch-outline:{ .lg .middle } __快，且高效__
@@ -83,7 +83,7 @@ hide:
     ---
 
     腳本透過方向鍵互動逐步引導使用者選擇軟體軟體源配置，讓換源更簡單  
-    此外腳本提供了豐富的命令選項，支援 CI/CD 整合與自動化維運
+    此外，腳本提供了豐富的命令選項，支援 CI/CD 整合與自動化維運
 
 -   :material-pencil-ruler-outline:{ .lg .middle } __高度可自定義__
 
@@ -106,7 +106,7 @@ hide:
 | 作業系統 | 適配版本 |
 | --- | :---: |
 | <a href="https://www.debian.org" title="https://www.debian.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/debian.svg" alt="Debian" width="16" height="16" style="vertical-align: -0.35em"></a> **Debian** | _8～13_ |
-| <a href="https://ubuntu.com" title="https://ubuntu.com" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/ubuntu.svg" alt="Ubuntu" width="16" height="16" style="vertical-align: -0.15em"></a> **Ubuntu** :material-information-outline:{ title="支援烏班圖家族衍生作業系統，例如 <code>優麒麟</code> <code>Kubuntu</code> 等<br/>由於迭代速度較快並不直接支援所有非 LTS 的版本，因此具體詳見文件" } | _14～25_ |
+| <a href="https://ubuntu.com" title="https://ubuntu.com" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/ubuntu.svg" alt="Ubuntu" width="16" height="16" style="vertical-align: -0.15em"></a> **Ubuntu** :material-information-outline:{ title="支援烏班圖家族衍生作業系統，例如 <code>優麒麟</code> <code>Kubuntu</code> 等<br/>由於迭代速度較快並不直接支援所有非 LTS 的版本，因此具體詳見文件" } | _14～26_ |
 | <a href="https://www.kali.org" title="https://www.kali.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/kali-linux.png" alt="Kali Linux" width="16" height="16"></a> **Kali Linux** | _all_ |
 | <a href="https://linuxmint.com" title="https://linuxmint.com" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/linux-mint.svg" alt="Linux Mint" width="16" height="16" style="vertical-align: -0.2em"></a> **Linux Mint** | _17～22 / LMDE 2～7_ |
 | <a href="https://www.deepin.org" title="https://www.deepin.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/deepin.png" alt="Deepin" width="16" height="16" style="vertical-align: -0.2em"></a> **Deepin** | _all_ |
@@ -115,7 +115,7 @@ hide:
 | <a href="https://www.proxmox.com/en/products/proxmox-virtual-environment/overview" title="https://www.proxmox.com/en/products/proxmox-virtual-environment/overview" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/proxmox.svg" alt="Proxmox VE" width="16" height="16" style="vertical-align: -0.2em"></a> **Proxmox VE** | _all_ |
 | <a href="https://www.raspberrypi.com/software" title="https://www.raspberrypi.com/software" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/raspberry-pi.png" alt="Raspberry Pi OS" width="16" height="16" style="vertical-align: -0.2em"></a> **Raspberry Pi OS** | _all_ |
 | <a href="https://access.redhat.com/products/red-hat-enterprise-linux" title="https://access.redhat.com/products/red-hat-enterprise-linux" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/redhat.svg" alt="Red Hat Enterprise Linux" width="16" height="16" style="vertical-align: -0.1em"></a> **Red Hat Enterprise Linux** :material-information-outline:{ title="使用 <code>CentOS Stream</code> 或 <code>CentOS</code> 源" } | _7～10_ |
-| <a href="https://fedoraproject.org" title="https://fedoraproject.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/fedora.ico" alt="Fedora" width="16" height="16" style="vertical-align: -0.15em"></a> **Fedora** | _30～42_ |
+| <a href="https://fedoraproject.org" title="https://fedoraproject.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/fedora.ico" alt="Fedora" width="16" height="16" style="vertical-align: -0.15em"></a> **Fedora** | _30～44_ |
 | <a href="https://www.centos.org" title="https://www.centos.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/centos.svg" alt="CentOS" width="16" height="16" style="vertical-align: -0.125em"></a> **CentOS** | _7～8 / Stream 8～10_ |
 | <a href="https://rockylinux.org" title="https://rockylinux.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/rocky-linux.svg" alt="Rocky Linux" width="16" height="16" style="vertical-align: -0.2em"></a> **Rocky Linux** | _8～10_ |
 | <a href="https://almalinux.org" title="https://almalinux.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/almalinux.svg" alt="AlmaLinux" width="16" height="16" style="vertical-align: -0.15em"></a> **AlmaLinux** | _8～10_ |
@@ -124,12 +124,14 @@ hide:
 | <a href="https://www.opencloudos.org" title="https://www.opencloudos.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/opencloudos.png" alt="OpenCloudOS" width="16" height="16" style="vertical-align: -0.25em"></a> **OpenCloudOS** | _8.6～9 / Stream 23_ |
 | <a href="https://www.openkylin.top" title="https://www.openkylin.top" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/openkylin.ico" alt="openKylin" width="16" height="16" style="vertical-align: -0.25em"></a> **openKylin** | _all_ |
 | <a href="https://openanolis.cn" title="https://openanolis.cn" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/anolis.png" alt="Anolis OS" width="16" height="16" style="vertical-align: -0.1em"></a> **Anolis OS** | _8 / 23_ |
-| <a href="https://www.opensuse.org" title="https://www.opensuse.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/opensuse.svg" alt="openSUSE" width="16" height="16"></a> **openSUSE** | _Leap 15 ~ 16 / Tumbleweed_ |
+| <a href="https://www.opensuse.org" title="https://www.opensuse.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/opensuse.svg" alt="openSUSE" width="16" height="16"></a> **openSUSE** | _Leap 15～16 / Tumbleweed_ |
 | <a href="https://archlinux.org" title="https://archlinux.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/arch-linux.ico" alt="Arch Linux" width="16" height="16" style="vertical-align: -0.15em"></a> **Arch Linux** | _all_ |
 | <a href="https://manjaro.org" title="https://manjaro.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/manjaro.svg" alt="Manjaro" width="16" height="16" style="vertical-align: -0.2em"></a> **Manjaro** | _all_ |
+| <a href="https://endeavouros.com" title="https://endeavouros.com" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/endeavouros.png" alt="EndeavourOS" width="16" height="16" style="vertical-align: -0.1em"></a> **EndeavourOS** | _all_ |
 | <a href="https://www.alpinelinux.org" title="https://www.alpinelinux.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/alpine.png" alt="Alpine Linux" width="16" height="16" style="vertical-align: -0.15em"></a> **Alpine Linux** | _v3 / edge_ |
 | <a href="https://www.gentoo.org" title="https://www.gentoo.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/gentoo.svg" alt="Gentoo" width="16" height="16" style="vertical-align: -0.2em"></a> **Gentoo** | _all_ |
-| <a href="https://nixos.org" title="https://nixos.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/nixos.svg" alt="NixOS" width="16" height="16" style="vertical-align: -0.15em"></a> **NixOS** | _19～25_ |
+| <a href="https://nixos.org" title="https://nixos.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/nixos.svg" alt="NixOS" width="16" height="16" style="vertical-align: -0.15em"></a> **NixOS** | _19～26_ |
+| <a href="https://voidlinux.org" title="https://voidlinux.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/void-linux.png" alt="Void Linux" width="16" height="16" style="vertical-align: -0.15em"></a> **Void Linux** | _all_ |
 
 </div>
 </div>

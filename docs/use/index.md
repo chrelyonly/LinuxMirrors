@@ -47,7 +47,7 @@ hide:
             ``` bash
             bash <(curl -sSL https://edgeone.linuxmirrors.cn/main.sh)
             ```
-            > 不建议在国内网络环境下使用
+            > 备用官网地址，不建议在国内网络环境下使用
 
 === ":material-earth: 境外以及海外地区"
 
@@ -91,7 +91,7 @@ hide:
             ``` bash
             bash <(curl -sSL https://edgeone.linuxmirrors.cn/main.sh) --abroad
             ```
-            > 不建议在国内网络环境下使用
+            > 备用官网地址，不建议在国内网络环境下使用
 
 === ":material-library: 中国大陆教育网"
 
@@ -135,13 +135,13 @@ hide:
             ``` bash
             bash <(curl -sSL https://edgeone.linuxmirrors.cn/main.sh) --edu
             ```
-            > 不建议在国内网络环境下使用
+            > 备用官网地址，不建议在国内网络环境下使用
 
 
 
 !!! tip "使用帮助"
 
-    选项卡分别代表脚本内置软件源（镜像站）类型和获取脚本途径，请在使用前检查目标镜像站是否支持你所使用的操作系统，可以在[软件源列表](../mirrors/index.md)中查看。  
+    选项卡分别代表脚本内置软件源（镜像站）类型和获取脚本的不同途径，请在使用前检查目标镜像站是否支持你的操作系统，可以在[软件源列表](../mirrors/index.md)中查看。  
     默认自动备份原有软件源内容，如需了解更多请翻阅下方文档。若使用过程中的某些选项令你疑惑不解，那么在选择软件源后一路回车即是最佳实践。
 
     _支持在系统原有软件源损坏、缺失、无效等异常环境下使用，无需额外安装任何依赖。_
@@ -412,11 +412,11 @@ hide:
 
         - 配置 `SSH` 服务
 
-            ``` { .bash .no-copy title="允许 root 账户登录" }
+            ``` { .bash title="允许 root 账户登录" }
             cat /etc/ssh/sshd_config | grep -Eq "^[# ]?PermitRootLogin " ; [ $? -eq 0 ] && sed -i 's/^[# ]\?PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config || echo -e "\nPermitRootLogin yes" >> /etc/ssh/sshd_config
             ```
 
-            ``` { .bash .no-copy title="启用密码认证" }
+            ``` { .bash title="启用密码认证" }
             cat /etc/ssh/sshd_config | grep -Eq "^[# ]?PasswordAuthentication " ; [ $? -eq 0 ] && sed -i 's/^[# ]\?PasswordAuthentication.*/PasswordAuthentication yes/g' /etc/ssh/sshd_config || echo -e "\nPasswordAuthentication yes" >> /etc/ssh/sshd_config
             ```
 
@@ -586,33 +586,7 @@ $ bash <(curl -sSL https://linuxmirrors.cn/main.sh) --help
 
         项目脚本为了适配大的环境不会针对某一镜像站独特的仓库名称而单独适配
 
-        | 系统名称 | 涉及的名称 |
-        | --- | :---: |
-        | <a href="https://www.debian.org" title="https://www.debian.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/debian.svg" alt="Debian" width="16" height="16" style="vertical-align: -0.35em"></a> **Debian** | `debian` `debian-archive` |
-        | <a href="https://ubuntu.com" title="https://ubuntu.com" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/ubuntu.svg" alt="Ubuntu" width="16" height="16" style="vertical-align: -0.15em"></a> **Ubuntu** | `ubuntu` `ubuntu-ports` |
-        | <a href="https://www.kali.org" title="https://www.kali.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/kali-linux.png" alt="Kali Linux" width="16" height="16"></a> **Kali Linux** | `kali` |
-        | <a href="https://linuxmint.com" title="https://linuxmint.com" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/linux-mint.svg" alt="Linux Mint" width="16" height="16" style="vertical-align: -0.2em"></a> **Linux Mint** | `linuxmint` `ubuntu` `ubuntu-ports` `debian` |
-        | <a href="https://www.deepin.org" title="https://www.deepin.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/deepin.png" alt="Deepin" width="16" height="16" style="vertical-align: -0.2em"></a> **Deepin（深度）** | `deepin` |
-        | <a href="https://zorin.com/os" title="https://zorin.com/os" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/zorin-os.png" alt="Zorin OS" width="16" height="16" style="vertical-align: -0.15em"></a> **Zorin OS** | `ubuntu` `ubuntu-ports` |
-        | <a href="https://www.armbian.com" title="https://www.armbian.com" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/armbian.png" alt="Armbian" width="16" height="16" style="vertical-align: -0.2em"></a> **Armbian** | `armbian` |
-        | <a href="https://www.proxmox.com/en/products/proxmox-virtual-environment/overview" title="https://www.proxmox.com/en/products/proxmox-virtual-environment/overview" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/proxmox.svg" alt="Proxmox VE" width="16" height="16" style="vertical-align: -0.2em"></a> **Proxmox VE** | `proxmox` |
-        | <a href="https://www.raspberrypi.com/software" title="https://www.raspberrypi.com/software" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/raspberry-pi.png" alt="Raspberry Pi OS" width="16" height="16" style="vertical-align: -0.2em"></a> **Raspberry Pi OS** | `raspberrypi` `raspbian` `debian` `debian-archive` |
-        | <a href="https://access.redhat.com/products/red-hat-enterprise-linux" title="https://access.redhat.com/products/red-hat-enterprise-linux" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/redhat.svg" alt="Red Hat Enterprise Linux" width="16" height="16" style="vertical-align: -0.1em"></a> **Red Hat Enterprise Linux** :material-information-outline:{ title="9版本使用 <code>CentOS Stream</code>， 7、8版本使用<code>CentOS</code>" } | `centos` `centos-stream` `centos-altarch` `centos-vault` |
-        | <a href="https://fedoraproject.org" title="https://fedoraproject.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/fedora.ico" alt="Fedora" width="16" height="16" style="vertical-align: -0.15em"></a> **Fedora** | `fedora` `fedora-archive` |
-        | <a href="https://www.centos.org" title="https://www.centos.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/centos.svg" alt="CentOS" width="16" height="16" style="vertical-align: -0.135em"></a> **CentOS** | `centos` `centos-stream` `centos-altarch` `centos-vault` |
-        | <a href="https://rockylinux.org" title="https://rockylinux.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/rocky-linux.svg" alt="Rocky Linux" width="16" height="16" style="vertical-align: -0.2em"></a> **Rocky Linux** | `rocky` |
-        | <a href="https://almalinux.org" title="https://almalinux.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/almalinux.svg" alt="AlmaLinux" width="16" height="16" style="vertical-align: -0.15em"></a> **AlmaLinux** | `almalinux` `almalinux-vault` |
-        | <a href="https://www.oracle.com/linux" title="https://www.oracle.com/linux" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/oracle-linux.png" alt="Oracle Linux" width="16" height="16" style="vertical-align: -0.25em"></a> **Oracle Linux** | `centos-stream` |
-        | <a href="https://www.openeuler.org" title="https://www.openeuler.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/openeuler.ico" alt="openEuler" width="16" height="16" style="vertical-align: -0.2em"></a> **openEuler（开源欧拉）** | `openeuler` |
-        | <a href="https://www.opencloudos.org" title="https://www.opencloudos.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/opencloudos.png" alt="OpenCloudOS" width="16" height="16" style="vertical-align: -0.25em"></a> **OpenCloudOS（鸥栖）** | `opencloudos` |
-        | <a href="https://www.openkylin.top" title="https://www.openkylin.top" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/openkylin.ico" alt="openKylin" width="16" height="16" style="vertical-align: -0.25em"></a> **openKylin（开放麒麟）** | `openkylin` |
-        | <a href="https://openanolis.cn" title="https://openanolis.cn" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/anolis.png" alt="Anolis OS" width="16" height="16" style="vertical-align: -0.1em"></a> **Anolis OS（龙蜥）** | `anolis` |
-        | <a href="https://www.opensuse.org" title="https://www.opensuse.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/opensuse.svg" alt="openSUSE" width="16" height="16"></a> **openSUSE** | `opensuse` |
-        | <a href="https://archlinux.org" title="https://archlinux.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/arch-linux.ico" alt="Arch Linux" width="16" height="16" style="vertical-align: -0.15em"></a> **Arch Linux** | `archlinux` `archlinuxarm` |
-        | <a href="https://manjaro.org" title="https://manjaro.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/manjaro.svg" alt="Manjaro" width="16" height="16" style="vertical-align: -0.2em"></a> **Manjaro** | `manjaro` |
-        | <a href="https://www.alpinelinux.org" title="https://www.alpinelinux.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/alpine.png" alt="Alpine Linux" width="16" height="16" style="vertical-align: -0.15em"></a> **Alpine Linux** | `alpine` |
-        | <a href="https://www.gentoo.org" title="https://www.gentoo.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/gentoo.svg" alt="Gentoo" width="16" height="16" style="vertical-align: -0.2em"></a> **Gentoo** | `gentoo` `gentoo-portage` |
-        | <a href="https://nixos.org" title="https://nixos.org" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icon/nixos.svg" alt="NixOS" width="16" height="16" style="vertical-align: -0.15em"></a> **NixOS** | `nix-channels` |
+        --8<-- "docs/use/repo-branchs.md"
 
     请看下面的例子
 
@@ -735,7 +709,7 @@ $ bash <(curl -sSL https://linuxmirrors.cn/main.sh) --help
 
         !!! info "EOL 为生命周期结束的缩写（End Of Life），Ubuntu 迭代速度较快一般非LTS(长期支持)版本的生命周期只有9个月。官方会定期从主仓库移除不在生命周期内的版本仓库目录，届时可能就需要使用镜像站的 `Ubuntu Old Releases` 仓库"
 
-        具体版本支持情况详见官方 [Wiki](https://wiki.ubuntu.com/Releases)，关于 `Ubuntu Old Releases` 仓库的支持情况详见各镜像站
+        具体版本支持情况详见官方 [Wiki](https://documentation.ubuntu.com/project/release-team/list-of-releases/)，关于 `Ubuntu Old Releases` 仓库的支持情况详见各镜像站
 
         ``` bash
         bash <(curl -sSL https://linuxmirrors.cn/main.sh) \
@@ -810,6 +784,22 @@ $ bash <(curl -sSL https://linuxmirrors.cn/main.sh) --help
 
 ---
 
+## 精简版（Lite）
+
+额外提供一个精简版本，是主脚本的复制，面向企业产品、开源项目使用，具有以下特性：
+
+- 单一显示语言 `English`，无 I18n 国际化功能
+- 默认使用官方源，去除了交互选择内置软件源功能
+- 去除了无关的打印内容
+- 保留核心逻辑与命令选项设计
+
+``` bash
+bash <(curl -sSL https://linuxmirrors.cn/main-lite.sh)
+```
+> 请熟悉本项目后再使用，不建议新手用户使用
+
+---
+
 ## 定制脚本
 
 如果你是其它项目的开发者希望通过本项目来制作专属脚本那么请参考下面提到的内容，目前已经有国内教育单位镜像站的维护者这样做了。
@@ -822,7 +812,7 @@ $ bash <(curl -sSL https://linuxmirrors.cn/main.sh) --help
     1. 首先在删除内容时应尽可能保留脚本原始结构，直接把涉及函数中的内容删除即可，使其保留为空函数
     2. 可以删除一些不使用（操作系统）的软件源原始内容 `gen_repo_files_xxx`，这些内容占据了脚本 `60%` 以上的体积
     3. 如果你不使用某些功能那么可以删除对应功能模块函数中的内容，`命令选项 handle_command_options`、`备份原有软件源 backup_original_mirrors`、`更新软件包 upgrade_software`
-    4. 移除不需要的语言包，例：`function msg_pack_en() {}`
+    4. 移除不需要的语言包，例：`function msg_pack_en() { :; }`
 6.  脚本主要功能配置是由统一的变量控制的，命令选项亦是如此，这些全局变量由全大写字母构成并遵循下划线命名法，具体变量详见如下表格，你只需要将这些变量声明在脚本头部（预留注释区域）即可快速完成定制
 
 ??? note "变量列表（点击展开查看）"

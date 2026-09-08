@@ -25,18 +25,12 @@ search:
     | 鏡像站名稱 | 鏡像站位址 |
     | :- | :-: |
     | 北京大學 | [mirrors.pku.edu.cn](https://mirrors.pku.edu.cn "https://mirrors.pku.edu.cn") |
-    | 北京交通大學 | [mirror.bjtu.edu.cn](https://mirror.bjtu.edu.cn "https://mirror.bjtu.edu.cn") |
     | 北京外國語大學 | [mirrors.bfsu.edu.cn](https://mirrors.bfsu.edu.cn "https://mirrors.bfsu.edu.cn") |
-    | 北京郵電大學 | [mirror.bupt.edu.cn](https://mirror.bupt.edu.cn "https://mirror.bupt.edu.cn") |
     | 重慶大學 | [mirrors.cqu.edu.cn](https://mirrors.cqu.edu.cn "https://mirrors.cqu.edu.cn") |
     | 重慶郵電大學 | [mirrors.cqupt.edu.cn](https://mirrors.cqupt.edu.cn "https://mirrors.cqupt.edu.cn") |
-    | 大連東軟信息學院 | [mirrors.neusoft.edu.cn](https://mirrors.neusoft.edu.cn "https://mirrors.neusoft.edu.cn") |
-    | 電子科技大學 | [mirrors.uestc.cn](https://mirrors.uestc.cn "https://mirrors.uestc.cn") |
-    | 華南農業大學 | [mirrors.scau.edu.cn](https://mirrors.scau.edu.cn "https://mirrors.scau.edu.cn") |
     | 華中科技大學 | [mirrors.hust.edu.cn](https://mirrors.hust.edu.cn "https://mirrors.hust.edu.cn") |
     | 吉林大學 | [mirrors.jlu.edu.cn](https://mirrors.jlu.edu.cn "https://mirrors.jlu.edu.cn") |
     | 荊楚理工學院 | [mirrors.jcut.edu.cn](https://mirrors.jcut.edu.cn "https://mirrors.jcut.edu.cn") |
-    | 江西理工大學 | [mirrors.jxust.edu.cn](https://mirrors.jxust.edu.cn "https://mirrors.jxust.edu.cn") |
     | 蘭州大學 | [mirror.lzu.edu.cn](https://mirror.lzu.edu.cn "https://mirror.lzu.edu.cn") |
     | 南京大學 | [mirrors.nju.edu.cn](https://mirrors.nju.edu.cn "https://mirrors.nju.edu.cn") |
     | 南京工業大學 | [mirrors.njtech.edu.cn](https://mirrors.njtech.edu.cn "https://mirrors.njtech.edu.cn") |
@@ -46,7 +40,6 @@ search:
     | 齊魯工業大學 | [mirrors.qlu.edu.cn](https://mirrors.qlu.edu.cn "https://mirrors.qlu.edu.cn") |
     | 清華大學 | [mirrors.tuna.tsinghua.edu.cn](https://mirrors.tuna.tsinghua.edu.cn "https://mirrors.tuna.tsinghua.edu.cn") |
     | 山東大學 | [mirrors.sdu.edu.cn](https://mirrors.sdu.edu.cn "https://mirrors.sdu.edu.cn") |
-    | 上海科技大學 | [mirrors.shanghaitech.edu.cn](https://mirrors.shanghaitech.edu.cn "https://mirrors.shanghaitech.edu.cn") |
     | 上海交通大學（思源） | [mirror.sjtu.edu.cn](https://mirror.sjtu.edu.cn "https://mirror.sjtu.edu.cn") |
     | 上海交通大學（致遠） | [mirrors.sjtug.sjtu.edu.cn](https://mirrors.sjtug.sjtu.edu.cn "https://mirrors.sjtug.sjtu.edu.cn") |
     | 武昌首義學院 | [mirrors.wsyu.edu.cn](https://mirrors.wsyu.edu.cn "https://mirrors.wsyu.edu.cn") |
@@ -68,8 +61,7 @@ search:
     | 亞洲 · xTom · 新加坡 :flag-SG: | [mirrors.xtom.sg](https://mirrors.xtom.sg "https://mirrors.xtom.sg") |
     | 亞洲 · 自由軟體實驗室(NCHC) · 臺灣 :flag-TW: | [free.nchc.org.tw](https://free.nchc.org.tw "https://free.nchc.org.tw") |
     | 亞洲 · OSS Planet · 臺灣 :flag-TW: | [mirror.ossplanet.net](https://mirror.ossplanet.net "https://mirror.ossplanet.net") |
-    | 亞洲 · 國立陽明交通大學 · 臺灣 :flag-TW: | [linux.cs.nctu.edu.tw](https://linux.cs.nctu.edu.tw "https://linux.cs.nctu.edu.tw") |
-    | 亞洲 · 淡江大學 · 臺灣 :flag-TW: | [ftp.tku.edu.tw](https://ftp.tku.edu.tw "https://ftp.tku.edu.tw") |
+    | 亞洲 · 國立陽明交通大學 · 臺灣 :flag-TW: | [linux.cs.nycu.edu.tw](https://linux.cs.nycu.edu.tw "https://linux.cs.nycu.edu.tw") |
     | 亞洲 · Taiwan Digital Streaming · 臺灣 :flag-TW: | [mirror.twds.com.tw](https://mirror.twds.com.tw "https://mirror.twds.com.tw") |
     | 亞洲 · AniGil Linux Archive · 韓國 :flag-KR: | [mirror.anigil.com](https://mirror.anigil.com "https://mirror.anigil.com") |
     | 亞洲 · 工業網路安全中心(ICSCoE) · 日本 :flag-JP: | [ftp.udx.icscoe.jp/Linux](https://ftp.udx.icscoe.jp/Linux "https://ftp.udx.icscoe.jp/Linux") |
@@ -84,7 +76,6 @@ search:
     | 鏡像站名稱 | 鏡像站位址 |
     | :- | :-: |
     | 歐洲 · Vorboss Ltd · 英國 :flag-GB: | [mirror.vorboss.net](https://mirror.vorboss.net "https://mirror.vorboss.net") |
-    | 歐洲 · QuickHost · 英國 :flag-GB: | [mirror.quickhost.uk](https://mirror.quickhost.uk "https://mirror.quickhost.uk") |
     | 歐洲 · dogado · 德國 :flag-DE: | [mirror.dogado.de](https://mirror.dogado.de "https://mirror.dogado.de") |
     | 歐洲 · xTom · 德國 :flag-DE: | [mirrors.xtom.de](https://mirrors.xtom.de "https://mirrors.xtom.de") |
     | 歐洲 · 亞琛工業大學(RWTH Aachen) · 德國 :flag-DE: | [ftp.halifax.rwth-aachen.de](https://ftp.halifax.rwth-aachen.de "https://ftp.halifax.rwth-aachen.de") |
@@ -94,7 +85,6 @@ search:
     | 歐洲 · Crans · 法國 :flag-FR: | [eclats.crans.org](https://eclats.crans.org "https://eclats.crans.org") |
     | 歐洲 · CRIHAN · 法國 :flag-FR: | [ftp.crihan.fr](https://ftp.crihan.fr "https://ftp.crihan.fr") |
     | 歐洲 · xTom · 荷蘭 :flag-NL: | [mirrors.xtom.nl](https://mirrors.xtom.nl "https://mirrors.xtom.nl") |
-    | 歐洲 · DataPacket · 荷蘭 :flag-NL: | [mirror.datapacket.com](https://mirror.datapacket.com "https://mirror.datapacket.com") |
     | 歐洲 · Linux Kernel · 荷蘭 :flag-NL: | [eu.edge.kernel.org](https://eu.edge.kernel.org "https://eu.edge.kernel.org") |
     | 歐洲 · xTom · 愛沙尼亞 :flag-EE: | [mirrors.xtom.ee](https://mirrors.xtom.ee "https://mirrors.xtom.ee") |
     | 歐洲 · netsite · 丹麥 :flag-DK: | [mirror.netsite.dk](https://mirror.netsite.dk "https://mirror.netsite.dk") |
@@ -102,15 +92,10 @@ search:
     | 歐洲 · Academic Computer Club · 瑞典 :flag-SE: | [mirror.accum.se](https://mirror.accum.se "https://mirror.accum.se") |
     | 歐洲 · Lysator · 瑞典 :flag-SE: | [ftp.lysator.liu.se](https://ftp.lysator.liu.se "https://ftp.lysator.liu.se") |
     | 歐洲 · Yandex · 俄羅斯 :flag-RU: | [mirror.yandex.ru](https://mirror.yandex.ru "https://mirror.yandex.ru") |
-    | 歐洲 · ia64 · 俄羅斯 :flag-RU: | [mirror.linux-ia64.org](https://mirror.linux-ia64.org "https://mirror.linux-ia64.org") |
-    | 歐洲 · Truenetwork · 俄羅斯 :flag-RU: | [mirror.truenetwork.ru](https://mirror.truenetwork.ru "https://mirror.truenetwork.ru") |
     | 歐洲 · Belgian Research Network · 比利時 :flag-BE: | [ftp.belnet.be/mirror](https://ftp.belnet.be/mirror "https://ftp.belnet.be/mirror") |
-    | 歐洲 · 克里特大學電腦中心 · 希臘 :flag-GR: | [ftp.cc.uoc.gr/mirrors/linux](https://ftp.cc.uoc.gr/mirrors/linux "https://ftp.cc.uoc.gr/mirrors/linux") |
     | 歐洲 · 馬薩里克大學信息學院 · 捷克 :flag-CZ: | [ftp.fi.muni.cz/pub/linux](https://ftp.fi.muni.cz/pub/linux "https://ftp.fi.muni.cz/pub/linux") |
     | 歐洲 · 捷克理工大學學生會俱樂部(Silicon Hill) · 捷克 :flag-CZ: | [ftp.sh.cvut.cz](https://ftp.sh.cvut.cz "https://ftp.sh.cvut.cz") |
     | 歐洲 · Vodafone · 捷克 :flag-CZ: | [mirror.karneval.cz/pub/linux](https://mirror.karneval.cz/pub/linux "https://mirror.karneval.cz/pub/linux") |
-    | 歐洲 · CZ.NIC · 捷克 :flag-CZ: | [mirrors.nic.cz](https://mirrors.nic.cz "https://mirrors.nic.cz") |
-    | 歐洲 · 蘇黎世聯邦理工學院 · 瑞士 :flag-CH: | [mirror.ethz.ch](https://mirror.ethz.ch "https://mirror.ethz.ch") |
 
 === ":fontawesome-solid-earth-americas: 北美洲"
 
@@ -133,8 +118,6 @@ search:
     | :- | :-: |
     | 南美 · PoP-SC · 巴西 :flag-BR: | [mirror.pop-sc.rnp.br/mirror](https://mirror.pop-sc.rnp.br/mirror "https://mirror.pop-sc.rnp.br/mirror") |
     | 南美 · 蓬塔格羅薩州立大學 · 巴西 :flag-BR: | [mirror.uepg.br](https://mirror.uepg.br "https://mirror.uepg.br") |
-    | 南美 · UFSCar · 巴西 :flag-BR: | [mirror.ufscar.br](https://mirror.ufscar.br "https://mirror.ufscar.br") |
-    | 南美 · Sysarmy Community · 阿根廷 :flag-AR: | [mirrors.eze.sysarmy.com](https://mirrors.eze.sysarmy.com "https://mirrors.eze.sysarmy.com") |
 
 === ":fontawesome-solid-earth-oceania: 大洋洲"
 
@@ -145,7 +128,6 @@ search:
     | 大洋 · DataMossa · 澳大利亞 :flag-AU: | [mirror.datamossa.io](https://mirror.datamossa.io "https://mirror.datamossa.io") |
     | 大洋 · Amaze · 澳大利亞 :flag-AU: | [mirror.amaze.com.au](https://mirror.amaze.com.au "https://mirror.amaze.com.au") |
     | 大洋 · xTom · 澳大利亞 :flag-AU: | [mirrors.xtom.au](https://mirrors.xtom.au "https://mirrors.xtom.au") |
-    | 大洋 · Over the Wire · 澳大利亞 :flag-AU: | [mirror.overthewire.com.au](https://mirror.overthewire.com.au "https://mirror.overthewire.com.au") |
     | 大洋 · Free Software Mirror Group · 紐西蘭 :flag-NZ: | [mirror.fsmg.org.nz](https://mirror.fsmg.org.nz "https://mirror.fsmg.org.nz") |
 
 === ":fontawesome-solid-earth-africa: 非洲"
@@ -166,8 +148,7 @@ search:
     | 亞洲 · xTom · 新加坡 :flag-SG: | [mirrors.xtom.sg](https://mirrors.xtom.sg "https://mirrors.xtom.sg") |
     | 亞洲 · 自由軟體實驗室(NCHC) · 臺灣 :flag-TW: | [free.nchc.org.tw](https://free.nchc.org.tw "https://free.nchc.org.tw") |
     | 亞洲 · OSS Planet · 臺灣 :flag-TW: | [mirror.ossplanet.net](https://mirror.ossplanet.net "https://mirror.ossplanet.net") |
-    | 亞洲 · 國立陽明交通大學 · 臺灣 :flag-TW: | [linux.cs.nctu.edu.tw](https://linux.cs.nctu.edu.tw "https://linux.cs.nctu.edu.tw") |
-    | 亞洲 · 淡江大學 · 臺灣 :flag-TW: | [ftp.tku.edu.tw](https://ftp.tku.edu.tw "https://ftp.tku.edu.tw") |
+    | 亞洲 · 國立陽明交通大學 · 臺灣 :flag-TW: | [linux.cs.nycu.edu.tw](https://linux.cs.nycu.edu.tw "https://linux.cs.nycu.edu.tw") |
     | 亞洲 · Taiwan Digital Streaming · 臺灣 :flag-TW: | [mirror.twds.com.tw](https://mirror.twds.com.tw "https://mirror.twds.com.tw") |
     | 亞洲 · AniGil Linux Archive · 韓國 :flag-KR: | [mirror.anigil.com](https://mirror.anigil.com "https://mirror.anigil.com") |
     | 亞洲 · 工業網路安全中心(ICSCoE) · 日本 :flag-JP: | [ftp.udx.icscoe.jp/Linux](https://ftp.udx.icscoe.jp/Linux "https://ftp.udx.icscoe.jp/Linux") |
@@ -177,7 +158,6 @@ search:
     | 亞洲 · GB Network Solutions · 馬來西亞 :flag-MY: | [mirrors.gbnetwork.com](https://mirrors.gbnetwork.com "https://mirrors.gbnetwork.com") |
     | 亞洲 · 孔敬大學 · 泰國 :flag-TH: | [mirror.kku.ac.th](https://mirror.kku.ac.th "https://mirror.kku.ac.th") |
     | 歐洲 · Vorboss Ltd · 英國 :flag-GB: | [mirror.vorboss.net](https://mirror.vorboss.net "https://mirror.vorboss.net") |
-    | 歐洲 · QuickHost · 英國 :flag-GB: | [mirror.quickhost.uk](https://mirror.quickhost.uk "https://mirror.quickhost.uk") |
     | 歐洲 · dogado · 德國 :flag-DE: | [mirror.dogado.de](https://mirror.dogado.de "https://mirror.dogado.de") |
     | 歐洲 · xTom · 德國 :flag-DE: | [mirrors.xtom.de](https://mirrors.xtom.de "https://mirrors.xtom.de") |
     | 歐洲 · 亞琛工業大學(RWTH Aachen) · 德國 :flag-DE: | [ftp.halifax.rwth-aachen.de](https://ftp.halifax.rwth-aachen.de "https://ftp.halifax.rwth-aachen.de") |
@@ -187,7 +167,6 @@ search:
     | 歐洲 · Crans · 法國 :flag-FR: | [eclats.crans.org](https://eclats.crans.org "https://eclats.crans.org") |
     | 歐洲 · CRIHAN · 法國 :flag-FR: | [ftp.crihan.fr](https://ftp.crihan.fr "https://ftp.crihan.fr") |
     | 歐洲 · xTom · 荷蘭 :flag-NL: | [mirrors.xtom.nl](https://mirrors.xtom.nl "https://mirrors.xtom.nl") |
-    | 歐洲 · DataPacket · 荷蘭 :flag-NL: | [mirror.datapacket.com](https://mirror.datapacket.com "https://mirror.datapacket.com") |
     | 歐洲 · Linux Kernel · 荷蘭 :flag-NL: | [eu.edge.kernel.org](https://eu.edge.kernel.org "https://eu.edge.kernel.org") |
     | 歐洲 · xTom · 愛沙尼亞 :flag-EE: | [mirrors.xtom.ee](https://mirrors.xtom.ee "https://mirrors.xtom.ee") |
     | 歐洲 · netsite · 丹麥 :flag-DK: | [mirror.netsite.dk](https://mirror.netsite.dk "https://mirror.netsite.dk") |
@@ -195,15 +174,10 @@ search:
     | 歐洲 · Academic Computer Club · 瑞典 :flag-SE: | [mirror.accum.se](https://mirror.accum.se "https://mirror.accum.se") |
     | 歐洲 · Lysator · 瑞典 :flag-SE: | [ftp.lysator.liu.se](https://ftp.lysator.liu.se "https://ftp.lysator.liu.se") |
     | 歐洲 · Yandex · 俄羅斯 :flag-RU: | [mirror.yandex.ru](https://mirror.yandex.ru "https://mirror.yandex.ru") |
-    | 歐洲 · ia64 · 俄羅斯 :flag-RU: | [mirror.linux-ia64.org](https://mirror.linux-ia64.org "https://mirror.linux-ia64.org") |
-    | 歐洲 · Truenetwork · 俄羅斯 :flag-RU: | [mirror.truenetwork.ru](https://mirror.truenetwork.ru "https://mirror.truenetwork.ru") |
     | 歐洲 · Belgian Research Network · 比利時 :flag-BE: | [ftp.belnet.be/mirror](https://ftp.belnet.be/mirror "https://ftp.belnet.be/mirror") |
-    | 歐洲 · 克里特大學電腦中心 · 希臘 :flag-GR: | [ftp.cc.uoc.gr/mirrors/linux](https://ftp.cc.uoc.gr/mirrors/linux "https://ftp.cc.uoc.gr/mirrors/linux") |
     | 歐洲 · 馬薩里克大學信息學院 · 捷克 :flag-CZ: | [ftp.fi.muni.cz/pub/linux](https://ftp.fi.muni.cz/pub/linux "https://ftp.fi.muni.cz/pub/linux") |
     | 歐洲 · 捷克理工大學學生會俱樂部(Silicon Hill) · 捷克 :flag-CZ: | [ftp.sh.cvut.cz](https://ftp.sh.cvut.cz "https://ftp.sh.cvut.cz") |
     | 歐洲 · Vodafone · 捷克 :flag-CZ: | [mirror.karneval.cz/pub/linux](https://mirror.karneval.cz/pub/linux "https://mirror.karneval.cz/pub/linux") |
-    | 歐洲 · CZ.NIC · 捷克 :flag-CZ: | [mirrors.nic.cz](https://mirrors.nic.cz "https://mirrors.nic.cz") |
-    | 歐洲 · 蘇黎世聯邦理工學院 · 瑞士 :flag-CH: | [mirror.ethz.ch](https://mirror.ethz.ch "https://mirror.ethz.ch") |
     | 北美 · Linux Kernel · 美國 :flag-US: | [mirrors.kernel.org](https://mirrors.kernel.org "https://mirrors.kernel.org") |
     | 北美 · 麻省理工學院(MIT) · 美國 :flag-US: | [mirrors.mit.edu](https://mirrors.mit.edu "https://mirrors.mit.edu") |
     | 北美 · 普林斯頓大學數學系 · 美國 :flag-US: | [mirror.math.princeton.edu/pub](https://mirror.math.princeton.edu/pub "https://mirror.math.princeton.edu/pub") |
@@ -216,14 +190,11 @@ search:
     | 北美 · Switch · 加拿大 :flag-CA: | [mirrors.switch.ca](https://mirrors.switch.ca "https://mirrors.switch.ca") |
     | 南美 · PoP-SC · 巴西 :flag-BR: | [mirror.pop-sc.rnp.br/mirror](https://mirror.pop-sc.rnp.br/mirror "https://mirror.pop-sc.rnp.br/mirror") |
     | 南美 · 蓬塔格羅薩州立大學 · 巴西 :flag-BR: | [mirror.uepg.br](https://mirror.uepg.br "https://mirror.uepg.br") |
-    | 南美 · UFSCar · 巴西 :flag-BR: | [mirror.ufscar.br](https://mirror.ufscar.br "https://mirror.ufscar.br") |
-    | 南美 · Sysarmy Community · 阿根廷 :flag-AR: | [mirrors.eze.sysarmy.com](https://mirrors.eze.sysarmy.com "https://mirrors.eze.sysarmy.com") |
     | 大洋 · Fremont Cabal Internet Exchange(FCIX) · 澳大利亞 :flag-AU: | [gsl-syd.mm.fcix.net](https://gsl-syd.mm.fcix.net "https://gsl-syd.mm.fcix.net") |
     | 大洋 · AARNet · 澳大利亞 :flag-AU: | [mirror.aarnet.edu.au/pub](https://mirror.aarnet.edu.au/pub "https://mirror.aarnet.edu.au/pub") |
     | 大洋 · DataMossa · 澳大利亞 :flag-AU: | [mirror.datamossa.io](https://mirror.datamossa.io "https://mirror.datamossa.io") |
     | 大洋 · Amaze · 澳大利亞 :flag-AU: | [mirror.amaze.com.au](https://mirror.amaze.com.au "https://mirror.amaze.com.au") |
     | 大洋 · xTom · 澳大利亞 :flag-AU: | [mirrors.xtom.au](https://mirrors.xtom.au "https://mirrors.xtom.au") |
-    | 大洋 · Over the Wire · 澳大利亞 :flag-AU: | [mirror.overthewire.com.au](https://mirror.overthewire.com.au "https://mirror.overthewire.com.au") |
     | 大洋 · Free Software Mirror Group · 紐西蘭 :flag-NZ: | [mirror.fsmg.org.nz](https://mirror.fsmg.org.nz "https://mirror.fsmg.org.nz") |
     | 非洲 · Liquid Telecom · 肯亞 :flag-KE: | [mirror.liquidtelecom.com](https://mirror.liquidtelecom.com "https://mirror.liquidtelecom.com") |
     | 非洲 · Dimension Data · 南非 :flag-ZA: | [mirror.dimensiondata.com](https://mirror.dimensiondata.com "https://mirror.dimensiondata.com") |
@@ -232,7 +203,7 @@ search:
 
     此清單中的軟體源參考自 [`Ubuntu 鏡像清單`](https://launchpad.net/ubuntu/+cdmirrors "https://launchpad.net/ubuntu/+cdmirrors")、[`Debian 鏡像清單`](https://www.debian.org/CD/http-ftp/#mirrors "https://www.debian.org/CD/http-ftp/#mirrors")、[`Fedora Mirror Manager`](https://mirrormanager.fedoraproject.org/mirrors "https://mirrormanager.fedoraproject.org/mirrors") 並且在此之前全部經過有效性驗證，但在此之前未完成了實際測試
 
-    作者沒有精力持續維護清單中的這些境外、海外鏡像站，如果你想補充更多軟體源或更正目前已有，請修改腳本內的 [`mirror_list_abroad 陣列變數`](https://github.com/SuperManito/LinuxMirrors/blob/main/ChangeMirrors.sh#L70 "https://github.com/SuperManito/LinuxMirrors/blob/main/ChangeMirrors.sh#L70") 並依照下面的編輯規格進行修改
+    作者沒有精力持續維護清單中的這些境外、海外鏡像站，如果你想補充更多軟體源或更正目前已有，請修改腳本內的 [`mirror_list_abroad 陣列變數`](https://github.com/SuperManito/LinuxMirrors/blob/main/ChangeMirrors.sh#L64 "https://github.com/SuperManito/LinuxMirrors/blob/main/ChangeMirrors.sh#L64") 並依照下面的編輯規格進行修改
 
     你可以在確認鏡像站位址無誤後前往 GitHub 倉庫提交 [Pull Requests](https://github.com/SuperManito/LinuxMirrors/pulls "https://github.com/SuperManito/LinuxMirrors/pulls")，也可以 :material-source-fork: Fork 倉庫後自訂使用
 
@@ -253,7 +224,7 @@ search:
 <button class="md-button" title="https://tool.chinaz.com" onclick="window.open('https://tool.chinaz.com')">域名查詢</button>
 <button class="md-button" title="https://tools.ipip.net/newping.php" onclick="window.open('https://tools.ipip.net/newping.php')">Ping 延遲測試</button>
 <button class="md-button" title="https://tools.ipip.net/traceroute.php" onclick="window.open('https://tools.ipip.net/traceroute.php')">Tracert 路由追蹤測試</button>
-<button class="md-button" title="https://ipw.cn/ipv6webcheck" onclick="window.open('https://ipw.cn/ipv6webcheck')">IPv6 接取測試</button>
+<button class="md-button" title="https://www.guokeyun.com/ipv6Monitor.html" onclick="window.open('https://www.guokeyun.com/ipv6Monitor.html')">IPv6 接取測試</button>
 
 !!! tip "該頁面顯示的皆為腳本預設提供可供選擇的軟體源位址，如果沒有找到你想使用的也沒有關係，腳本支援命令選項可自定義使用，詳見[進階用法](../use/index.md#命令選項進階用法)"
 

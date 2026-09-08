@@ -2,9 +2,9 @@ ComponentSystem.register('mirrors-table', {
     template: `
 <div>
     <t-config-provider :global-config="globalConfig">
-        <t-space v-if="!isMobile" align="center" style="margin-bottom: 8px; gap: 20px">
+        <t-space v-if="!isMobile" align="center" style="display: flex; flex-flow: wrap; justify-content: space-between; margin-bottom: 8px; gap: 20px">
             <blockquote>
-                <p>{{ startTitle[0] }} <code>Debian</code>、<code>Ubuntu</code>、<code>CentOS</code>、<code>openEuler</code> {{ startTitle[1] }}</p>
+                <p>{{ startTitle }}</p>
             </blockquote>
             <t-space style="width: 100%">
                 <t-popup placement="bottom" :show-arrow="false">
@@ -42,7 +42,7 @@ ComponentSystem.register('mirrors-table', {
                             </t-space>
                         </t-checkbox-group>
                     </template>
-                    <t-button variant="text" shape="circle">
+                    <t-button variant="text" shape="circle" :theme="selectedCellStatuses.length < 3 ? 'primary' : 'default'">
                         <svg fill="none" viewBox="0 0 24 24" width="1em" height="1em" class="t-icon t-icon-filter" style="fill: none;"><g id="filter"><path id="fill1" fill="transparent" d="M19.5 4H4.5L10.5 12.5V20H13.5V12.5L19.5 4Z" fill-rule="evenodd" clip-rule="evenodd"></path><path id="stroke1" stroke="currentColor" d="M19.5 4H4.5L10.5 12.5V20H13.5V12.5L19.5 4Z" fill-rule="evenodd" stroke-linecap="square" stroke-width="2" clip-rule="evenodd"></path></g></svg>
                     </t-button>
                 </t-popup>
@@ -54,7 +54,7 @@ ComponentSystem.register('mirrors-table', {
                     clearable
                     size="large"
                     :placeholder="rowSelectPlaceholder"
-                    style="min-width: 160px; width: 250px"
+                    style="min-width: 160px; width: 250px; user-select: none"
                     @change="onRowFilterChange"
                 />
                 <t-select
@@ -65,13 +65,13 @@ ComponentSystem.register('mirrors-table', {
                     clearable
                     size="large"
                     :placeholder="selectPlaceholder"
-                    style="min-width: 160px; width: 230px"
+                    style="min-width: 160px; width: 230px; user-select: none"
                     @change="onFilterChange"
                 />
-            </div>
+            </t-space>
         </t-space>
         <blockquote v-if="isMobile">
-            <p>{{ startTitle[0] }} <code>Debian</code>、<code>Ubuntu</code>、<code>CentOS</code>、<code>openEuler</code> {{ startTitle[1] }}</p>
+            <p>{{ startTitle }}</p>
         </blockquote>
         <t-table
             :columns="columns"
@@ -83,11 +83,21 @@ ComponentSystem.register('mirrors-table', {
             @data-change="dataChange"
             @filter-change="onTableFilterChange"
         >
+            <template #IPv6="{ col }">
+                <t-tooltip :content="col.tooltip">
+                    <span>IPv6</span>
+                </t-tooltip>
+            </template>
+            <template #EPEL="{ col }">
+                <t-tooltip :content="col.tooltip">
+                    <span>EPEL</span>
+                </t-tooltip>
+            </template>
             <template v-for="col in columns" :key="col.colKey" #[col.colKey]="{ row }">
                 <div v-if="col.colKey === 'name'">
                     <t-popup placement="bottom" :show-arrow="false">
                         <template #content>
-                            <t-space direction="vertical" algin="center" style="gap: 2px">
+                            <t-space direction="vertical" align="center" style="gap: 2px">
                                 <span>{{ row.officialName }}</span>
                                 <a :href="row.url" target="_blank" rel="noopener noreferrer" style="color: var(--md-typeset-a-color)">{{ row.domain }}</a>
                             </t-space>
@@ -145,7 +155,8 @@ ComponentSystem.register('mirrors-table', {
     },
     created() {
         const allKeys = this._flattenFilterKeys(this.filterOptions)
-        this.selectedColumnFilters = allKeys.slice()
+        const defaultHidden = new Set([])
+        this.selectedColumnFilters = allKeys.filter((k) => !defaultHidden.has(k))
         this.selectedRowFilters = Array.isArray(this.originalData) ? this.originalData.map((r) => r.name) : []
         this._debouncedUpdateColumns = debounce(this._updateColumns.bind(this), 120)
         this._debouncedUpdateRows = debounce(this._updateRows.bind(this), 120)
@@ -165,7 +176,7 @@ ComponentSystem.register('mirrors-table', {
         },
         startTitle() {
             const f = this.localeFlags
-            return f.isZhHant ? ['下方列表中的鏡像站均同步了', '軟體倉庫，列表根據單位性質、地理位置、名稱長度排序，與實際下載速度無關。'] : f.isEn ? ['All mirror sites in the list below synchronize the', 'software repositories. The list is sorted by institution type, geographic location, and name length, and is not related to actual download speed.'] : ['下方列表中的镜像站均同步了', '软件仓库，列表根据单位性质、地理位置、名称长度进行排序，与实际速度无关。']
+            return f.isZhHant ? '列表根據單位性質、地理位置、名稱長度排序，與實際下載速度無關。' : f.isEn ? 'The list is sorted by institution type, geographic location, and name length, and is not related to actual download speed.' : '列表根据单位性质、地理位置、名称长度进行排序，与实际速度无关。'
         },
         globalConfig() {
             const f = this.localeFlags
@@ -191,25 +202,25 @@ ComponentSystem.register('mirrors-table', {
                           searchResultText: '\u641C\u5C0B"{result}"\uFF0C\u627E\u5230{count}\u9805\u7D50\u679C',
                       }
                     : f.isEn
-                    ? {
-                          empty: 'Empty Data',
-                          loadingText: 'loading...',
-                          loadingMoreText: 'loading more',
-                          filterInputPlaceholder: '',
-                          sortAscendingOperationText: 'click to sort ascending',
-                          sortCancelOperationText: 'click to cancel sorting',
-                          sortDescendingOperationText: 'click to sort descending',
-                          clearFilterResultButtonText: 'Clear',
-                          columnConfigButtonText: 'Column Config',
-                          columnConfigTitleText: 'Table Column Config',
-                          columnConfigDescriptionText: 'Please select columns to show them in the table',
-                          confirmText: 'Confirm',
-                          cancelText: 'Cancel',
-                          resetText: 'Reset',
-                          selectAllText: 'Select All',
-                          searchResultText: 'Search "{result}". Found no items. | Search "{result}". Found 1 item. | Search "{result}". Found {count} items.',
-                      }
-                    : undefined,
+                      ? {
+                            empty: 'Empty Data',
+                            loadingText: 'loading...',
+                            loadingMoreText: 'loading more',
+                            filterInputPlaceholder: '',
+                            sortAscendingOperationText: 'click to sort ascending',
+                            sortCancelOperationText: 'click to cancel sorting',
+                            sortDescendingOperationText: 'click to sort descending',
+                            clearFilterResultButtonText: 'Clear',
+                            columnConfigButtonText: 'Column Config',
+                            columnConfigTitleText: 'Table Column Config',
+                            columnConfigDescriptionText: 'Please select columns to show them in the table',
+                            confirmText: 'Confirm',
+                            cancelText: 'Cancel',
+                            resetText: 'Reset',
+                            selectAllText: 'Select All',
+                            searchResultText: 'Search "{result}". Found no items. | Search "{result}". Found 1 item. | Search "{result}". Found {count} items.',
+                        }
+                      : undefined,
                 select: f.isZhHant
                     ? {
                           empty: '\u66AB\u7121\u6578\u64DA',
@@ -217,12 +228,12 @@ ComponentSystem.register('mirrors-table', {
                           placeholder: '\u8ACB\u9078\u64C7',
                       }
                     : f.isEn
-                    ? {
-                          empty: 'Empty Data',
-                          loadingText: 'loading...',
-                          placeholder: 'please select',
-                      }
-                    : undefined,
+                      ? {
+                            empty: 'Empty Data',
+                            loadingText: 'loading...',
+                            placeholder: 'please select',
+                        }
+                      : undefined,
             }
         },
         selectPlaceholder() {

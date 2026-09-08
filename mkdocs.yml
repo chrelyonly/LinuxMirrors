@@ -2,7 +2,7 @@ site_name: LinuxMirrors
 repo_name: LinuxMirrors
 repo_url: https://github.com/SuperManito/LinuxMirrors
 edit_uri: edit/main/docs/
-copyright: 'Copyright &copy; 2025 <a href="https://github.com/SuperManito" target="_blank" rel="noopener noreferrer">SuperManito</a>'
+copyright: 'Copyright &copy; 2026 <a href="https://github.com/SuperManito" target="_blank" rel="noopener noreferrer">SuperManito</a>'
 
 nav:
   - "介绍": index.md
@@ -16,17 +16,18 @@ nav:
 extra_javascript:
   - https://unpkg.com/vue/dist/vue.global.prod.js
   - https://unpkg.com/tdesign-vue-next/dist/tdesign.min.js
+  - https://unpkg.com/@algolia/sitesearch@latest/dist/search-askai.min.js
   - assets/js/modules/tdesign-theme.js
-  - assets/js/components/orama-ui/config.js
-  - assets/js/components/orama-ui/index.js
   - assets/js/useThemeTransition.js
   - assets/js/common.js
+  - assets/js/algolia-search/config.js
+  - assets/js/algolia-search/index.js
   - assets/js/component.js
   - assets/js/components/mirrors-table/data.js
   - assets/js/components/mirrors-table/index.js
 extra_css:
   - https://unpkg.com/tdesign-vue-next/dist/tdesign.min.css
-  - assets/css/orama-ui.css
+  - assets/css/search-askai.min.css
   - stylesheets/extra.css
 
 theme:

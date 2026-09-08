@@ -49,7 +49,7 @@ hide:
             ``` bash
             bash <(curl -sSL https://edgeone.linuxmirrors.cn/docker.sh) --zh-hant
             ```
-            > 不建議在中國大陸網路環境下使用
+            > 備用官網位址，不建議在中國大陸網路環境下使用
 
         整合安裝 [`Docker Engine`](https://docs.docker.com/engine) 和 [`Docker Compose`](https://docs.docker.com/compose)，支援選擇或更換軟體源（Docker 軟體倉庫）以及映像倉庫、安裝指定版本、重裝等功能，支援 ARM 架構
 
@@ -96,7 +96,7 @@ hide:
             ``` bash
             bash <(curl -sSL https://edgeone.linuxmirrors.cn/docker.sh) --zh-hant --only-registry
             ```
-            > 不建議在中國大陸網路環境下使用
+            > 備用官網位址，不建議在中國大陸網路環境下使用
 
 <div class="grid cards" markdown>
 
@@ -127,7 +127,7 @@ hide:
 </div>
 
 <div style="display: flex; align-items: center; gap: 8px;">
-    <p>✨ 經過了數年的技術沉澱與生產環境檢驗，廣受社區好評，深得開發者喜愛，大廠都在使用</p>
+    <p>✨ 經過多年的技術累積和生產環境驗證，獲得社區廣泛認可，深受開發者喜愛，大廠都在使用</p>
     <div class="icon-brand-section">
       <div class="icon-brand-container no-select">
         <a class="icon-brand-button" target="_blank" rel="noopener noreferrer" href="https://1panel.pro" title="1Panel">
@@ -145,6 +145,12 @@ hide:
 !!! tip "Docker Compose 不再需要獨立安裝"
 
     Docker Compose 自 V2 版本起開始作為 Docker CLI（命令列）的一部分，腳本預設整合安裝該[插件](https://docs.docker.com/compose/install/linux)，請使用 `docker compose` 指令取代 `docker-compose`
+
+!!! node "腳本相容性說明"
+
+    該腳本相容性較高，不強制檢測和判定系統類型，僅支援 `Debian` 系和 `RedHat` 系的 Linux 發行版以及衍生版。由於支援列表難以統計和維護，因此可能會使部分獨立發行版操作系統的使用者感到困惑，請您查看系統官方提供的軟體包倉庫或參考 [從二進制文件安裝 Docker Engine](https://docs.docker.com/engine/install/binaries/) 與 [Docker Desktop](https://www.docker.com/products/docker-desktop)。
+
+    對於 NAS 用戶（截止至 2026 年 5 月 16 日之前），由於原先更換鏡像倉庫（鏡像加速器）源的邏輯較為簡單、直接覆蓋配置，從而導致產生了數據丟失的 “假象”，原因包括上面所說的兼容性較高問題，並且（在此之前）沒有預料到會有 NAS 設備使用本項目，因此使用本項目-巧傷了。腳本原先只有安裝模式作為預設使用場景，「僅更換鏡像加速器」模式是近期推出的功能。目前已改為透過 jq 修改配置，不會再覆蓋配置文件，為此深感抱歉！
 
 !!! node "軟體源說明"
 
@@ -343,7 +349,7 @@ $ bash <(curl -sSL https://linuxmirrors.cn/docker.sh) --zh-hant --help
     ``` { .bash .no-copy }
     bash <(curl -sSL https://linuxmirrors.cn/docker.sh) --zh-hant --branch centos
     ```
-    > 倉庫名稱是固定的，目前只有 [`centos`](https://download.docker.com/linux/centos/) [`debian`](https://download.docker.com/linux/debian/) [`fedora`](https://download.docker.com/linux/fedora/) [`raspbian`](https://download.docker.com/linux/raspbian/) [`rhel`](https://download.docker.com/linux/rhel/) [`sles`](https://download.docker.com/linux/sles/) [`static`](https://download.docker.com/linux/static/) [`ubuntu`](https://download.docker.com/linux/ubuntu/) 這幾個  
+    > 倉庫名稱是固定的，目前只有 [`alma`](https://download.docker.com/linux/alma/) [`centos`](https://download.docker.com/linux/centos/) [`debian`](https://download.docker.com/linux/debian/) [`fedora`](https://download.docker.com/linux/fedora/) [`oracle`](https://download.docker.com/linux/oracle/) [`raspbian`](https://download.docker.com/linux/raspbian/) [`rhel`](https://download.docker.com/linux/rhel/) [`rocky`](https://download.docker.com/linux/rocky/) [`sles`](https://download.docker.com/linux/sles/) [`static`](https://download.docker.com/linux/static/) [`ubuntu`](https://download.docker.com/linux/ubuntu/) 這幾個  
     > 詳情請見 [官方安裝文件](https://docs.docker.com/engine/install) 及 [Docker CE 官方倉庫](https://download.docker.com/linux)
 
     ``` { .bash .no-copy title="还可以指定倉庫版本號" }
@@ -470,6 +476,20 @@ $ bash <(curl -sSL https://linuxmirrors.cn/docker.sh) --zh-hant --help
     如果提示不支援那麼請使用系統自備的套件管理工具進行安裝。因為這些軟體包由 Linux 發行版的軟體包維護者建構和維護，可能存在配置差異或由修改後的原始碼建構。
 
     也可以使用 &nbsp; [![Docker Desktop](../assets/images/icon/custom/docker-desktop.svg){ width="140" style="vertical-align: -0.2rem" }](https://www.docker.com/products/docker-desktop)
+
+## 精簡版（Lite）
+
+額外提供一個精簡版本，是主腳本的複製，面向企業產品、開源專案使用，具有以下特性：
+
+- 單一顯示語言 `English`，無 I18n 國際化功能
+- 預設使用官方來源，去除了互動選擇內建軟體源功能
+- 去除了無關的列印內容
+- 保留核心邏輯與指令選項設計
+
+``` bash
+bash <(curl -sSL https://linuxmirrors.cn/docker-lite.sh)
+```
+> 請熟悉本項目後再使用，不建議新手使用者使用
 
 - ## 最佳實踐
 

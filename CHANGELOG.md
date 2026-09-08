@@ -1,3 +1,11 @@
+2026-06-16
+
+* 新增适配 Void Linux 操作系统 [#bdb1142](https://github.com/SuperManito/LinuxMirrors/commit/bdb11426c62aa6e7f10ad44ae76bd9f7458bed6b)
+
+2026-01-04
+
+* 新增适配 EndeavourOS 操作系统 [#30310f5](https://github.com/SuperManito/LinuxMirrors/commit/30310f5508b1943b647b54834dd60c206d9fb366)
+
 2025-11-02
 
 * Docker 脚本新增适配 Kylin Server 操作系统 [#1ddf1fb](https://github.com/SuperManito/LinuxMirrors/commit/1ddf1fb708987cf59c4ef56b0a0410caf1b8e726)
